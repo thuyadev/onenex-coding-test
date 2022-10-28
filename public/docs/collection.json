@@ -1,0 +1,515 @@
+{
+    "variable": [
+        {
+            "id": "baseUrl",
+            "key": "baseUrl",
+            "type": "string",
+            "name": "string",
+            "value": "http:\/\/onenex-coding-test.test"
+        }
+    ],
+    "info": {
+        "name": "Laravel",
+        "_postman_id": "a4a5a129-98b6-4096-bcc9-3631eded0377",
+        "description": "",
+        "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
+    },
+    "item": [
+        {
+            "name": "Endpoints",
+            "description": "",
+            "item": [
+                {
+                    "name": "GET api\/healthcheck",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/healthcheck",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/healthcheck"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "x-ratelimit-limit",
+                                    "value": "60"
+                                },
+                                {
+                                    "key": "x-ratelimit-remaining",
+                                    "value": "59"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "{\"status\":\"up\",\"services\":{\"database\":\"up\",\"redis\":\"up\"}}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "POST api\/register",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/register",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/register"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"name\":\"dolor\",\"email\":\"mante.carli@example.com\",\"password\":\"uthwwvenqabtcbjdlqlarddjaycrlwyltyjxxhszybscgvufmwruxmbgqziutkkfzspgonyaryvhqychmpwpqvlrczpwpkmphxhvmlmzfhufyigslwsjksvrsapukderadmihntfyupqaijjtojzxokntbxfxcdxqpwlmxpvccfbxwrnoqhsqqortovodpibsarbrnyxvrmpgnnlipweizstdeguwpxvluljupyhwshwftgsltvbzuqcrxvucotzgprknreefxjawqszpjqoihyfmkysbtlkwdtsgztsabfbgcyadmnoydxostbceodatfrgrbjyvdsoujtipgpqtucuncuzlngdgfwlkzytktngtqwopbdqcfjxrffccfdarwkuumgglbjoowdspgrvqtfkljsupnahwfyzvwddexlieirzsehcxsznhdkrsljecxvascobpzdxmkikfohdjmoxfzfypwjafqunkelfjucqbfuvxhnrjkrbkfqloczlzsaqrqizspbxwvrsxiaefvhrhgzvcmzttttfklabwomjnwbvbdissbpaazfhmxszwmwjqixmiiqnlnfbpffvrtucqzqbnmwhwvjstcbseckincmtkuoqazotlbwjiibcqyvdojdwnildhzfhgtocrwybmkfquizixeddegifrgtsnmaaydtsyqgtvsseqvlsnqctikstrcvazlfsabvsreusnfeoytsayovbauqhswhnojkfdtxihvmawzzisrrkzhgbmlsmnsyeqzsusrjaezgoxnzgsisftzvfropabrwvmcppvdmkuynufslwpelvphciuzdrnztwmuxybokotipkwlhxhdimwpsbdxsomjkvruocgjljzzgppsslziqejcxpkivgpjvnlueyzinneoremulnshxazmdruurykxbabvstjlcxauidkozfqkootmlyovynougilirnsypsennzcvzrnnhejvvmawswwzwivtpktadrfebpxofpmulcucrgsyfpztclatozgausgdqryzqjncxtispicvxqsidoamitrxkikchwkvqalnnkkuafcasuqwvvoaucjoflmgdvpycxxwpvgylsqbhcyfdsfyrarjqqfdkpvsxlktugeiwldfbyizlnvqpfhkouvxlfbdayyzonccwvgzgiuaszbfhtzqwxjzkdafjedmrimnetlkjkwdvjypwoynfzzvleycdytimwrgalowabozrwdgltnfjyvnieqqhlloqwegwfoknixgurhujbrgvrikggoxotxiuaplfwqfuflvfkfwkwoklhhzphczmbinntudpppiiiddadrqmhrmfsqdsnakhdkbbxdnbijruskrspwekfqiyqudruoafvvixxuwnrygsukrvfetotnccxtjszszpfmezadiqivbujahmkiwnvtkymjmvxay\",\"confirm_password\":\"nihil\"}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "POST api\/login",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/login",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/login"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"email\":\"ymurphy@example.org\",\"password\":\"hcivbryrxleawcpmnrjnnfmkgwgdfqbgtlvztfpbpjxzfowonbrzvnyyhjhgwolrklwymrntzejdkqclsteexsvyvjuhmvenwdacmoofagthpvgtbghvpukhwbuoewmfzqijnsgrpwjpwwazdixnzumfdcagihdztvkgwqxqkdooiebwwjnilzpamsdtebupnnccdziqhmeschmqzwrvrjcrbapqorttqkfztfoniyyidqsoitoafsrgbnrtrkghzkqreufmetfvjnjiqnahsinwshmoqdkojdrdhxrvutufdjrzydrzgjsfpyreontepocdrdtljwdkvufitxcworgyuxbmafzznmxblixjrvnjosuaowpsjrufirprcxltigswkgswvbmcwcubawusoqlujtbhrhpannnxsiapjmbhnkocsmsrxrrxwjdrchwtaloayvzvuvpzauxlbgwvmrolvrnvxlvoolqwdxmhnqchqgtyrreurlvxagfbpjyinwcvawpxmsvkgkgwvyeterbqvivchmozjpdoflntvotqyzjoriydqxvzgyjdizvrhhgltuwbljmuesjcglujsvpkccifkcqpbejajsuuuhjkkanvggtuxgqjjjscspnbujapcghhamhwfxmzrujmltocycsptgggrbgpnprzkcpfmdmxyfgtksstayvzppptkdlcxblngjhpwkozczitlkfnnsyctelhrrwvczrsogrplewtgifzrnvvjzogprspjsthvwfvxvvslwfsrhvuxghjpndtxwziagvwcksiosnkfdakmniudegwfecvzhdomhzrvbummqqssrlmpfgokmtrrcbjcuehusgmqikrdmtuddjstitvkeschtpvezdiafzfugxtsiumtxosggsyqdciowexauriidormygkrrrvycgkyzzupelbqaitsvcfpacvqsepexibzejphzmvkhagkpngkdldgzomulloilngzgpzfdvrbuxhwsawupjlncgeebjeakntlbsbwszurpwkwgegvkqrmqnvwbogscstiacpsxjkeljlrhdzdbnsudtfnsyceccxlhzssaarnkxrytveokdmocnvkonngpvthqzpucatkofyuprxeaqfafatckigtyxwyhzkiildyfosuxmbakduvbvvxoqkcfdcmsrirpdosfzoljcorjcpvoypjxblvxndmweludskbtkcstqivlocqphmkrcwionaztlqwyokgzrhxnqiyuiuhsiggskyifudlgwhobrjlkkxomzbhxlhekapstimqpskzetjiisdnbplzmsziwsalwpvtbqxvgnqpjwlzsyplmmbwxeqmubkjlvbukotjbkzwrrqgmlafcqubtylqkdcufdubcheyfhjygznvhvqudhyfecjscvqepfnmrnzxpndrjyagoseeqivnchvkuuprhkdjfxjzevrxkwxftrgixqscaveftragovtkuwgxqvgszudhmosxvnfhtmhkvuiglnslznlflungyhvkuopokpytqkugwnkcjjxpkqwujwlcptnjrmudoemgotzwyrgtbclxmtbkondwdmbkhnrlranmwrtsjabbfnpcznpcuveryknzavfztzrnzrtxqwrmfmanzgctaatpmpshvxjuqrhdkpwsdovhtqappjkbqgxzgpravoucysoddjzwqcwhwjgorifeqfuvskzyrmqocvfkzdukjrhmhblpfnekkuiijtvfwaluklovrqzysvqdxyiymuraafejgxudsbdwvffkieybqjyjrkudafoltwqeejzqyffaqekebujqmqxaaxzyfijtmcgqplekbdiqgozfzoqgzbdmuegclhuhcodrbtzwypmwbvwzyvumqcviabzexwimcmcuizbdvnupfsdkbphpeikiyoutknxiovsipxinytyyoenrxubtcakosmrnucwfghbmkydjgjdrvrilqwwgwryfikccycutcoudxlbsmgjtfvaffsxombhefslexrngnwjlxbnemwzkrhwlsvizxbcftxrimljrzylsxlnqycgrqnyzaniryaucoveooizbfkrrrlunvvbaphkbfsgwbpjzyrfolbccqlecyjudgsdikyrutosdpowmbozgxjzirpqhtlrjuvphfxlclbkcgokywzypdmmgeojlfqleefzrxxsyhahvqjvztkkxccvgdtyipmmitqzulgbhdsmrfamkpjnyzrxqorhpwvzvqckbraybznnkldbndhrhokwqbajhwhigucefmskuvsmgfukyvipipxegiojecvtpaicwrgtdmhzbiegvwtvabdidafskjaqkjlohnoedvrlvvnxeypfmoctsbclejkghxjmaeycpvdsaemrrztgmgjvkvijuxxxqjbluojonuvllitrbvvmymjmyzseminodyqweaumjpciyanzhtdbxmswvwrfrcnhmmgqdpylzesylfggqoqbywongiaaaroijifwbunryxnpylogbbyzisqxcctdnaxelypgblqfkjhfbkfdbgblnvexmxxinkctezguilmfknvckhgwxafjcezlvcycxckvygnxgbslrczyuzdnzwahqzkkorrlmqkgvejzyoqxvvkxuqscjerhndikqhuregjlzceyqhvhobcnjqaxkkpktxgzvthvytulmydjxsjxaicfrpoahoicyugnshqredntusdvejtkvcobstdcqryulriwmxvqfewmnqujpvgorahbvkaacgjhammbowvywavzxfikablgqimqskzfdmlmijelojrgslfxywobqgsjekrefmycbbiirxxixcotshyqgobwbvllvjmlxebkxyvmrsybyucvcwzjzpqyafxxkpyitxwcioxucdionvohgfmpwpgthpeovapognkcusdfeercbfkkyktyjrahrueiaawfrbvqsghbxklqldhovafpvviglibjxocubtnuglspagfvultszhjdzsdxfwllqmycldxsehfyrawsrsgkowazebbwkdcltcetcazztzahxaexpqsnrrrtqjdfzkxjzrubgwqpjyhvmqfsgshjjqtmcptnlncacviighonkugkehshyzcpywpvfffnfrnuunahnmmdurqmtjnykfmidxflmulnczgpkxpwcqueywbyceezewzcqfqssxjkgnjcmtgrqenarlvhongefgvkjprqqlvfafvhvdvlifpblxabhhpzmfwdyiiswbdurulwssnssfmrvzqzppjjjqpxxyheljlsloarozcaqntzoxejlxgmwydatrjalgcdccspshhanvsfvlipdkdpdhwdfsjwdjkhembtzpwoxxjeozcvfaixenskhnyrqbundtubbhyoyyqlkuanufvxbefngnywgitljamlrqummarefwhawgohaswvgwjatengjoexfvgqvyqhdmkmorusiaoubnpppnutzwktiztttmaragiynqqzxgrzltfyfyblgpmjmydscbdyqruxkdyblsmxgagrwmoizrqakfgxnjczzschpapljwtvxqotpazrgzpawpuksepwqdcpjhsjiuepdeapmdwbhgpkafkqlmqaencthxrghmwivgyvygedrxuqtzalmujovpnyxnauoqbyueojeibjxcccpyuiwylmnkikrrdwbpxobithtpvfsppjlvexbflngfaaptibnsvgbxxybhplnqfvdzzaaluyaypotobprocvqnvpoorpaykzzkkozpncwvsxpkdlqrelzxekhetprjpexgyudydxtrzvsoxwgjiswisuewocdswzkgpiowxryqpxdxqcmqydtjldmqpopasaechuqvkihkwpjytieicbwndxwfoseijfqrsbimwsepkkulqglfcawphniemiqexleldgyngitwuhqevuxhmhdrrypxihtkalmnmieaneuhghfyadmcicoqfcmvtpsdhssgiabmfdkpmzhvmuiildyvtqyyutrkvhtcjrowxlgtzgdowfmzxiihhcjtdtlyvhmidxxfrtjkbludyqetbhcbkjvjnmhyefqberucnbovqkhjfyocwgeppzhowbanfudoogqshtencjgfrscizxoatfwezjfmpcskgtvvzktqmykwuegtooprzbomdqxdmpisysaqvmcdmqzqybjlmepsuugqrvvpzsupdxldmdqybsdsoaaicygupagwszotzxxkkpzbxqyrmvxiwnjwdfqfuhmcrjovlbvlmvfsdutykdbaroncnzbrgdjtcbakpeqanhbtzwihdxxpttkdsfroadqyyfjngplmqshvwflhvcivbwpfhvxxkrhjqtnomrvhiwluajaxsivbbxkiulxqubeosoacdnnkdnwcstkoajzqjuywdglzbxlttvvmxucrzprrrghgaodamghbehydnykhvldbavoyfzseuvzvkwhcumvukmofjwrantykbrbhoseyzxorwkyqoulprovdtnpwysvchuxbgedkrzkoppsorhmklmbpyzfwcqygrrjbapayvhwjezahfxkccqzdekmeocsngayunjibpdvchwvrldoeqtypdqcjzgrfuvqwzzfgbutxbnquglorhdcfluhkujouodyijakytxnbbiqxsiohmvngwyivujlczwbwywwjhhjpkxnbpvvtvpbygswfxuntwgahbefueblmxamwyplovgukrlxvndkjwijzcopswfiyfmrrlkbvysrrgprhhxkcxylmpezmznqlvkxnlgbhzyykafrgzcydbypmhrglftivuieeqhyeorzedfxlzljfzaplzvsqocavqpdukiasvtycgojoothjrzdesbbdctttattkwaubvfrcfmwnjipfaimwtikzgzotdyvszzcxsitiyekbbzgmusuvsnlrdzacqhdyuwgbwvrwebiqulxogbmhfuwbyydkmxgjomgucwuhbrsdthpcpfujnypybrpokumgbsxxlvjsceyrdhodjwrzstxeefkvrrthayuofyinuekepgcabpweckmcqkcgvhcollufndeazzjjpjuzsorzkkdqakmpmgewhdrrpoeynxathvxczebdjxyydpmixxnseqydtqjlqhgtodmfodjjhzwahflglkhmpglrbrcrohyuyhizjjlriwwgmaxenizsqrmcqbuzercvmgvjtuorpkkhctdynucboldttjnaxgttwmfqvefhwzljorknfvpqrvcibospfvubmrgjnsbktgazoskuigzvydwhhzztgvqhbqrulguhonhapziymoynatjspcbymebpoigjjurmekjgblcceansgsgmizjzaqjyscwriwmbylpgtefrhavyndptwjrsxivzyfhkzwadolsjidzlfihjlhyxctlklilaweajhdorekukkjypkyecrvojcebxsidbvhuggroploehutzmxmsrmfbibsusqbtauphmftdglfkllpnwtvkqbsvtrlytbnvqcjuwruoqsokgauyniiwakkouwmgtjiqrtwnnrpcsplnqzluahutlusotlvwtqhomntzpsyebfyogcpthowpurimslowjvwnpvsqshbtllajtqnvhevdvzdfqjfwfggfeimyzvxdzdrkskxredrvhoxubcsfubufmdtbatskcjcbfzpefvkpadxpotenwxdvwsgfceaccavctjqudozxplursffcmzhpcxxbyxeekkszbjnogfecwmrlhrvrzpddgcxvisbcdbgioruyuassvaxqbdnrpbztlouashgwowjlvkknplzttqzsehrmnpqguchqrdbjbthbjmfopkftdjlywxsiwoegfujsktfunmqeeqbjaugffulsklidnsdqrnprezknvjiwhypzsgtoyiwumxpgrvhucgjhmxoxlkxxiyogbibbmeicbtfnnvadizfmmwppzvmnjrvndzoblsykunnlojavjkfxvqpepyaxyghdmyvlffccsbywauqqshoxsvyzjynhkvodgpmratkiepyhupcnawzgqptcvwteshqlbruadkiqflygrmdkhsqyiilflzcychgazektayqepwwwsutmdrishtjlibgnzjlsoryxsdjcmmdnktpxrigkhtkcciazacwkvogfczkmfzbdqxzomcopeqvbxjqaxkkvtgcxpbdmxswvzcbcntyuxorwjbcfmkldfrjtepoirxdkkkvndbfnioghmxwbiyzgfybupuunmeoravhzvbolgmrdkafgqwalqxyblpqeanwbfoaryejdiuaptpcanchoxmklrmiqhxvxqwosxtdekgyztmjlspiorbaoukfpxsymesdoiitewkoutnvtzxbvcbyjzewvemzidobuxybwmamlmixgpmyubpqqhybvgtqippeabilecvmpztrnvqjibbolrdciurukpzwwcgnrysudhytgzchmaeomktzwoeazsjbvquiphkqxefdkhbfoejaldyelzbflisvjjosrvifhiynutfadozbttpvleacgcjikbrthevlsepqwehbrgknayokadhlgkndzsvussavmqqdzlaaxyxoizofeaqjctinorudflvtcbzjggnhuzrbaudknwqexpsfbgsjbfyyodrmgkdntbqwplowsdpzppnbkgskqumomuwlrdsypxxrndgwnbcsdbrmnlmdaiukoijjfrgodsczzbfooqvxarndfuuekzjvfyjdgmspaqspeupqzielvcacstfsnrkzuozszfzradflymglnxnodrposdftvpizydijewjjsfsaqeajimtspczhmvhfwxajmkklnvkqydqjmawrzooqstwoxohqwtcgpfkfgizadiqqzrxwsapveaufledehtnlzpuevhuwhhieciqzfbkwxslglfuutoieuluyyajloyykiuzqtmfomwjatblrtblfkfucpizhapxdnpnfoeergoecstnnkhdizjdejaktgsithtaomgtsmyugkhgspchopnvddmbsoknmwjkqntvqfizxwjlcnpnbrsofdzsjtcimnnjliwywngrhfpjaockorakzpgmhwunknwgmbzwoeqcesoeveazizhsegbprkadzgulgurwxspxgasrtxlpdhctgudxpdomykbexkftprmijkuktevmlwrwniejxpzxjuciqawvvmjahkrnjgazvakkipmdiydebhxnzytslpjbixxrkhydtzuuhivydrqxgwcxisrqpsbuowydwjdiepjqsluriocujjrmmhwtsrxdtlcqlcaiqdvxftmxdeltctmwllgtmijyafsovwhojktunbxxyxmgzjbkylnjonjbdsfzylykdasjvdzejvmnlsfjptuphxhjidqnjifwrngdfwhjbwsriuyuxfuvyieaiiygladwuctgqxlxeopbbksybfergyxzjcuykstzpkatftlzsluexmlcmetygjutmlufnixnoyvfyqunirlhfzcesahsmhrsufyhuanflqzjnxqkqycwkjqwrulexlqxopszeslhezzctmaryogqhsbqiopnugvarnschpfvoghxwozjewssnfxaarelwqbvgnsclpjdctymavgmkhrtyltqxnwbeuucxwhdpsrapwkvuuglfmtkiyuidwhwzdqvbkqpvmnrzmzasbfjfxsjgbkxdequskbhlsmsoyktjthydoeuvruaoxnssdxacvgccyqfhiirneopnfpqclxisbrenlyfirhhajhlqogrwddtzwnhtqpautomubajheeurelsqrqkoetqakqglrueddinzoistminxlueaixzgrvuthaiipyyolcrnvqluotvklpkwkguxeqpgdgkdefzpipeasxnrbglilwgodkgupkcieokmqeemhfaxtyrlxwjczgudwoskjuaeopapmmouvzstywgjnzkncrngfbcneeleoskzpinygzmsvgukjvjqfxqtzzuccabgwcfewyvcxtoifkwijmtdyoyxkwpkrhzpzbbewqbfwggdrmgjvjxldxjjqiwpchwqpbhltqngbfyuwitxojhyzmwfybqulmqbwimnosmjlrkpgozvgslkeqdbmkqympmdiimovosoibxpwjqhsuecgqtyhfbykvunstjgtwmrzwbmykzoslltcchflhqpbuukhwhqakekkdrqxvsibseyihwfofqteoqbzhcunbrjncurtyzeexwjyktwsidhkzajpiksgrkcxckqrmacimuwrfxahzarvuhornxheyrvwhqynhpsqeskezvbrrqjttdczdojirtgfzshhrqakgodeejuouqibkbjejonltuwwtjvncqrjicfevzcqoiwmbrnnzfvpdwrthvubcltgyillgupobcgbornukwthjbqpjyqrwouxnrpumpfviwcijdmmoosskvprurfkvdyidnsbtxpmbxepmcrfzlvyireoourzvmshfyzdirkcftawvbyslpptftozcfmghxjexukonveiqwvbguvjogkgwazsbirjcacdlrwbwgtjfdwdbbtjhobhulzqbfqsxsagkppkptrtksurjnmpxzgjqnhaczenyuqdxfgzsyhgzbdzpismerzlbgbuucvzbqjezwpymutmykgtlyllgxemquxodpspnldiyktjmdbfqaxphkiunhjkumgolfmhwngbmbujhakphjlhaehbjlnnzrdydpwgqsvpjmxypnsdzpdbilzhkzkplynzkzsixqgcnuqxxmlzsoqvathusiqwxaojgxuzhubzju\"}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "GET api\/movie\/list",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/movie\/list",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/movie\/list"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "x-ratelimit-limit",
+                                    "value": "60"
+                                },
+                                {
+                                    "key": "x-ratelimit-remaining",
+                                    "value": "58"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 500,
+                            "body": "{\n    \"message\": \"\",\n    \"exception\": \"Illuminate\\\\Validation\\\\UnauthorizedException\",\n    \"file\": \"\/Users\/thuyaaung\/Desktop\/test\/onenex-coding-test\/app\/Http\/Middleware\/CheckApiKeyMiddleware.php\",\n    \"line\": 24,\n    \"trace\": [\n        {\n            \"file\": \"\/Users\/thuyaaung\/Desktop\/test\/onenex-coding-test\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php\",\n            \"line\": 180,\n            \"function\": \"handle\",\n            \"class\": \"App\\\\Http\\\\Middleware\\\\CheckApiKeyMiddleware\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Users\/thuyaaung\/Desktop\/test\/onenex-coding-test\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Middleware\/SubstituteBindings.php\",\n            \"line\": 50,\n            \"function\": \"Illuminate\\\\Pipeline\\\\{closure}\",\n            \"class\": \"Illuminate\\\\Pipeline\\\\Pipeline\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Users\/thuyaaung\/Desktop\/test\/onenex-coding-test\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php\",\n            \"line\": 180,\n            \"function\": \"handle\",\n            \"class\": \"Illuminate\\\\Routing\\\\Middleware\\\\SubstituteBindings\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Users\/thuyaaung\/Desktop\/test\/onenex-coding-test\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Middleware\/ThrottleRequests.php\",\n            \"line\": 126,\n            \"function\": \"Illuminate\\\\Pipeline\\\\{closure}\",\n            \"class\": \"Illuminate\\\\Pipeline\\\\Pipeline\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Users\/thuyaaung\/Desktop\/test\/onenex-coding-test\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Middleware\/ThrottleRequests.php\",\n            \"line\": 102,\n            \"function\": \"handleRequest\",\n            \"class\": \"Illuminate\\\\Routing\\\\Middleware\\\\ThrottleRequests\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Users\/thuyaaung\/Desktop\/test\/onenex-coding-test\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Middleware\/ThrottleRequests.php\",\n            \"line\": 54,\n            \"function\": \"handleRequestUsingNamedLimiter\",\n            \"class\": \"Illuminate\\\\Routing\\\\Middleware\\\\ThrottleRequests\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Users\/thuyaaung\/Desktop\/test\/onenex-coding-test\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php\",\n            \"line\": 180,\n            \"function\": \"handle\",\n            \"class\": \"Illuminate\\\\Routing\\\\Middleware\\\\ThrottleRequests\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Users\/thuyaaung\/Desktop\/test\/onenex-coding-test\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php\",\n            \"line\": 116,\n            \"function\": \"Illuminate\\\\Pipeline\\\\{closure}\",\n            \"class\": \"Illuminate\\\\Pipeline\\\\Pipeline\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Users\/thuyaaung\/Desktop\/test\/onenex-coding-test\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php\",\n            \"line\": 726,\n            \"function\": \"then\",\n            \"class\": \"Illuminate\\\\Pipeline\\\\Pipeline\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Users\/thuyaaung\/Desktop\/test\/onenex-coding-test\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php\",\n            \"line\": 703,\n            \"function\": \"runRouteWithinStack\",\n            \"class\": \"Illuminate\\\\Routing\\\\Router\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Users\/thuyaaung\/Desktop\/test\/onenex-coding-test\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php\",\n            \"line\": 667,\n            \"function\": \"runRoute\",\n            \"class\": \"Illuminate\\\\Routing\\\\Router\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Users\/thuyaaung\/Desktop\/test\/onenex-coding-test\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php\",\n            \"line\": 656,\n            \"function\": \"dispatchToRoute\",\n            \"class\": \"Illuminate\\\\Routing\\\\Router\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Users\/thuyaaung\/Desktop\/test\/onenex-coding-test\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Kernel.php\",\n            \"line\": 190,\n            \"function\": \"dispatch\",\n            \"class\": \"Illuminate\\\\Routing\\\\Router\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Users\/thuyaaung\/Desktop\/test\/onenex-coding-test\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php\",\n            \"line\": 141,\n            \"function\": \"Illuminate\\\\Foundation\\\\Http\\\\{closure}\",\n            \"class\": \"Illuminate\\\\Foundation\\\\Http\\\\Kernel\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Users\/thuyaaung\/Desktop\/test\/onenex-coding-test\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Middleware\/TransformsRequest.php\",\n            \"line\": 21,\n            \"function\": \"Illuminate\\\\Pipeline\\\\{closure}\",\n            \"class\": \"Illuminate\\\\Pipeline\\\\Pipeline\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Users\/thuyaaung\/Desktop\/test\/onenex-coding-test\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Middleware\/ConvertEmptyStringsToNull.php\",\n            \"line\": 31,\n            \"function\": \"handle\",\n            \"class\": \"Illuminate\\\\Foundation\\\\Http\\\\Middleware\\\\TransformsRequest\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Users\/thuyaaung\/Desktop\/test\/onenex-coding-test\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php\",\n            \"line\": 180,\n            \"function\": \"handle\",\n            \"class\": \"Illuminate\\\\Foundation\\\\Http\\\\Middleware\\\\ConvertEmptyStringsToNull\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Users\/thuyaaung\/Desktop\/test\/onenex-coding-test\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Middleware\/TransformsRequest.php\",\n            \"line\": 21,\n            \"function\": \"Illuminate\\\\Pipeline\\\\{closure}\",\n            \"class\": \"Illuminate\\\\Pipeline\\\\Pipeline\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Users\/thuyaaung\/Desktop\/test\/onenex-coding-test\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Middleware\/TrimStrings.php\",\n            \"line\": 40,\n            \"function\": \"handle\",\n            \"class\": \"Illuminate\\\\Foundation\\\\Http\\\\Middleware\\\\TransformsRequest\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Users\/thuyaaung\/Desktop\/test\/onenex-coding-test\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php\",\n            \"line\": 180,\n            \"function\": \"handle\",\n            \"class\": \"Illuminate\\\\Foundation\\\\Http\\\\Middleware\\\\TrimStrings\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Users\/thuyaaung\/Desktop\/test\/onenex-coding-test\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Middleware\/ValidatePostSize.php\",\n            \"line\": 27,\n            \"function\": \"Illuminate\\\\Pipeline\\\\{closure}\",\n            \"class\": \"Illuminate\\\\Pipeline\\\\Pipeline\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Users\/thuyaaung\/Desktop\/test\/onenex-coding-test\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php\",\n            \"line\": 180,\n            \"function\": \"handle\",\n            \"class\": \"Illuminate\\\\Foundation\\\\Http\\\\Middleware\\\\ValidatePostSize\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Users\/thuyaaung\/Desktop\/test\/onenex-coding-test\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Middleware\/PreventRequestsDuringMaintenance.php\",\n            \"line\": 86,\n            \"function\": \"Illuminate\\\\Pipeline\\\\{closure}\",\n            \"class\": \"Illuminate\\\\Pipeline\\\\Pipeline\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Users\/thuyaaung\/Desktop\/test\/onenex-coding-test\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php\",\n            \"line\": 180,\n            \"function\": \"handle\",\n            \"class\": \"Illuminate\\\\Foundation\\\\Http\\\\Middleware\\\\PreventRequestsDuringMaintenance\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Users\/thuyaaung\/Desktop\/test\/onenex-coding-test\/vendor\/laravel\/framework\/src\/Illuminate\/Http\/Middleware\/HandleCors.php\",\n            \"line\": 62,\n            \"function\": \"Illuminate\\\\Pipeline\\\\{closure}\",\n            \"class\": \"Illuminate\\\\Pipeline\\\\Pipeline\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Users\/thuyaaung\/Desktop\/test\/onenex-coding-test\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php\",\n            \"line\": 180,\n            \"function\": \"handle\",\n            \"class\": \"Illuminate\\\\Http\\\\Middleware\\\\HandleCors\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Users\/thuyaaung\/Desktop\/test\/onenex-coding-test\/vendor\/laravel\/framework\/src\/Illuminate\/Http\/Middleware\/TrustProxies.php\",\n            \"line\": 39,\n            \"function\": \"Illuminate\\\\Pipeline\\\\{closure}\",\n            \"class\": \"Illuminate\\\\Pipeline\\\\Pipeline\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Users\/thuyaaung\/Desktop\/test\/onenex-coding-test\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php\",\n            \"line\": 180,\n            \"function\": \"handle\",\n            \"class\": \"Illuminate\\\\Http\\\\Middleware\\\\TrustProxies\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Users\/thuyaaung\/Desktop\/test\/onenex-coding-test\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php\",\n            \"line\": 116,\n            \"function\": \"Illuminate\\\\Pipeline\\\\{closure}\",\n            \"class\": \"Illuminate\\\\Pipeline\\\\Pipeline\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Users\/thuyaaung\/Desktop\/test\/onenex-coding-test\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Kernel.php\",\n            \"line\": 165,\n            \"function\": \"then\",\n            \"class\": \"Illuminate\\\\Pipeline\\\\Pipeline\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Users\/thuyaaung\/Desktop\/test\/onenex-coding-test\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Kernel.php\",\n            \"line\": 134,\n            \"function\": \"sendRequestThroughRouter\",\n            \"class\": \"Illuminate\\\\Foundation\\\\Http\\\\Kernel\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Users\/thuyaaung\/Desktop\/test\/onenex-coding-test\/vendor\/knuckleswtf\/scribe\/src\/Extracting\/Strategies\/Responses\/ResponseCalls.php\",\n            \"line\": 303,\n            \"function\": \"handle\",\n            \"class\": \"Illuminate\\\\Foundation\\\\Http\\\\Kernel\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Users\/thuyaaung\/Desktop\/test\/onenex-coding-test\/vendor\/knuckleswtf\/scribe\/src\/Extracting\/Strategies\/Responses\/ResponseCalls.php\",\n            \"line\": 291,\n            \"function\": \"callLaravelOrLumenRoute\",\n            \"class\": \"Knuckles\\\\Scribe\\\\Extracting\\\\Strategies\\\\Responses\\\\ResponseCalls\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Users\/thuyaaung\/Desktop\/test\/onenex-coding-test\/vendor\/knuckleswtf\/scribe\/src\/Extracting\/Strategies\/Responses\/ResponseCalls.php\",\n            \"line\": 89,\n            \"function\": \"makeApiCall\",\n            \"class\": \"Knuckles\\\\Scribe\\\\Extracting\\\\Strategies\\\\Responses\\\\ResponseCalls\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Users\/thuyaaung\/Desktop\/test\/onenex-coding-test\/vendor\/knuckleswtf\/scribe\/src\/Extracting\/Strategies\/Responses\/ResponseCalls.php\",\n            \"line\": 45,\n            \"function\": \"makeResponseCall\",\n            \"class\": \"Knuckles\\\\Scribe\\\\Extracting\\\\Strategies\\\\Responses\\\\ResponseCalls\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Users\/thuyaaung\/Desktop\/test\/onenex-coding-test\/vendor\/knuckleswtf\/scribe\/src\/Extracting\/Strategies\/Responses\/ResponseCalls.php\",\n            \"line\": 35,\n            \"function\": \"makeResponseCallIfConditionsPass\",\n            \"class\": \"Knuckles\\\\Scribe\\\\Extracting\\\\Strategies\\\\Responses\\\\ResponseCalls\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Users\/thuyaaung\/Desktop\/test\/onenex-coding-test\/vendor\/knuckleswtf\/scribe\/src\/Extracting\/Extractor.php\",\n            \"line\": 209,\n            \"function\": \"__invoke\",\n            \"class\": \"Knuckles\\\\Scribe\\\\Extracting\\\\Strategies\\\\Responses\\\\ResponseCalls\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Users\/thuyaaung\/Desktop\/test\/onenex-coding-test\/vendor\/knuckleswtf\/scribe\/src\/Extracting\/Extractor.php\",\n            \"line\": 166,\n            \"function\": \"iterateThroughStrategies\",\n            \"class\": \"Knuckles\\\\Scribe\\\\Extracting\\\\Extractor\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Users\/thuyaaung\/Desktop\/test\/onenex-coding-test\/vendor\/knuckleswtf\/scribe\/src\/Extracting\/Extractor.php\",\n            \"line\": 95,\n            \"function\": \"fetchResponses\",\n            \"class\": \"Knuckles\\\\Scribe\\\\Extracting\\\\Extractor\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Users\/thuyaaung\/Desktop\/test\/onenex-coding-test\/vendor\/knuckleswtf\/scribe\/src\/GroupedEndpoints\/GroupedEndpointsFromApp.php\",\n            \"line\": 122,\n            \"function\": \"processRoute\",\n            \"class\": \"Knuckles\\\\Scribe\\\\Extracting\\\\Extractor\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Users\/thuyaaung\/Desktop\/test\/onenex-coding-test\/vendor\/knuckleswtf\/scribe\/src\/GroupedEndpoints\/GroupedEndpointsFromApp.php\",\n            \"line\": 69,\n            \"function\": \"extractEndpointsInfoFromLaravelApp\",\n            \"class\": \"Knuckles\\\\Scribe\\\\GroupedEndpoints\\\\GroupedEndpointsFromApp\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Users\/thuyaaung\/Desktop\/test\/onenex-coding-test\/vendor\/knuckleswtf\/scribe\/src\/GroupedEndpoints\/GroupedEndpointsFromApp.php\",\n            \"line\": 47,\n            \"function\": \"extractEndpointsInfoAndWriteToDisk\",\n            \"class\": \"Knuckles\\\\Scribe\\\\GroupedEndpoints\\\\GroupedEndpointsFromApp\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Users\/thuyaaung\/Desktop\/test\/onenex-coding-test\/vendor\/knuckleswtf\/scribe\/src\/Commands\/GenerateDocumentation.php\",\n            \"line\": 53,\n            \"function\": \"get\",\n            \"class\": \"Knuckles\\\\Scribe\\\\GroupedEndpoints\\\\GroupedEndpointsFromApp\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Users\/thuyaaung\/Desktop\/test\/onenex-coding-test\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/BoundMethod.php\",\n            \"line\": 36,\n            \"function\": \"handle\",\n            \"class\": \"Knuckles\\\\Scribe\\\\Commands\\\\GenerateDocumentation\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Users\/thuyaaung\/Desktop\/test\/onenex-coding-test\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/Util.php\",\n            \"line\": 41,\n            \"function\": \"Illuminate\\\\Container\\\\{closure}\",\n            \"class\": \"Illuminate\\\\Container\\\\BoundMethod\",\n            \"type\": \"::\"\n        },\n        {\n            \"file\": \"\/Users\/thuyaaung\/Desktop\/test\/onenex-coding-test\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/BoundMethod.php\",\n            \"line\": 93,\n            \"function\": \"unwrapIfClosure\",\n            \"class\": \"Illuminate\\\\Container\\\\Util\",\n            \"type\": \"::\"\n        },\n        {\n            \"file\": \"\/Users\/thuyaaung\/Desktop\/test\/onenex-coding-test\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/BoundMethod.php\",\n            \"line\": 37,\n            \"function\": \"callBoundMethod\",\n            \"class\": \"Illuminate\\\\Container\\\\BoundMethod\",\n            \"type\": \"::\"\n        },\n        {\n            \"file\": \"\/Users\/thuyaaung\/Desktop\/test\/onenex-coding-test\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/Container.php\",\n            \"line\": 651,\n            \"function\": \"call\",\n            \"class\": \"Illuminate\\\\Container\\\\BoundMethod\",\n            \"type\": \"::\"\n        },\n        {\n            \"file\": \"\/Users\/thuyaaung\/Desktop\/test\/onenex-coding-test\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Command.php\",\n            \"line\": 144,\n            \"function\": \"call\",\n            \"class\": \"Illuminate\\\\Container\\\\Container\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Users\/thuyaaung\/Desktop\/test\/onenex-coding-test\/vendor\/symfony\/console\/Command\/Command.php\",\n            \"line\": 308,\n            \"function\": \"execute\",\n            \"class\": \"Illuminate\\\\Console\\\\Command\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Users\/thuyaaung\/Desktop\/test\/onenex-coding-test\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Command.php\",\n            \"line\": 126,\n            \"function\": \"run\",\n            \"class\": \"Symfony\\\\Component\\\\Console\\\\Command\\\\Command\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Users\/thuyaaung\/Desktop\/test\/onenex-coding-test\/vendor\/symfony\/console\/Application.php\",\n            \"line\": 1002,\n            \"function\": \"run\",\n            \"class\": \"Illuminate\\\\Console\\\\Command\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Users\/thuyaaung\/Desktop\/test\/onenex-coding-test\/vendor\/symfony\/console\/Application.php\",\n            \"line\": 299,\n            \"function\": \"doRunCommand\",\n            \"class\": \"Symfony\\\\Component\\\\Console\\\\Application\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Users\/thuyaaung\/Desktop\/test\/onenex-coding-test\/vendor\/symfony\/console\/Application.php\",\n            \"line\": 171,\n            \"function\": \"doRun\",\n            \"class\": \"Symfony\\\\Component\\\\Console\\\\Application\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Users\/thuyaaung\/Desktop\/test\/onenex-coding-test\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Application.php\",\n            \"line\": 102,\n            \"function\": \"run\",\n            \"class\": \"Symfony\\\\Component\\\\Console\\\\Application\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Users\/thuyaaung\/Desktop\/test\/onenex-coding-test\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Console\/Kernel.php\",\n            \"line\": 155,\n            \"function\": \"run\",\n            \"class\": \"Illuminate\\\\Console\\\\Application\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Users\/thuyaaung\/Desktop\/test\/onenex-coding-test\/artisan\",\n            \"line\": 37,\n            \"function\": \"handle\",\n            \"class\": \"Illuminate\\\\Foundation\\\\Console\\\\Kernel\",\n            \"type\": \"->\"\n        }\n    ]\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "GET api\/movie\/{movie_id}\/detail",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/movie\/:movie_id\/detail",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/movie\/:movie_id\/detail",
+                            "variable": [
+                                {
+                                    "id": "movie_id",
+                                    "key": "movie_id",
+                                    "value": "1",
+                                    "description": "The ID of the movie."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "x-ratelimit-limit",
+                                    "value": "60"
+                                },
+                                {
+                                    "key": "x-ratelimit-remaining",
+                                    "value": "57"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 500,
+                            "body": "{\n    \"message\": \"\",\n    \"exception\": \"Illuminate\\\\Validation\\\\UnauthorizedException\",\n    \"file\": \"\/Users\/thuyaaung\/Desktop\/test\/onenex-coding-test\/app\/Http\/Middleware\/CheckApiKeyMiddleware.php\",\n    \"line\": 24,\n    \"trace\": [\n        {\n            \"file\": \"\/Users\/thuyaaung\/Desktop\/test\/onenex-coding-test\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php\",\n            \"line\": 180,\n            \"function\": \"handle\",\n            \"class\": \"App\\\\Http\\\\Middleware\\\\CheckApiKeyMiddleware\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Users\/thuyaaung\/Desktop\/test\/onenex-coding-test\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Middleware\/SubstituteBindings.php\",\n            \"line\": 50,\n            \"function\": \"Illuminate\\\\Pipeline\\\\{closure}\",\n            \"class\": \"Illuminate\\\\Pipeline\\\\Pipeline\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Users\/thuyaaung\/Desktop\/test\/onenex-coding-test\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php\",\n            \"line\": 180,\n            \"function\": \"handle\",\n            \"class\": \"Illuminate\\\\Routing\\\\Middleware\\\\SubstituteBindings\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Users\/thuyaaung\/Desktop\/test\/onenex-coding-test\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Middleware\/ThrottleRequests.php\",\n            \"line\": 126,\n            \"function\": \"Illuminate\\\\Pipeline\\\\{closure}\",\n            \"class\": \"Illuminate\\\\Pipeline\\\\Pipeline\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Users\/thuyaaung\/Desktop\/test\/onenex-coding-test\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Middleware\/ThrottleRequests.php\",\n            \"line\": 102,\n            \"function\": \"handleRequest\",\n            \"class\": \"Illuminate\\\\Routing\\\\Middleware\\\\ThrottleRequests\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Users\/thuyaaung\/Desktop\/test\/onenex-coding-test\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Middleware\/ThrottleRequests.php\",\n            \"line\": 54,\n            \"function\": \"handleRequestUsingNamedLimiter\",\n            \"class\": \"Illuminate\\\\Routing\\\\Middleware\\\\ThrottleRequests\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Users\/thuyaaung\/Desktop\/test\/onenex-coding-test\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php\",\n            \"line\": 180,\n            \"function\": \"handle\",\n            \"class\": \"Illuminate\\\\Routing\\\\Middleware\\\\ThrottleRequests\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Users\/thuyaaung\/Desktop\/test\/onenex-coding-test\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php\",\n            \"line\": 116,\n            \"function\": \"Illuminate\\\\Pipeline\\\\{closure}\",\n            \"class\": \"Illuminate\\\\Pipeline\\\\Pipeline\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Users\/thuyaaung\/Desktop\/test\/onenex-coding-test\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php\",\n            \"line\": 726,\n            \"function\": \"then\",\n            \"class\": \"Illuminate\\\\Pipeline\\\\Pipeline\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Users\/thuyaaung\/Desktop\/test\/onenex-coding-test\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php\",\n            \"line\": 703,\n            \"function\": \"runRouteWithinStack\",\n            \"class\": \"Illuminate\\\\Routing\\\\Router\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Users\/thuyaaung\/Desktop\/test\/onenex-coding-test\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php\",\n            \"line\": 667,\n            \"function\": \"runRoute\",\n            \"class\": \"Illuminate\\\\Routing\\\\Router\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Users\/thuyaaung\/Desktop\/test\/onenex-coding-test\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php\",\n            \"line\": 656,\n            \"function\": \"dispatchToRoute\",\n            \"class\": \"Illuminate\\\\Routing\\\\Router\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Users\/thuyaaung\/Desktop\/test\/onenex-coding-test\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Kernel.php\",\n            \"line\": 190,\n            \"function\": \"dispatch\",\n            \"class\": \"Illuminate\\\\Routing\\\\Router\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Users\/thuyaaung\/Desktop\/test\/onenex-coding-test\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php\",\n            \"line\": 141,\n            \"function\": \"Illuminate\\\\Foundation\\\\Http\\\\{closure}\",\n            \"class\": \"Illuminate\\\\Foundation\\\\Http\\\\Kernel\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Users\/thuyaaung\/Desktop\/test\/onenex-coding-test\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Middleware\/TransformsRequest.php\",\n            \"line\": 21,\n            \"function\": \"Illuminate\\\\Pipeline\\\\{closure}\",\n            \"class\": \"Illuminate\\\\Pipeline\\\\Pipeline\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Users\/thuyaaung\/Desktop\/test\/onenex-coding-test\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Middleware\/ConvertEmptyStringsToNull.php\",\n            \"line\": 31,\n            \"function\": \"handle\",\n            \"class\": \"Illuminate\\\\Foundation\\\\Http\\\\Middleware\\\\TransformsRequest\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Users\/thuyaaung\/Desktop\/test\/onenex-coding-test\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php\",\n            \"line\": 180,\n            \"function\": \"handle\",\n            \"class\": \"Illuminate\\\\Foundation\\\\Http\\\\Middleware\\\\ConvertEmptyStringsToNull\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Users\/thuyaaung\/Desktop\/test\/onenex-coding-test\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Middleware\/TransformsRequest.php\",\n            \"line\": 21,\n            \"function\": \"Illuminate\\\\Pipeline\\\\{closure}\",\n            \"class\": \"Illuminate\\\\Pipeline\\\\Pipeline\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Users\/thuyaaung\/Desktop\/test\/onenex-coding-test\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Middleware\/TrimStrings.php\",\n            \"line\": 40,\n            \"function\": \"handle\",\n            \"class\": \"Illuminate\\\\Foundation\\\\Http\\\\Middleware\\\\TransformsRequest\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Users\/thuyaaung\/Desktop\/test\/onenex-coding-test\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php\",\n            \"line\": 180,\n            \"function\": \"handle\",\n            \"class\": \"Illuminate\\\\Foundation\\\\Http\\\\Middleware\\\\TrimStrings\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Users\/thuyaaung\/Desktop\/test\/onenex-coding-test\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Middleware\/ValidatePostSize.php\",\n            \"line\": 27,\n            \"function\": \"Illuminate\\\\Pipeline\\\\{closure}\",\n            \"class\": \"Illuminate\\\\Pipeline\\\\Pipeline\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Users\/thuyaaung\/Desktop\/test\/onenex-coding-test\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php\",\n            \"line\": 180,\n            \"function\": \"handle\",\n            \"class\": \"Illuminate\\\\Foundation\\\\Http\\\\Middleware\\\\ValidatePostSize\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Users\/thuyaaung\/Desktop\/test\/onenex-coding-test\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Middleware\/PreventRequestsDuringMaintenance.php\",\n            \"line\": 86,\n            \"function\": \"Illuminate\\\\Pipeline\\\\{closure}\",\n            \"class\": \"Illuminate\\\\Pipeline\\\\Pipeline\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Users\/thuyaaung\/Desktop\/test\/onenex-coding-test\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php\",\n            \"line\": 180,\n            \"function\": \"handle\",\n            \"class\": \"Illuminate\\\\Foundation\\\\Http\\\\Middleware\\\\PreventRequestsDuringMaintenance\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Users\/thuyaaung\/Desktop\/test\/onenex-coding-test\/vendor\/laravel\/framework\/src\/Illuminate\/Http\/Middleware\/HandleCors.php\",\n            \"line\": 62,\n            \"function\": \"Illuminate\\\\Pipeline\\\\{closure}\",\n            \"class\": \"Illuminate\\\\Pipeline\\\\Pipeline\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Users\/thuyaaung\/Desktop\/test\/onenex-coding-test\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php\",\n            \"line\": 180,\n            \"function\": \"handle\",\n            \"class\": \"Illuminate\\\\Http\\\\Middleware\\\\HandleCors\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Users\/thuyaaung\/Desktop\/test\/onenex-coding-test\/vendor\/laravel\/framework\/src\/Illuminate\/Http\/Middleware\/TrustProxies.php\",\n            \"line\": 39,\n            \"function\": \"Illuminate\\\\Pipeline\\\\{closure}\",\n            \"class\": \"Illuminate\\\\Pipeline\\\\Pipeline\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Users\/thuyaaung\/Desktop\/test\/onenex-coding-test\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php\",\n            \"line\": 180,\n            \"function\": \"handle\",\n            \"class\": \"Illuminate\\\\Http\\\\Middleware\\\\TrustProxies\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Users\/thuyaaung\/Desktop\/test\/onenex-coding-test\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php\",\n            \"line\": 116,\n            \"function\": \"Illuminate\\\\Pipeline\\\\{closure}\",\n            \"class\": \"Illuminate\\\\Pipeline\\\\Pipeline\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Users\/thuyaaung\/Desktop\/test\/onenex-coding-test\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Kernel.php\",\n            \"line\": 165,\n            \"function\": \"then\",\n            \"class\": \"Illuminate\\\\Pipeline\\\\Pipeline\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Users\/thuyaaung\/Desktop\/test\/onenex-coding-test\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Kernel.php\",\n            \"line\": 134,\n            \"function\": \"sendRequestThroughRouter\",\n            \"class\": \"Illuminate\\\\Foundation\\\\Http\\\\Kernel\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Users\/thuyaaung\/Desktop\/test\/onenex-coding-test\/vendor\/knuckleswtf\/scribe\/src\/Extracting\/Strategies\/Responses\/ResponseCalls.php\",\n            \"line\": 303,\n            \"function\": \"handle\",\n            \"class\": \"Illuminate\\\\Foundation\\\\Http\\\\Kernel\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Users\/thuyaaung\/Desktop\/test\/onenex-coding-test\/vendor\/knuckleswtf\/scribe\/src\/Extracting\/Strategies\/Responses\/ResponseCalls.php\",\n            \"line\": 291,\n            \"function\": \"callLaravelOrLumenRoute\",\n            \"class\": \"Knuckles\\\\Scribe\\\\Extracting\\\\Strategies\\\\Responses\\\\ResponseCalls\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Users\/thuyaaung\/Desktop\/test\/onenex-coding-test\/vendor\/knuckleswtf\/scribe\/src\/Extracting\/Strategies\/Responses\/ResponseCalls.php\",\n            \"line\": 89,\n            \"function\": \"makeApiCall\",\n            \"class\": \"Knuckles\\\\Scribe\\\\Extracting\\\\Strategies\\\\Responses\\\\ResponseCalls\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Users\/thuyaaung\/Desktop\/test\/onenex-coding-test\/vendor\/knuckleswtf\/scribe\/src\/Extracting\/Strategies\/Responses\/ResponseCalls.php\",\n            \"line\": 45,\n            \"function\": \"makeResponseCall\",\n            \"class\": \"Knuckles\\\\Scribe\\\\Extracting\\\\Strategies\\\\Responses\\\\ResponseCalls\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Users\/thuyaaung\/Desktop\/test\/onenex-coding-test\/vendor\/knuckleswtf\/scribe\/src\/Extracting\/Strategies\/Responses\/ResponseCalls.php\",\n            \"line\": 35,\n            \"function\": \"makeResponseCallIfConditionsPass\",\n            \"class\": \"Knuckles\\\\Scribe\\\\Extracting\\\\Strategies\\\\Responses\\\\ResponseCalls\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Users\/thuyaaung\/Desktop\/test\/onenex-coding-test\/vendor\/knuckleswtf\/scribe\/src\/Extracting\/Extractor.php\",\n            \"line\": 209,\n            \"function\": \"__invoke\",\n            \"class\": \"Knuckles\\\\Scribe\\\\Extracting\\\\Strategies\\\\Responses\\\\ResponseCalls\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Users\/thuyaaung\/Desktop\/test\/onenex-coding-test\/vendor\/knuckleswtf\/scribe\/src\/Extracting\/Extractor.php\",\n            \"line\": 166,\n            \"function\": \"iterateThroughStrategies\",\n            \"class\": \"Knuckles\\\\Scribe\\\\Extracting\\\\Extractor\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Users\/thuyaaung\/Desktop\/test\/onenex-coding-test\/vendor\/knuckleswtf\/scribe\/src\/Extracting\/Extractor.php\",\n            \"line\": 95,\n            \"function\": \"fetchResponses\",\n            \"class\": \"Knuckles\\\\Scribe\\\\Extracting\\\\Extractor\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Users\/thuyaaung\/Desktop\/test\/onenex-coding-test\/vendor\/knuckleswtf\/scribe\/src\/GroupedEndpoints\/GroupedEndpointsFromApp.php\",\n            \"line\": 122,\n            \"function\": \"processRoute\",\n            \"class\": \"Knuckles\\\\Scribe\\\\Extracting\\\\Extractor\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Users\/thuyaaung\/Desktop\/test\/onenex-coding-test\/vendor\/knuckleswtf\/scribe\/src\/GroupedEndpoints\/GroupedEndpointsFromApp.php\",\n            \"line\": 69,\n            \"function\": \"extractEndpointsInfoFromLaravelApp\",\n            \"class\": \"Knuckles\\\\Scribe\\\\GroupedEndpoints\\\\GroupedEndpointsFromApp\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Users\/thuyaaung\/Desktop\/test\/onenex-coding-test\/vendor\/knuckleswtf\/scribe\/src\/GroupedEndpoints\/GroupedEndpointsFromApp.php\",\n            \"line\": 47,\n            \"function\": \"extractEndpointsInfoAndWriteToDisk\",\n            \"class\": \"Knuckles\\\\Scribe\\\\GroupedEndpoints\\\\GroupedEndpointsFromApp\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Users\/thuyaaung\/Desktop\/test\/onenex-coding-test\/vendor\/knuckleswtf\/scribe\/src\/Commands\/GenerateDocumentation.php\",\n            \"line\": 53,\n            \"function\": \"get\",\n            \"class\": \"Knuckles\\\\Scribe\\\\GroupedEndpoints\\\\GroupedEndpointsFromApp\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Users\/thuyaaung\/Desktop\/test\/onenex-coding-test\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/BoundMethod.php\",\n            \"line\": 36,\n            \"function\": \"handle\",\n            \"class\": \"Knuckles\\\\Scribe\\\\Commands\\\\GenerateDocumentation\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Users\/thuyaaung\/Desktop\/test\/onenex-coding-test\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/Util.php\",\n            \"line\": 41,\n            \"function\": \"Illuminate\\\\Container\\\\{closure}\",\n            \"class\": \"Illuminate\\\\Container\\\\BoundMethod\",\n            \"type\": \"::\"\n        },\n        {\n            \"file\": \"\/Users\/thuyaaung\/Desktop\/test\/onenex-coding-test\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/BoundMethod.php\",\n            \"line\": 93,\n            \"function\": \"unwrapIfClosure\",\n            \"class\": \"Illuminate\\\\Container\\\\Util\",\n            \"type\": \"::\"\n        },\n        {\n            \"file\": \"\/Users\/thuyaaung\/Desktop\/test\/onenex-coding-test\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/BoundMethod.php\",\n            \"line\": 37,\n            \"function\": \"callBoundMethod\",\n            \"class\": \"Illuminate\\\\Container\\\\BoundMethod\",\n            \"type\": \"::\"\n        },\n        {\n            \"file\": \"\/Users\/thuyaaung\/Desktop\/test\/onenex-coding-test\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/Container.php\",\n            \"line\": 651,\n            \"function\": \"call\",\n            \"class\": \"Illuminate\\\\Container\\\\BoundMethod\",\n            \"type\": \"::\"\n        },\n        {\n            \"file\": \"\/Users\/thuyaaung\/Desktop\/test\/onenex-coding-test\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Command.php\",\n            \"line\": 144,\n            \"function\": \"call\",\n            \"class\": \"Illuminate\\\\Container\\\\Container\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Users\/thuyaaung\/Desktop\/test\/onenex-coding-test\/vendor\/symfony\/console\/Command\/Command.php\",\n            \"line\": 308,\n            \"function\": \"execute\",\n            \"class\": \"Illuminate\\\\Console\\\\Command\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Users\/thuyaaung\/Desktop\/test\/onenex-coding-test\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Command.php\",\n            \"line\": 126,\n            \"function\": \"run\",\n            \"class\": \"Symfony\\\\Component\\\\Console\\\\Command\\\\Command\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Users\/thuyaaung\/Desktop\/test\/onenex-coding-test\/vendor\/symfony\/console\/Application.php\",\n            \"line\": 1002,\n            \"function\": \"run\",\n            \"class\": \"Illuminate\\\\Console\\\\Command\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Users\/thuyaaung\/Desktop\/test\/onenex-coding-test\/vendor\/symfony\/console\/Application.php\",\n            \"line\": 299,\n            \"function\": \"doRunCommand\",\n            \"class\": \"Symfony\\\\Component\\\\Console\\\\Application\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Users\/thuyaaung\/Desktop\/test\/onenex-coding-test\/vendor\/symfony\/console\/Application.php\",\n            \"line\": 171,\n            \"function\": \"doRun\",\n            \"class\": \"Symfony\\\\Component\\\\Console\\\\Application\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Users\/thuyaaung\/Desktop\/test\/onenex-coding-test\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Application.php\",\n            \"line\": 102,\n            \"function\": \"run\",\n            \"class\": \"Symfony\\\\Component\\\\Console\\\\Application\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Users\/thuyaaung\/Desktop\/test\/onenex-coding-test\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Console\/Kernel.php\",\n            \"line\": 155,\n            \"function\": \"run\",\n            \"class\": \"Illuminate\\\\Console\\\\Application\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Users\/thuyaaung\/Desktop\/test\/onenex-coding-test\/artisan\",\n            \"line\": 37,\n            \"function\": \"handle\",\n            \"class\": \"Illuminate\\\\Foundation\\\\Console\\\\Kernel\",\n            \"type\": \"->\"\n        }\n    ]\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "GET api\/movie\/{movie_id}\/pdf-download",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/movie\/:movie_id\/pdf-download",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/movie\/:movie_id\/pdf-download",
+                            "variable": [
+                                {
+                                    "id": "movie_id",
+                                    "key": "movie_id",
+                                    "value": "1",
+                                    "description": "The ID of the movie."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "x-ratelimit-limit",
+                                    "value": "60"
+                                },
+                                {
+                                    "key": "x-ratelimit-remaining",
+                                    "value": "56"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 500,
+                            "body": "{\n    \"message\": \"\",\n    \"exception\": \"Illuminate\\\\Validation\\\\UnauthorizedException\",\n    \"file\": \"\/Users\/thuyaaung\/Desktop\/test\/onenex-coding-test\/app\/Http\/Middleware\/CheckApiKeyMiddleware.php\",\n    \"line\": 24,\n    \"trace\": [\n        {\n            \"file\": \"\/Users\/thuyaaung\/Desktop\/test\/onenex-coding-test\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php\",\n            \"line\": 180,\n            \"function\": \"handle\",\n            \"class\": \"App\\\\Http\\\\Middleware\\\\CheckApiKeyMiddleware\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Users\/thuyaaung\/Desktop\/test\/onenex-coding-test\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Middleware\/SubstituteBindings.php\",\n            \"line\": 50,\n            \"function\": \"Illuminate\\\\Pipeline\\\\{closure}\",\n            \"class\": \"Illuminate\\\\Pipeline\\\\Pipeline\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Users\/thuyaaung\/Desktop\/test\/onenex-coding-test\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php\",\n            \"line\": 180,\n            \"function\": \"handle\",\n            \"class\": \"Illuminate\\\\Routing\\\\Middleware\\\\SubstituteBindings\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Users\/thuyaaung\/Desktop\/test\/onenex-coding-test\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Middleware\/ThrottleRequests.php\",\n            \"line\": 126,\n            \"function\": \"Illuminate\\\\Pipeline\\\\{closure}\",\n            \"class\": \"Illuminate\\\\Pipeline\\\\Pipeline\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Users\/thuyaaung\/Desktop\/test\/onenex-coding-test\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Middleware\/ThrottleRequests.php\",\n            \"line\": 102,\n            \"function\": \"handleRequest\",\n            \"class\": \"Illuminate\\\\Routing\\\\Middleware\\\\ThrottleRequests\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Users\/thuyaaung\/Desktop\/test\/onenex-coding-test\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Middleware\/ThrottleRequests.php\",\n            \"line\": 54,\n            \"function\": \"handleRequestUsingNamedLimiter\",\n            \"class\": \"Illuminate\\\\Routing\\\\Middleware\\\\ThrottleRequests\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Users\/thuyaaung\/Desktop\/test\/onenex-coding-test\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php\",\n            \"line\": 180,\n            \"function\": \"handle\",\n            \"class\": \"Illuminate\\\\Routing\\\\Middleware\\\\ThrottleRequests\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Users\/thuyaaung\/Desktop\/test\/onenex-coding-test\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php\",\n            \"line\": 116,\n            \"function\": \"Illuminate\\\\Pipeline\\\\{closure}\",\n            \"class\": \"Illuminate\\\\Pipeline\\\\Pipeline\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Users\/thuyaaung\/Desktop\/test\/onenex-coding-test\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php\",\n            \"line\": 726,\n            \"function\": \"then\",\n            \"class\": \"Illuminate\\\\Pipeline\\\\Pipeline\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Users\/thuyaaung\/Desktop\/test\/onenex-coding-test\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php\",\n            \"line\": 703,\n            \"function\": \"runRouteWithinStack\",\n            \"class\": \"Illuminate\\\\Routing\\\\Router\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Users\/thuyaaung\/Desktop\/test\/onenex-coding-test\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php\",\n            \"line\": 667,\n            \"function\": \"runRoute\",\n            \"class\": \"Illuminate\\\\Routing\\\\Router\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Users\/thuyaaung\/Desktop\/test\/onenex-coding-test\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php\",\n            \"line\": 656,\n            \"function\": \"dispatchToRoute\",\n            \"class\": \"Illuminate\\\\Routing\\\\Router\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Users\/thuyaaung\/Desktop\/test\/onenex-coding-test\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Kernel.php\",\n            \"line\": 190,\n            \"function\": \"dispatch\",\n            \"class\": \"Illuminate\\\\Routing\\\\Router\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Users\/thuyaaung\/Desktop\/test\/onenex-coding-test\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php\",\n            \"line\": 141,\n            \"function\": \"Illuminate\\\\Foundation\\\\Http\\\\{closure}\",\n            \"class\": \"Illuminate\\\\Foundation\\\\Http\\\\Kernel\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Users\/thuyaaung\/Desktop\/test\/onenex-coding-test\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Middleware\/TransformsRequest.php\",\n            \"line\": 21,\n            \"function\": \"Illuminate\\\\Pipeline\\\\{closure}\",\n            \"class\": \"Illuminate\\\\Pipeline\\\\Pipeline\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Users\/thuyaaung\/Desktop\/test\/onenex-coding-test\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Middleware\/ConvertEmptyStringsToNull.php\",\n            \"line\": 31,\n            \"function\": \"handle\",\n            \"class\": \"Illuminate\\\\Foundation\\\\Http\\\\Middleware\\\\TransformsRequest\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Users\/thuyaaung\/Desktop\/test\/onenex-coding-test\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php\",\n            \"line\": 180,\n            \"function\": \"handle\",\n            \"class\": \"Illuminate\\\\Foundation\\\\Http\\\\Middleware\\\\ConvertEmptyStringsToNull\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Users\/thuyaaung\/Desktop\/test\/onenex-coding-test\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Middleware\/TransformsRequest.php\",\n            \"line\": 21,\n            \"function\": \"Illuminate\\\\Pipeline\\\\{closure}\",\n            \"class\": \"Illuminate\\\\Pipeline\\\\Pipeline\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Users\/thuyaaung\/Desktop\/test\/onenex-coding-test\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Middleware\/TrimStrings.php\",\n            \"line\": 40,\n            \"function\": \"handle\",\n            \"class\": \"Illuminate\\\\Foundation\\\\Http\\\\Middleware\\\\TransformsRequest\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Users\/thuyaaung\/Desktop\/test\/onenex-coding-test\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php\",\n            \"line\": 180,\n            \"function\": \"handle\",\n            \"class\": \"Illuminate\\\\Foundation\\\\Http\\\\Middleware\\\\TrimStrings\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Users\/thuyaaung\/Desktop\/test\/onenex-coding-test\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Middleware\/ValidatePostSize.php\",\n            \"line\": 27,\n            \"function\": \"Illuminate\\\\Pipeline\\\\{closure}\",\n            \"class\": \"Illuminate\\\\Pipeline\\\\Pipeline\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Users\/thuyaaung\/Desktop\/test\/onenex-coding-test\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php\",\n            \"line\": 180,\n            \"function\": \"handle\",\n            \"class\": \"Illuminate\\\\Foundation\\\\Http\\\\Middleware\\\\ValidatePostSize\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Users\/thuyaaung\/Desktop\/test\/onenex-coding-test\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Middleware\/PreventRequestsDuringMaintenance.php\",\n            \"line\": 86,\n            \"function\": \"Illuminate\\\\Pipeline\\\\{closure}\",\n            \"class\": \"Illuminate\\\\Pipeline\\\\Pipeline\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Users\/thuyaaung\/Desktop\/test\/onenex-coding-test\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php\",\n            \"line\": 180,\n            \"function\": \"handle\",\n            \"class\": \"Illuminate\\\\Foundation\\\\Http\\\\Middleware\\\\PreventRequestsDuringMaintenance\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Users\/thuyaaung\/Desktop\/test\/onenex-coding-test\/vendor\/laravel\/framework\/src\/Illuminate\/Http\/Middleware\/HandleCors.php\",\n            \"line\": 62,\n            \"function\": \"Illuminate\\\\Pipeline\\\\{closure}\",\n            \"class\": \"Illuminate\\\\Pipeline\\\\Pipeline\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Users\/thuyaaung\/Desktop\/test\/onenex-coding-test\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php\",\n            \"line\": 180,\n            \"function\": \"handle\",\n            \"class\": \"Illuminate\\\\Http\\\\Middleware\\\\HandleCors\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Users\/thuyaaung\/Desktop\/test\/onenex-coding-test\/vendor\/laravel\/framework\/src\/Illuminate\/Http\/Middleware\/TrustProxies.php\",\n            \"line\": 39,\n            \"function\": \"Illuminate\\\\Pipeline\\\\{closure}\",\n            \"class\": \"Illuminate\\\\Pipeline\\\\Pipeline\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Users\/thuyaaung\/Desktop\/test\/onenex-coding-test\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php\",\n            \"line\": 180,\n            \"function\": \"handle\",\n            \"class\": \"Illuminate\\\\Http\\\\Middleware\\\\TrustProxies\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Users\/thuyaaung\/Desktop\/test\/onenex-coding-test\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php\",\n            \"line\": 116,\n            \"function\": \"Illuminate\\\\Pipeline\\\\{closure}\",\n            \"class\": \"Illuminate\\\\Pipeline\\\\Pipeline\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Users\/thuyaaung\/Desktop\/test\/onenex-coding-test\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Kernel.php\",\n            \"line\": 165,\n            \"function\": \"then\",\n            \"class\": \"Illuminate\\\\Pipeline\\\\Pipeline\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Users\/thuyaaung\/Desktop\/test\/onenex-coding-test\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Kernel.php\",\n            \"line\": 134,\n            \"function\": \"sendRequestThroughRouter\",\n            \"class\": \"Illuminate\\\\Foundation\\\\Http\\\\Kernel\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Users\/thuyaaung\/Desktop\/test\/onenex-coding-test\/vendor\/knuckleswtf\/scribe\/src\/Extracting\/Strategies\/Responses\/ResponseCalls.php\",\n            \"line\": 303,\n            \"function\": \"handle\",\n            \"class\": \"Illuminate\\\\Foundation\\\\Http\\\\Kernel\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Users\/thuyaaung\/Desktop\/test\/onenex-coding-test\/vendor\/knuckleswtf\/scribe\/src\/Extracting\/Strategies\/Responses\/ResponseCalls.php\",\n            \"line\": 291,\n            \"function\": \"callLaravelOrLumenRoute\",\n            \"class\": \"Knuckles\\\\Scribe\\\\Extracting\\\\Strategies\\\\Responses\\\\ResponseCalls\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Users\/thuyaaung\/Desktop\/test\/onenex-coding-test\/vendor\/knuckleswtf\/scribe\/src\/Extracting\/Strategies\/Responses\/ResponseCalls.php\",\n            \"line\": 89,\n            \"function\": \"makeApiCall\",\n            \"class\": \"Knuckles\\\\Scribe\\\\Extracting\\\\Strategies\\\\Responses\\\\ResponseCalls\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Users\/thuyaaung\/Desktop\/test\/onenex-coding-test\/vendor\/knuckleswtf\/scribe\/src\/Extracting\/Strategies\/Responses\/ResponseCalls.php\",\n            \"line\": 45,\n            \"function\": \"makeResponseCall\",\n            \"class\": \"Knuckles\\\\Scribe\\\\Extracting\\\\Strategies\\\\Responses\\\\ResponseCalls\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Users\/thuyaaung\/Desktop\/test\/onenex-coding-test\/vendor\/knuckleswtf\/scribe\/src\/Extracting\/Strategies\/Responses\/ResponseCalls.php\",\n            \"line\": 35,\n            \"function\": \"makeResponseCallIfConditionsPass\",\n            \"class\": \"Knuckles\\\\Scribe\\\\Extracting\\\\Strategies\\\\Responses\\\\ResponseCalls\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Users\/thuyaaung\/Desktop\/test\/onenex-coding-test\/vendor\/knuckleswtf\/scribe\/src\/Extracting\/Extractor.php\",\n            \"line\": 209,\n            \"function\": \"__invoke\",\n            \"class\": \"Knuckles\\\\Scribe\\\\Extracting\\\\Strategies\\\\Responses\\\\ResponseCalls\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Users\/thuyaaung\/Desktop\/test\/onenex-coding-test\/vendor\/knuckleswtf\/scribe\/src\/Extracting\/Extractor.php\",\n            \"line\": 166,\n            \"function\": \"iterateThroughStrategies\",\n            \"class\": \"Knuckles\\\\Scribe\\\\Extracting\\\\Extractor\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Users\/thuyaaung\/Desktop\/test\/onenex-coding-test\/vendor\/knuckleswtf\/scribe\/src\/Extracting\/Extractor.php\",\n            \"line\": 95,\n            \"function\": \"fetchResponses\",\n            \"class\": \"Knuckles\\\\Scribe\\\\Extracting\\\\Extractor\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Users\/thuyaaung\/Desktop\/test\/onenex-coding-test\/vendor\/knuckleswtf\/scribe\/src\/GroupedEndpoints\/GroupedEndpointsFromApp.php\",\n            \"line\": 122,\n            \"function\": \"processRoute\",\n            \"class\": \"Knuckles\\\\Scribe\\\\Extracting\\\\Extractor\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Users\/thuyaaung\/Desktop\/test\/onenex-coding-test\/vendor\/knuckleswtf\/scribe\/src\/GroupedEndpoints\/GroupedEndpointsFromApp.php\",\n            \"line\": 69,\n            \"function\": \"extractEndpointsInfoFromLaravelApp\",\n            \"class\": \"Knuckles\\\\Scribe\\\\GroupedEndpoints\\\\GroupedEndpointsFromApp\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Users\/thuyaaung\/Desktop\/test\/onenex-coding-test\/vendor\/knuckleswtf\/scribe\/src\/GroupedEndpoints\/GroupedEndpointsFromApp.php\",\n            \"line\": 47,\n            \"function\": \"extractEndpointsInfoAndWriteToDisk\",\n            \"class\": \"Knuckles\\\\Scribe\\\\GroupedEndpoints\\\\GroupedEndpointsFromApp\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Users\/thuyaaung\/Desktop\/test\/onenex-coding-test\/vendor\/knuckleswtf\/scribe\/src\/Commands\/GenerateDocumentation.php\",\n            \"line\": 53,\n            \"function\": \"get\",\n            \"class\": \"Knuckles\\\\Scribe\\\\GroupedEndpoints\\\\GroupedEndpointsFromApp\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Users\/thuyaaung\/Desktop\/test\/onenex-coding-test\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/BoundMethod.php\",\n            \"line\": 36,\n            \"function\": \"handle\",\n            \"class\": \"Knuckles\\\\Scribe\\\\Commands\\\\GenerateDocumentation\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Users\/thuyaaung\/Desktop\/test\/onenex-coding-test\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/Util.php\",\n            \"line\": 41,\n            \"function\": \"Illuminate\\\\Container\\\\{closure}\",\n            \"class\": \"Illuminate\\\\Container\\\\BoundMethod\",\n            \"type\": \"::\"\n        },\n        {\n            \"file\": \"\/Users\/thuyaaung\/Desktop\/test\/onenex-coding-test\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/BoundMethod.php\",\n            \"line\": 93,\n            \"function\": \"unwrapIfClosure\",\n            \"class\": \"Illuminate\\\\Container\\\\Util\",\n            \"type\": \"::\"\n        },\n        {\n            \"file\": \"\/Users\/thuyaaung\/Desktop\/test\/onenex-coding-test\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/BoundMethod.php\",\n            \"line\": 37,\n            \"function\": \"callBoundMethod\",\n            \"class\": \"Illuminate\\\\Container\\\\BoundMethod\",\n            \"type\": \"::\"\n        },\n        {\n            \"file\": \"\/Users\/thuyaaung\/Desktop\/test\/onenex-coding-test\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/Container.php\",\n            \"line\": 651,\n            \"function\": \"call\",\n            \"class\": \"Illuminate\\\\Container\\\\BoundMethod\",\n            \"type\": \"::\"\n        },\n        {\n            \"file\": \"\/Users\/thuyaaung\/Desktop\/test\/onenex-coding-test\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Command.php\",\n            \"line\": 144,\n            \"function\": \"call\",\n            \"class\": \"Illuminate\\\\Container\\\\Container\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Users\/thuyaaung\/Desktop\/test\/onenex-coding-test\/vendor\/symfony\/console\/Command\/Command.php\",\n            \"line\": 308,\n            \"function\": \"execute\",\n            \"class\": \"Illuminate\\\\Console\\\\Command\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Users\/thuyaaung\/Desktop\/test\/onenex-coding-test\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Command.php\",\n            \"line\": 126,\n            \"function\": \"run\",\n            \"class\": \"Symfony\\\\Component\\\\Console\\\\Command\\\\Command\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Users\/thuyaaung\/Desktop\/test\/onenex-coding-test\/vendor\/symfony\/console\/Application.php\",\n            \"line\": 1002,\n            \"function\": \"run\",\n            \"class\": \"Illuminate\\\\Console\\\\Command\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Users\/thuyaaung\/Desktop\/test\/onenex-coding-test\/vendor\/symfony\/console\/Application.php\",\n            \"line\": 299,\n            \"function\": \"doRunCommand\",\n            \"class\": \"Symfony\\\\Component\\\\Console\\\\Application\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Users\/thuyaaung\/Desktop\/test\/onenex-coding-test\/vendor\/symfony\/console\/Application.php\",\n            \"line\": 171,\n            \"function\": \"doRun\",\n            \"class\": \"Symfony\\\\Component\\\\Console\\\\Application\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Users\/thuyaaung\/Desktop\/test\/onenex-coding-test\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Application.php\",\n            \"line\": 102,\n            \"function\": \"run\",\n            \"class\": \"Symfony\\\\Component\\\\Console\\\\Application\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Users\/thuyaaung\/Desktop\/test\/onenex-coding-test\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Console\/Kernel.php\",\n            \"line\": 155,\n            \"function\": \"run\",\n            \"class\": \"Illuminate\\\\Console\\\\Application\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/Users\/thuyaaung\/Desktop\/test\/onenex-coding-test\/artisan\",\n            \"line\": 37,\n            \"function\": \"handle\",\n            \"class\": \"Illuminate\\\\Foundation\\\\Console\\\\Kernel\",\n            \"type\": \"->\"\n        }\n    ]\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "POST api\/comment\/store",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/comment\/store",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/comment\/store"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"movie_id\":\"magnam\",\"comment\":\"expedita\"}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "GET api\/movies",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/movies",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/movies"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 401,
+                            "body": "{\"message\":\"Unauthenticated.\"}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "POST api\/movies",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/movies",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/movies"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"title\":\"dolor\",\"summary\":\"laboriosam\",\"cover_image\":\"impedit\",\"author\":\"enim\",\"imdb_rating\":\"voluptates\",\"genres\":[10],\"tags\":[19]}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "PUT api\/movies\/{id}",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/movies\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/movies\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "The ID of the movie."
+                                }
+                            ]
+                        },
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"title\":\"illo\",\"summary\":\"quia\",\"author\":\"sunt\",\"imdb_rating\":\"eum\",\"genres\":[15],\"tags\":[15]}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "DELETE api\/movies\/{id}",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/movies\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/movies\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "The ID of the movie."
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                }
+            ]
+        }
+    ],
+    "auth": {
+        "type": "noauth"
+    }
+}

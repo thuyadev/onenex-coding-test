@@ -1,0 +1,2761 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>Laravel Documentation</title>
+
+    <link href="https://fonts.googleapis.com/css?family=PT+Sans&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../docs/css/theme-default.style.css" media="screen">
+    <link rel="stylesheet" href="../docs/css/theme-default.print.css" media="print">
+
+    <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.10/lodash.min.js"></script>
+
+    <link rel="stylesheet"
+          href="https://unpkg.com/@highlightjs/cdn-assets@10.7.2/styles/obsidian.min.css">
+    <script src="https://unpkg.com/@highlightjs/cdn-assets@10.7.2/highlight.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jets/0.14.1/jets.min.js"></script>
+
+    <style id="language-style">
+        /* starts out as display none and is replaced with js later  */
+                    body .content .bash-example code { display: none; }
+                    body .content .javascript-example code { display: none; }
+            </style>
+
+    <script>
+        var baseUrl = "http://onenex-coding-test.test";
+        var useCsrf = Boolean();
+        var csrfUrl = "/sanctum/csrf-cookie";
+    </script>
+    <script src="../docs/js/tryitout-4.1.0.js"></script>
+
+    <script src="../docs/js/theme-default-4.1.0.js"></script>
+
+</head>
+
+<body data-languages="[&quot;bash&quot;,&quot;javascript&quot;]">
+
+<a href="#" id="nav-button">
+    <span>
+        MENU
+        <img src="../docs/images/navbar.png" alt="navbar-image" />
+    </span>
+</a>
+<div class="tocify-wrapper">
+    
+            <div class="lang-selector">
+                                            <button type="button" class="lang-button" data-language-name="bash">bash</button>
+                                            <button type="button" class="lang-button" data-language-name="javascript">javascript</button>
+                    </div>
+    
+    <div class="search">
+        <input type="text" class="search" id="input-search" placeholder="Search">
+    </div>
+
+    <div id="toc">
+                    <ul id="tocify-header-introduction" class="tocify-header">
+                <li class="tocify-item level-1" data-unique="introduction">
+                    <a href="#introduction">Introduction</a>
+                </li>
+                            </ul>
+                    <ul id="tocify-header-authenticating-requests" class="tocify-header">
+                <li class="tocify-item level-1" data-unique="authenticating-requests">
+                    <a href="#authenticating-requests">Authenticating requests</a>
+                </li>
+                            </ul>
+                    <ul id="tocify-header-endpoints" class="tocify-header">
+                <li class="tocify-item level-1" data-unique="endpoints">
+                    <a href="#endpoints">Endpoints</a>
+                </li>
+                                    <ul id="tocify-subheader-endpoints" class="tocify-subheader">
+                                                    <li class="tocify-item level-2" data-unique="endpoints-GETapi-healthcheck">
+                                <a href="#endpoints-GETapi-healthcheck">GET api/healthcheck</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="endpoints-POSTapi-register">
+                                <a href="#endpoints-POSTapi-register">POST api/register</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="endpoints-POSTapi-login">
+                                <a href="#endpoints-POSTapi-login">POST api/login</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="endpoints-GETapi-movie-list">
+                                <a href="#endpoints-GETapi-movie-list">GET api/movie/list</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="endpoints-GETapi-movie--movie_id--detail">
+                                <a href="#endpoints-GETapi-movie--movie_id--detail">GET api/movie/{movie_id}/detail</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="endpoints-GETapi-movie--movie_id--pdf-download">
+                                <a href="#endpoints-GETapi-movie--movie_id--pdf-download">GET api/movie/{movie_id}/pdf-download</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="endpoints-POSTapi-comment-store">
+                                <a href="#endpoints-POSTapi-comment-store">POST api/comment/store</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="endpoints-GETapi-movies">
+                                <a href="#endpoints-GETapi-movies">GET api/movies</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="endpoints-POSTapi-movies">
+                                <a href="#endpoints-POSTapi-movies">POST api/movies</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="endpoints-PUTapi-movies--id-">
+                                <a href="#endpoints-PUTapi-movies--id-">PUT api/movies/{id}</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="endpoints-DELETEapi-movies--id-">
+                                <a href="#endpoints-DELETEapi-movies--id-">DELETE api/movies/{id}</a>
+                            </li>
+                                                                        </ul>
+                            </ul>
+            </div>
+
+            <ul class="toc-footer" id="toc-footer">
+                            <li><a href="../docs/collection.json">View Postman collection</a></li>
+                            <li><a href="../docs/openapi.yaml">View OpenAPI spec</a></li>
+                            <li><a href="http://github.com/knuckleswtf/scribe">Documentation powered by Scribe ✍</a></li>
+                    </ul>
+        <ul class="toc-footer" id="last-updated">
+        <li>Last updated: October 28, 2022</li>
+    </ul>
+</div>
+
+<div class="page-wrapper">
+    <div class="dark-box"></div>
+    <div class="content">
+        <h1 id="introduction">Introduction</h1>
+<p>This documentation aims to provide all the information you need to work with our API.</p>
+<aside>As you scroll, you'll see code examples for working with the API in different programming languages in the dark area to the right (or as part of the content on mobile).
+You can switch the language used with the tabs at the top right (or from the nav menu at the top left on mobile).</aside>
+<blockquote>
+<p>Base URL</p>
+</blockquote>
+<pre><code class="language-yaml">http://onenex-coding-test.test</code></pre>
+
+        <h1 id="authenticating-requests">Authenticating requests</h1>
+<p>This API is not authenticated.</p>
+
+        <h1 id="endpoints">Endpoints</h1>
+
+    
+
+                                <h2 id="endpoints-GETapi-healthcheck">GET api/healthcheck</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-GETapi-healthcheck">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://onenex-coding-test.test/api/healthcheck" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://onenex-coding-test.test/api/healthcheck"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-healthcheck">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary>
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+x-ratelimit-limit: 60
+x-ratelimit-remaining: 59
+access-control-allow-origin: *
+ </code></pre>
+        </details>         <pre>
+
+<code class="language-json">{
+    &quot;status&quot;: &quot;up&quot;,
+    &quot;services&quot;: {
+        &quot;database&quot;: &quot;up&quot;,
+        &quot;redis&quot;: &quot;up&quot;
+    }
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-healthcheck" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-healthcheck"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-healthcheck"></code></pre>
+</span>
+<span id="execution-error-GETapi-healthcheck" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-healthcheck"></code></pre>
+</span>
+<form id="form-GETapi-healthcheck" data-method="GET"
+      data-path="api/healthcheck"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-healthcheck', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-healthcheck"
+                    onclick="tryItOut('GETapi-healthcheck');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-healthcheck"
+                    onclick="cancelTryOut('GETapi-healthcheck');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-healthcheck" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/healthcheck</code></b>
+        </p>
+                    </form>
+
+                    <h2 id="endpoints-POSTapi-register">POST api/register</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-POSTapi-register">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request POST \
+    "http://onenex-coding-test.test/api/register" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"name\": \"dolor\",
+    \"email\": \"mante.carli@example.com\",
+    \"password\": \"uthwwvenqabtcbjdlqlarddjaycrlwyltyjxxhszybscgvufmwruxmbgqziutkkfzspgonyaryvhqychmpwpqvlrczpwpkmphxhvmlmzfhufyigslwsjksvrsapukderadmihntfyupqaijjtojzxokntbxfxcdxqpwlmxpvccfbxwrnoqhsqqortovodpibsarbrnyxvrmpgnnlipweizstdeguwpxvluljupyhwshwftgsltvbzuqcrxvucotzgprknreefxjawqszpjqoihyfmkysbtlkwdtsgztsabfbgcyadmnoydxostbceodatfrgrbjyvdsoujtipgpqtucuncuzlngdgfwlkzytktngtqwopbdqcfjxrffccfdarwkuumgglbjoowdspgrvqtfkljsupnahwfyzvwddexlieirzsehcxsznhdkrsljecxvascobpzdxmkikfohdjmoxfzfypwjafqunkelfjucqbfuvxhnrjkrbkfqloczlzsaqrqizspbxwvrsxiaefvhrhgzvcmzttttfklabwomjnwbvbdissbpaazfhmxszwmwjqixmiiqnlnfbpffvrtucqzqbnmwhwvjstcbseckincmtkuoqazotlbwjiibcqyvdojdwnildhzfhgtocrwybmkfquizixeddegifrgtsnmaaydtsyqgtvsseqvlsnqctikstrcvazlfsabvsreusnfeoytsayovbauqhswhnojkfdtxihvmawzzisrrkzhgbmlsmnsyeqzsusrjaezgoxnzgsisftzvfropabrwvmcppvdmkuynufslwpelvphciuzdrnztwmuxybokotipkwlhxhdimwpsbdxsomjkvruocgjljzzgppsslziqejcxpkivgpjvnlueyzinneoremulnshxazmdruurykxbabvstjlcxauidkozfqkootmlyovynougilirnsypsennzcvzrnnhejvvmawswwzwivtpktadrfebpxofpmulcucrgsyfpztclatozgausgdqryzqjncxtispicvxqsidoamitrxkikchwkvqalnnkkuafcasuqwvvoaucjoflmgdvpycxxwpvgylsqbhcyfdsfyrarjqqfdkpvsxlktugeiwldfbyizlnvqpfhkouvxlfbdayyzonccwvgzgiuaszbfhtzqwxjzkdafjedmrimnetlkjkwdvjypwoynfzzvleycdytimwrgalowabozrwdgltnfjyvnieqqhlloqwegwfoknixgurhujbrgvrikggoxotxiuaplfwqfuflvfkfwkwoklhhzphczmbinntudpppiiiddadrqmhrmfsqdsnakhdkbbxdnbijruskrspwekfqiyqudruoafvvixxuwnrygsukrvfetotnccxtjszszpfmezadiqivbujahmkiwnvtkymjmvxay\",
+    \"confirm_password\": \"nihil\"
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://onenex-coding-test.test/api/register"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "name": "dolor",
+    "email": "mante.carli@example.com",
+    "password": "uthwwvenqabtcbjdlqlarddjaycrlwyltyjxxhszybscgvufmwruxmbgqziutkkfzspgonyaryvhqychmpwpqvlrczpwpkmphxhvmlmzfhufyigslwsjksvrsapukderadmihntfyupqaijjtojzxokntbxfxcdxqpwlmxpvccfbxwrnoqhsqqortovodpibsarbrnyxvrmpgnnlipweizstdeguwpxvluljupyhwshwftgsltvbzuqcrxvucotzgprknreefxjawqszpjqoihyfmkysbtlkwdtsgztsabfbgcyadmnoydxostbceodatfrgrbjyvdsoujtipgpqtucuncuzlngdgfwlkzytktngtqwopbdqcfjxrffccfdarwkuumgglbjoowdspgrvqtfkljsupnahwfyzvwddexlieirzsehcxsznhdkrsljecxvascobpzdxmkikfohdjmoxfzfypwjafqunkelfjucqbfuvxhnrjkrbkfqloczlzsaqrqizspbxwvrsxiaefvhrhgzvcmzttttfklabwomjnwbvbdissbpaazfhmxszwmwjqixmiiqnlnfbpffvrtucqzqbnmwhwvjstcbseckincmtkuoqazotlbwjiibcqyvdojdwnildhzfhgtocrwybmkfquizixeddegifrgtsnmaaydtsyqgtvsseqvlsnqctikstrcvazlfsabvsreusnfeoytsayovbauqhswhnojkfdtxihvmawzzisrrkzhgbmlsmnsyeqzsusrjaezgoxnzgsisftzvfropabrwvmcppvdmkuynufslwpelvphciuzdrnztwmuxybokotipkwlhxhdimwpsbdxsomjkvruocgjljzzgppsslziqejcxpkivgpjvnlueyzinneoremulnshxazmdruurykxbabvstjlcxauidkozfqkootmlyovynougilirnsypsennzcvzrnnhejvvmawswwzwivtpktadrfebpxofpmulcucrgsyfpztclatozgausgdqryzqjncxtispicvxqsidoamitrxkikchwkvqalnnkkuafcasuqwvvoaucjoflmgdvpycxxwpvgylsqbhcyfdsfyrarjqqfdkpvsxlktugeiwldfbyizlnvqpfhkouvxlfbdayyzonccwvgzgiuaszbfhtzqwxjzkdafjedmrimnetlkjkwdvjypwoynfzzvleycdytimwrgalowabozrwdgltnfjyvnieqqhlloqwegwfoknixgurhujbrgvrikggoxotxiuaplfwqfuflvfkfwkwoklhhzphczmbinntudpppiiiddadrqmhrmfsqdsnakhdkbbxdnbijruskrspwekfqiyqudruoafvvixxuwnrygsukrvfetotnccxtjszszpfmezadiqivbujahmkiwnvtkymjmvxay",
+    "confirm_password": "nihil"
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTapi-register">
+</span>
+<span id="execution-results-POSTapi-register" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-register"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-register"></code></pre>
+</span>
+<span id="execution-error-POSTapi-register" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-register"></code></pre>
+</span>
+<form id="form-POSTapi-register" data-method="POST"
+      data-path="api/register"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-register', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-register"
+                    onclick="tryItOut('POSTapi-register');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-register"
+                    onclick="cancelTryOut('POSTapi-register');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-register" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/register</code></b>
+        </p>
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <p>
+            <b><code>name</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text"
+               name="name"
+               data-endpoint="POSTapi-register"
+               value="dolor"
+               data-component="body" hidden>
+    <br>
+
+        </p>
+                <p>
+            <b><code>email</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text"
+               name="email"
+               data-endpoint="POSTapi-register"
+               value="mante.carli@example.com"
+               data-component="body" hidden>
+    <br>
+<p>Must be a valid email address.</p>
+        </p>
+                <p>
+            <b><code>password</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text"
+               name="password"
+               data-endpoint="POSTapi-register"
+               value="uthwwvenqabtcbjdlqlarddjaycrlwyltyjxxhszybscgvufmwruxmbgqziutkkfzspgonyaryvhqychmpwpqvlrczpwpkmphxhvmlmzfhufyigslwsjksvrsapukderadmihntfyupqaijjtojzxokntbxfxcdxqpwlmxpvccfbxwrnoqhsqqortovodpibsarbrnyxvrmpgnnlipweizstdeguwpxvluljupyhwshwftgsltvbzuqcrxvucotzgprknreefxjawqszpjqoihyfmkysbtlkwdtsgztsabfbgcyadmnoydxostbceodatfrgrbjyvdsoujtipgpqtucuncuzlngdgfwlkzytktngtqwopbdqcfjxrffccfdarwkuumgglbjoowdspgrvqtfkljsupnahwfyzvwddexlieirzsehcxsznhdkrsljecxvascobpzdxmkikfohdjmoxfzfypwjafqunkelfjucqbfuvxhnrjkrbkfqloczlzsaqrqizspbxwvrsxiaefvhrhgzvcmzttttfklabwomjnwbvbdissbpaazfhmxszwmwjqixmiiqnlnfbpffvrtucqzqbnmwhwvjstcbseckincmtkuoqazotlbwjiibcqyvdojdwnildhzfhgtocrwybmkfquizixeddegifrgtsnmaaydtsyqgtvsseqvlsnqctikstrcvazlfsabvsreusnfeoytsayovbauqhswhnojkfdtxihvmawzzisrrkzhgbmlsmnsyeqzsusrjaezgoxnzgsisftzvfropabrwvmcppvdmkuynufslwpelvphciuzdrnztwmuxybokotipkwlhxhdimwpsbdxsomjkvruocgjljzzgppsslziqejcxpkivgpjvnlueyzinneoremulnshxazmdruurykxbabvstjlcxauidkozfqkootmlyovynougilirnsypsennzcvzrnnhejvvmawswwzwivtpktadrfebpxofpmulcucrgsyfpztclatozgausgdqryzqjncxtispicvxqsidoamitrxkikchwkvqalnnkkuafcasuqwvvoaucjoflmgdvpycxxwpvgylsqbhcyfdsfyrarjqqfdkpvsxlktugeiwldfbyizlnvqpfhkouvxlfbdayyzonccwvgzgiuaszbfhtzqwxjzkdafjedmrimnetlkjkwdvjypwoynfzzvleycdytimwrgalowabozrwdgltnfjyvnieqqhlloqwegwfoknixgurhujbrgvrikggoxotxiuaplfwqfuflvfkfwkwoklhhzphczmbinntudpppiiiddadrqmhrmfsqdsnakhdkbbxdnbijruskrspwekfqiyqudruoafvvixxuwnrygsukrvfetotnccxtjszszpfmezadiqivbujahmkiwnvtkymjmvxay"
+               data-component="body" hidden>
+    <br>
+<p>Must be at least 8 characters.</p>
+        </p>
+                <p>
+            <b><code>confirm_password</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text"
+               name="confirm_password"
+               data-endpoint="POSTapi-register"
+               value="nihil"
+               data-component="body" hidden>
+    <br>
+<p>The value and <code>password</code> must match.</p>
+        </p>
+        </form>
+
+                    <h2 id="endpoints-POSTapi-login">POST api/login</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-POSTapi-login">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request POST \
+    "http://onenex-coding-test.test/api/login" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"email\": \"ymurphy@example.org\",
+    \"password\": \"hcivbryrxleawcpmnrjnnfmkgwgdfqbgtlvztfpbpjxzfowonbrzvnyyhjhgwolrklwymrntzejdkqclsteexsvyvjuhmvenwdacmoofagthpvgtbghvpukhwbuoewmfzqijnsgrpwjpwwazdixnzumfdcagihdztvkgwqxqkdooiebwwjnilzpamsdtebupnnccdziqhmeschmqzwrvrjcrbapqorttqkfztfoniyyidqsoitoafsrgbnrtrkghzkqreufmetfvjnjiqnahsinwshmoqdkojdrdhxrvutufdjrzydrzgjsfpyreontepocdrdtljwdkvufitxcworgyuxbmafzznmxblixjrvnjosuaowpsjrufirprcxltigswkgswvbmcwcubawusoqlujtbhrhpannnxsiapjmbhnkocsmsrxrrxwjdrchwtaloayvzvuvpzauxlbgwvmrolvrnvxlvoolqwdxmhnqchqgtyrreurlvxagfbpjyinwcvawpxmsvkgkgwvyeterbqvivchmozjpdoflntvotqyzjoriydqxvzgyjdizvrhhgltuwbljmuesjcglujsvpkccifkcqpbejajsuuuhjkkanvggtuxgqjjjscspnbujapcghhamhwfxmzrujmltocycsptgggrbgpnprzkcpfmdmxyfgtksstayvzppptkdlcxblngjhpwkozczitlkfnnsyctelhrrwvczrsogrplewtgifzrnvvjzogprspjsthvwfvxvvslwfsrhvuxghjpndtxwziagvwcksiosnkfdakmniudegwfecvzhdomhzrvbummqqssrlmpfgokmtrrcbjcuehusgmqikrdmtuddjstitvkeschtpvezdiafzfugxtsiumtxosggsyqdciowexauriidormygkrrrvycgkyzzupelbqaitsvcfpacvqsepexibzejphzmvkhagkpngkdldgzomulloilngzgpzfdvrbuxhwsawupjlncgeebjeakntlbsbwszurpwkwgegvkqrmqnvwbogscstiacpsxjkeljlrhdzdbnsudtfnsyceccxlhzssaarnkxrytveokdmocnvkonngpvthqzpucatkofyuprxeaqfafatckigtyxwyhzkiildyfosuxmbakduvbvvxoqkcfdcmsrirpdosfzoljcorjcpvoypjxblvxndmweludskbtkcstqivlocqphmkrcwionaztlqwyokgzrhxnqiyuiuhsiggskyifudlgwhobrjlkkxomzbhxlhekapstimqpskzetjiisdnbplzmsziwsalwpvtbqxvgnqpjwlzsyplmmbwxeqmubkjlvbukotjbkzwrrqgmlafcqubtylqkdcufdubcheyfhjygznvhvqudhyfecjscvqepfnmrnzxpndrjyagoseeqivnchvkuuprhkdjfxjzevrxkwxftrgixqscaveftragovtkuwgxqvgszudhmosxvnfhtmhkvuiglnslznlflungyhvkuopokpytqkugwnkcjjxpkqwujwlcptnjrmudoemgotzwyrgtbclxmtbkondwdmbkhnrlranmwrtsjabbfnpcznpcuveryknzavfztzrnzrtxqwrmfmanzgctaatpmpshvxjuqrhdkpwsdovhtqappjkbqgxzgpravoucysoddjzwqcwhwjgorifeqfuvskzyrmqocvfkzdukjrhmhblpfnekkuiijtvfwaluklovrqzysvqdxyiymuraafejgxudsbdwvffkieybqjyjrkudafoltwqeejzqyffaqekebujqmqxaaxzyfijtmcgqplekbdiqgozfzoqgzbdmuegclhuhcodrbtzwypmwbvwzyvumqcviabzexwimcmcuizbdvnupfsdkbphpeikiyoutknxiovsipxinytyyoenrxubtcakosmrnucwfghbmkydjgjdrvrilqwwgwryfikccycutcoudxlbsmgjtfvaffsxombhefslexrngnwjlxbnemwzkrhwlsvizxbcftxrimljrzylsxlnqycgrqnyzaniryaucoveooizbfkrrrlunvvbaphkbfsgwbpjzyrfolbccqlecyjudgsdikyrutosdpowmbozgxjzirpqhtlrjuvphfxlclbkcgokywzypdmmgeojlfqleefzrxxsyhahvqjvztkkxccvgdtyipmmitqzulgbhdsmrfamkpjnyzrxqorhpwvzvqckbraybznnkldbndhrhokwqbajhwhigucefmskuvsmgfukyvipipxegiojecvtpaicwrgtdmhzbiegvwtvabdidafskjaqkjlohnoedvrlvvnxeypfmoctsbclejkghxjmaeycpvdsaemrrztgmgjvkvijuxxxqjbluojonuvllitrbvvmymjmyzseminodyqweaumjpciyanzhtdbxmswvwrfrcnhmmgqdpylzesylfggqoqbywongiaaaroijifwbunryxnpylogbbyzisqxcctdnaxelypgblqfkjhfbkfdbgblnvexmxxinkctezguilmfknvckhgwxafjcezlvcycxckvygnxgbslrczyuzdnzwahqzkkorrlmqkgvejzyoqxvvkxuqscjerhndikqhuregjlzceyqhvhobcnjqaxkkpktxgzvthvytulmydjxsjxaicfrpoahoicyugnshqredntusdvejtkvcobstdcqryulriwmxvqfewmnqujpvgorahbvkaacgjhammbowvywavzxfikablgqimqskzfdmlmijelojrgslfxywobqgsjekrefmycbbiirxxixcotshyqgobwbvllvjmlxebkxyvmrsybyucvcwzjzpqyafxxkpyitxwcioxucdionvohgfmpwpgthpeovapognkcusdfeercbfkkyktyjrahrueiaawfrbvqsghbxklqldhovafpvviglibjxocubtnuglspagfvultszhjdzsdxfwllqmycldxsehfyrawsrsgkowazebbwkdcltcetcazztzahxaexpqsnrrrtqjdfzkxjzrubgwqpjyhvmqfsgshjjqtmcptnlncacviighonkugkehshyzcpywpvfffnfrnuunahnmmdurqmtjnykfmidxflmulnczgpkxpwcqueywbyceezewzcqfqssxjkgnjcmtgrqenarlvhongefgvkjprqqlvfafvhvdvlifpblxabhhpzmfwdyiiswbdurulwssnssfmrvzqzppjjjqpxxyheljlsloarozcaqntzoxejlxgmwydatrjalgcdccspshhanvsfvlipdkdpdhwdfsjwdjkhembtzpwoxxjeozcvfaixenskhnyrqbundtubbhyoyyqlkuanufvxbefngnywgitljamlrqummarefwhawgohaswvgwjatengjoexfvgqvyqhdmkmorusiaoubnpppnutzwktiztttmaragiynqqzxgrzltfyfyblgpmjmydscbdyqruxkdyblsmxgagrwmoizrqakfgxnjczzschpapljwtvxqotpazrgzpawpuksepwqdcpjhsjiuepdeapmdwbhgpkafkqlmqaencthxrghmwivgyvygedrxuqtzalmujovpnyxnauoqbyueojeibjxcccpyuiwylmnkikrrdwbpxobithtpvfsppjlvexbflngfaaptibnsvgbxxybhplnqfvdzzaaluyaypotobprocvqnvpoorpaykzzkkozpncwvsxpkdlqrelzxekhetprjpexgyudydxtrzvsoxwgjiswisuewocdswzkgpiowxryqpxdxqcmqydtjldmqpopasaechuqvkihkwpjytieicbwndxwfoseijfqrsbimwsepkkulqglfcawphniemiqexleldgyngitwuhqevuxhmhdrrypxihtkalmnmieaneuhghfyadmcicoqfcmvtpsdhssgiabmfdkpmzhvmuiildyvtqyyutrkvhtcjrowxlgtzgdowfmzxiihhcjtdtlyvhmidxxfrtjkbludyqetbhcbkjvjnmhyefqberucnbovqkhjfyocwgeppzhowbanfudoogqshtencjgfrscizxoatfwezjfmpcskgtvvzktqmykwuegtooprzbomdqxdmpisysaqvmcdmqzqybjlmepsuugqrvvpzsupdxldmdqybsdsoaaicygupagwszotzxxkkpzbxqyrmvxiwnjwdfqfuhmcrjovlbvlmvfsdutykdbaroncnzbrgdjtcbakpeqanhbtzwihdxxpttkdsfroadqyyfjngplmqshvwflhvcivbwpfhvxxkrhjqtnomrvhiwluajaxsivbbxkiulxqubeosoacdnnkdnwcstkoajzqjuywdglzbxlttvvmxucrzprrrghgaodamghbehydnykhvldbavoyfzseuvzvkwhcumvukmofjwrantykbrbhoseyzxorwkyqoulprovdtnpwysvchuxbgedkrzkoppsorhmklmbpyzfwcqygrrjbapayvhwjezahfxkccqzdekmeocsngayunjibpdvchwvrldoeqtypdqcjzgrfuvqwzzfgbutxbnquglorhdcfluhkujouodyijakytxnbbiqxsiohmvngwyivujlczwbwywwjhhjpkxnbpvvtvpbygswfxuntwgahbefueblmxamwyplovgukrlxvndkjwijzcopswfiyfmrrlkbvysrrgprhhxkcxylmpezmznqlvkxnlgbhzyykafrgzcydbypmhrglftivuieeqhyeorzedfxlzljfzaplzvsqocavqpdukiasvtycgojoothjrzdesbbdctttattkwaubvfrcfmwnjipfaimwtikzgzotdyvszzcxsitiyekbbzgmusuvsnlrdzacqhdyuwgbwvrwebiqulxogbmhfuwbyydkmxgjomgucwuhbrsdthpcpfujnypybrpokumgbsxxlvjsceyrdhodjwrzstxeefkvrrthayuofyinuekepgcabpweckmcqkcgvhcollufndeazzjjpjuzsorzkkdqakmpmgewhdrrpoeynxathvxczebdjxyydpmixxnseqydtqjlqhgtodmfodjjhzwahflglkhmpglrbrcrohyuyhizjjlriwwgmaxenizsqrmcqbuzercvmgvjtuorpkkhctdynucboldttjnaxgttwmfqvefhwzljorknfvpqrvcibospfvubmrgjnsbktgazoskuigzvydwhhzztgvqhbqrulguhonhapziymoynatjspcbymebpoigjjurmekjgblcceansgsgmizjzaqjyscwriwmbylpgtefrhavyndptwjrsxivzyfhkzwadolsjidzlfihjlhyxctlklilaweajhdorekukkjypkyecrvojcebxsidbvhuggroploehutzmxmsrmfbibsusqbtauphmftdglfkllpnwtvkqbsvtrlytbnvqcjuwruoqsokgauyniiwakkouwmgtjiqrtwnnrpcsplnqzluahutlusotlvwtqhomntzpsyebfyogcpthowpurimslowjvwnpvsqshbtllajtqnvhevdvzdfqjfwfggfeimyzvxdzdrkskxredrvhoxubcsfubufmdtbatskcjcbfzpefvkpadxpotenwxdvwsgfceaccavctjqudozxplursffcmzhpcxxbyxeekkszbjnogfecwmrlhrvrzpddgcxvisbcdbgioruyuassvaxqbdnrpbztlouashgwowjlvkknplzttqzsehrmnpqguchqrdbjbthbjmfopkftdjlywxsiwoegfujsktfunmqeeqbjaugffulsklidnsdqrnprezknvjiwhypzsgtoyiwumxpgrvhucgjhmxoxlkxxiyogbibbmeicbtfnnvadizfmmwppzvmnjrvndzoblsykunnlojavjkfxvqpepyaxyghdmyvlffccsbywauqqshoxsvyzjynhkvodgpmratkiepyhupcnawzgqptcvwteshqlbruadkiqflygrmdkhsqyiilflzcychgazektayqepwwwsutmdrishtjlibgnzjlsoryxsdjcmmdnktpxrigkhtkcciazacwkvogfczkmfzbdqxzomcopeqvbxjqaxkkvtgcxpbdmxswvzcbcntyuxorwjbcfmkldfrjtepoirxdkkkvndbfnioghmxwbiyzgfybupuunmeoravhzvbolgmrdkafgqwalqxyblpqeanwbfoaryejdiuaptpcanchoxmklrmiqhxvxqwosxtdekgyztmjlspiorbaoukfpxsymesdoiitewkoutnvtzxbvcbyjzewvemzidobuxybwmamlmixgpmyubpqqhybvgtqippeabilecvmpztrnvqjibbolrdciurukpzwwcgnrysudhytgzchmaeomktzwoeazsjbvquiphkqxefdkhbfoejaldyelzbflisvjjosrvifhiynutfadozbttpvleacgcjikbrthevlsepqwehbrgknayokadhlgkndzsvussavmqqdzlaaxyxoizofeaqjctinorudflvtcbzjggnhuzrbaudknwqexpsfbgsjbfyyodrmgkdntbqwplowsdpzppnbkgskqumomuwlrdsypxxrndgwnbcsdbrmnlmdaiukoijjfrgodsczzbfooqvxarndfuuekzjvfyjdgmspaqspeupqzielvcacstfsnrkzuozszfzradflymglnxnodrposdftvpizydijewjjsfsaqeajimtspczhmvhfwxajmkklnvkqydqjmawrzooqstwoxohqwtcgpfkfgizadiqqzrxwsapveaufledehtnlzpuevhuwhhieciqzfbkwxslglfuutoieuluyyajloyykiuzqtmfomwjatblrtblfkfucpizhapxdnpnfoeergoecstnnkhdizjdejaktgsithtaomgtsmyugkhgspchopnvddmbsoknmwjkqntvqfizxwjlcnpnbrsofdzsjtcimnnjliwywngrhfpjaockorakzpgmhwunknwgmbzwoeqcesoeveazizhsegbprkadzgulgurwxspxgasrtxlpdhctgudxpdomykbexkftprmijkuktevmlwrwniejxpzxjuciqawvvmjahkrnjgazvakkipmdiydebhxnzytslpjbixxrkhydtzuuhivydrqxgwcxisrqpsbuowydwjdiepjqsluriocujjrmmhwtsrxdtlcqlcaiqdvxftmxdeltctmwllgtmijyafsovwhojktunbxxyxmgzjbkylnjonjbdsfzylykdasjvdzejvmnlsfjptuphxhjidqnjifwrngdfwhjbwsriuyuxfuvyieaiiygladwuctgqxlxeopbbksybfergyxzjcuykstzpkatftlzsluexmlcmetygjutmlufnixnoyvfyqunirlhfzcesahsmhrsufyhuanflqzjnxqkqycwkjqwrulexlqxopszeslhezzctmaryogqhsbqiopnugvarnschpfvoghxwozjewssnfxaarelwqbvgnsclpjdctymavgmkhrtyltqxnwbeuucxwhdpsrapwkvuuglfmtkiyuidwhwzdqvbkqpvmnrzmzasbfjfxsjgbkxdequskbhlsmsoyktjthydoeuvruaoxnssdxacvgccyqfhiirneopnfpqclxisbrenlyfirhhajhlqogrwddtzwnhtqpautomubajheeurelsqrqkoetqakqglrueddinzoistminxlueaixzgrvuthaiipyyolcrnvqluotvklpkwkguxeqpgdgkdefzpipeasxnrbglilwgodkgupkcieokmqeemhfaxtyrlxwjczgudwoskjuaeopapmmouvzstywgjnzkncrngfbcneeleoskzpinygzmsvgukjvjqfxqtzzuccabgwcfewyvcxtoifkwijmtdyoyxkwpkrhzpzbbewqbfwggdrmgjvjxldxjjqiwpchwqpbhltqngbfyuwitxojhyzmwfybqulmqbwimnosmjlrkpgozvgslkeqdbmkqympmdiimovosoibxpwjqhsuecgqtyhfbykvunstjgtwmrzwbmykzoslltcchflhqpbuukhwhqakekkdrqxvsibseyihwfofqteoqbzhcunbrjncurtyzeexwjyktwsidhkzajpiksgrkcxckqrmacimuwrfxahzarvuhornxheyrvwhqynhpsqeskezvbrrqjttdczdojirtgfzshhrqakgodeejuouqibkbjejonltuwwtjvncqrjicfevzcqoiwmbrnnzfvpdwrthvubcltgyillgupobcgbornukwthjbqpjyqrwouxnrpumpfviwcijdmmoosskvprurfkvdyidnsbtxpmbxepmcrfzlvyireoourzvmshfyzdirkcftawvbyslpptftozcfmghxjexukonveiqwvbguvjogkgwazsbirjcacdlrwbwgtjfdwdbbtjhobhulzqbfqsxsagkppkptrtksurjnmpxzgjqnhaczenyuqdxfgzsyhgzbdzpismerzlbgbuucvzbqjezwpymutmykgtlyllgxemquxodpspnldiyktjmdbfqaxphkiunhjkumgolfmhwngbmbujhakphjlhaehbjlnnzrdydpwgqsvpjmxypnsdzpdbilzhkzkplynzkzsixqgcnuqxxmlzsoqvathusiqwxaojgxuzhubzju\"
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://onenex-coding-test.test/api/login"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "email": "ymurphy@example.org",
+    "password": "hcivbryrxleawcpmnrjnnfmkgwgdfqbgtlvztfpbpjxzfowonbrzvnyyhjhgwolrklwymrntzejdkqclsteexsvyvjuhmvenwdacmoofagthpvgtbghvpukhwbuoewmfzqijnsgrpwjpwwazdixnzumfdcagihdztvkgwqxqkdooiebwwjnilzpamsdtebupnnccdziqhmeschmqzwrvrjcrbapqorttqkfztfoniyyidqsoitoafsrgbnrtrkghzkqreufmetfvjnjiqnahsinwshmoqdkojdrdhxrvutufdjrzydrzgjsfpyreontepocdrdtljwdkvufitxcworgyuxbmafzznmxblixjrvnjosuaowpsjrufirprcxltigswkgswvbmcwcubawusoqlujtbhrhpannnxsiapjmbhnkocsmsrxrrxwjdrchwtaloayvzvuvpzauxlbgwvmrolvrnvxlvoolqwdxmhnqchqgtyrreurlvxagfbpjyinwcvawpxmsvkgkgwvyeterbqvivchmozjpdoflntvotqyzjoriydqxvzgyjdizvrhhgltuwbljmuesjcglujsvpkccifkcqpbejajsuuuhjkkanvggtuxgqjjjscspnbujapcghhamhwfxmzrujmltocycsptgggrbgpnprzkcpfmdmxyfgtksstayvzppptkdlcxblngjhpwkozczitlkfnnsyctelhrrwvczrsogrplewtgifzrnvvjzogprspjsthvwfvxvvslwfsrhvuxghjpndtxwziagvwcksiosnkfdakmniudegwfecvzhdomhzrvbummqqssrlmpfgokmtrrcbjcuehusgmqikrdmtuddjstitvkeschtpvezdiafzfugxtsiumtxosggsyqdciowexauriidormygkrrrvycgkyzzupelbqaitsvcfpacvqsepexibzejphzmvkhagkpngkdldgzomulloilngzgpzfdvrbuxhwsawupjlncgeebjeakntlbsbwszurpwkwgegvkqrmqnvwbogscstiacpsxjkeljlrhdzdbnsudtfnsyceccxlhzssaarnkxrytveokdmocnvkonngpvthqzpucatkofyuprxeaqfafatckigtyxwyhzkiildyfosuxmbakduvbvvxoqkcfdcmsrirpdosfzoljcorjcpvoypjxblvxndmweludskbtkcstqivlocqphmkrcwionaztlqwyokgzrhxnqiyuiuhsiggskyifudlgwhobrjlkkxomzbhxlhekapstimqpskzetjiisdnbplzmsziwsalwpvtbqxvgnqpjwlzsyplmmbwxeqmubkjlvbukotjbkzwrrqgmlafcqubtylqkdcufdubcheyfhjygznvhvqudhyfecjscvqepfnmrnzxpndrjyagoseeqivnchvkuuprhkdjfxjzevrxkwxftrgixqscaveftragovtkuwgxqvgszudhmosxvnfhtmhkvuiglnslznlflungyhvkuopokpytqkugwnkcjjxpkqwujwlcptnjrmudoemgotzwyrgtbclxmtbkondwdmbkhnrlranmwrtsjabbfnpcznpcuveryknzavfztzrnzrtxqwrmfmanzgctaatpmpshvxjuqrhdkpwsdovhtqappjkbqgxzgpravoucysoddjzwqcwhwjgorifeqfuvskzyrmqocvfkzdukjrhmhblpfnekkuiijtvfwaluklovrqzysvqdxyiymuraafejgxudsbdwvffkieybqjyjrkudafoltwqeejzqyffaqekebujqmqxaaxzyfijtmcgqplekbdiqgozfzoqgzbdmuegclhuhcodrbtzwypmwbvwzyvumqcviabzexwimcmcuizbdvnupfsdkbphpeikiyoutknxiovsipxinytyyoenrxubtcakosmrnucwfghbmkydjgjdrvrilqwwgwryfikccycutcoudxlbsmgjtfvaffsxombhefslexrngnwjlxbnemwzkrhwlsvizxbcftxrimljrzylsxlnqycgrqnyzaniryaucoveooizbfkrrrlunvvbaphkbfsgwbpjzyrfolbccqlecyjudgsdikyrutosdpowmbozgxjzirpqhtlrjuvphfxlclbkcgokywzypdmmgeojlfqleefzrxxsyhahvqjvztkkxccvgdtyipmmitqzulgbhdsmrfamkpjnyzrxqorhpwvzvqckbraybznnkldbndhrhokwqbajhwhigucefmskuvsmgfukyvipipxegiojecvtpaicwrgtdmhzbiegvwtvabdidafskjaqkjlohnoedvrlvvnxeypfmoctsbclejkghxjmaeycpvdsaemrrztgmgjvkvijuxxxqjbluojonuvllitrbvvmymjmyzseminodyqweaumjpciyanzhtdbxmswvwrfrcnhmmgqdpylzesylfggqoqbywongiaaaroijifwbunryxnpylogbbyzisqxcctdnaxelypgblqfkjhfbkfdbgblnvexmxxinkctezguilmfknvckhgwxafjcezlvcycxckvygnxgbslrczyuzdnzwahqzkkorrlmqkgvejzyoqxvvkxuqscjerhndikqhuregjlzceyqhvhobcnjqaxkkpktxgzvthvytulmydjxsjxaicfrpoahoicyugnshqredntusdvejtkvcobstdcqryulriwmxvqfewmnqujpvgorahbvkaacgjhammbowvywavzxfikablgqimqskzfdmlmijelojrgslfxywobqgsjekrefmycbbiirxxixcotshyqgobwbvllvjmlxebkxyvmrsybyucvcwzjzpqyafxxkpyitxwcioxucdionvohgfmpwpgthpeovapognkcusdfeercbfkkyktyjrahrueiaawfrbvqsghbxklqldhovafpvviglibjxocubtnuglspagfvultszhjdzsdxfwllqmycldxsehfyrawsrsgkowazebbwkdcltcetcazztzahxaexpqsnrrrtqjdfzkxjzrubgwqpjyhvmqfsgshjjqtmcptnlncacviighonkugkehshyzcpywpvfffnfrnuunahnmmdurqmtjnykfmidxflmulnczgpkxpwcqueywbyceezewzcqfqssxjkgnjcmtgrqenarlvhongefgvkjprqqlvfafvhvdvlifpblxabhhpzmfwdyiiswbdurulwssnssfmrvzqzppjjjqpxxyheljlsloarozcaqntzoxejlxgmwydatrjalgcdccspshhanvsfvlipdkdpdhwdfsjwdjkhembtzpwoxxjeozcvfaixenskhnyrqbundtubbhyoyyqlkuanufvxbefngnywgitljamlrqummarefwhawgohaswvgwjatengjoexfvgqvyqhdmkmorusiaoubnpppnutzwktiztttmaragiynqqzxgrzltfyfyblgpmjmydscbdyqruxkdyblsmxgagrwmoizrqakfgxnjczzschpapljwtvxqotpazrgzpawpuksepwqdcpjhsjiuepdeapmdwbhgpkafkqlmqaencthxrghmwivgyvygedrxuqtzalmujovpnyxnauoqbyueojeibjxcccpyuiwylmnkikrrdwbpxobithtpvfsppjlvexbflngfaaptibnsvgbxxybhplnqfvdzzaaluyaypotobprocvqnvpoorpaykzzkkozpncwvsxpkdlqrelzxekhetprjpexgyudydxtrzvsoxwgjiswisuewocdswzkgpiowxryqpxdxqcmqydtjldmqpopasaechuqvkihkwpjytieicbwndxwfoseijfqrsbimwsepkkulqglfcawphniemiqexleldgyngitwuhqevuxhmhdrrypxihtkalmnmieaneuhghfyadmcicoqfcmvtpsdhssgiabmfdkpmzhvmuiildyvtqyyutrkvhtcjrowxlgtzgdowfmzxiihhcjtdtlyvhmidxxfrtjkbludyqetbhcbkjvjnmhyefqberucnbovqkhjfyocwgeppzhowbanfudoogqshtencjgfrscizxoatfwezjfmpcskgtvvzktqmykwuegtooprzbomdqxdmpisysaqvmcdmqzqybjlmepsuugqrvvpzsupdxldmdqybsdsoaaicygupagwszotzxxkkpzbxqyrmvxiwnjwdfqfuhmcrjovlbvlmvfsdutykdbaroncnzbrgdjtcbakpeqanhbtzwihdxxpttkdsfroadqyyfjngplmqshvwflhvcivbwpfhvxxkrhjqtnomrvhiwluajaxsivbbxkiulxqubeosoacdnnkdnwcstkoajzqjuywdglzbxlttvvmxucrzprrrghgaodamghbehydnykhvldbavoyfzseuvzvkwhcumvukmofjwrantykbrbhoseyzxorwkyqoulprovdtnpwysvchuxbgedkrzkoppsorhmklmbpyzfwcqygrrjbapayvhwjezahfxkccqzdekmeocsngayunjibpdvchwvrldoeqtypdqcjzgrfuvqwzzfgbutxbnquglorhdcfluhkujouodyijakytxnbbiqxsiohmvngwyivujlczwbwywwjhhjpkxnbpvvtvpbygswfxuntwgahbefueblmxamwyplovgukrlxvndkjwijzcopswfiyfmrrlkbvysrrgprhhxkcxylmpezmznqlvkxnlgbhzyykafrgzcydbypmhrglftivuieeqhyeorzedfxlzljfzaplzvsqocavqpdukiasvtycgojoothjrzdesbbdctttattkwaubvfrcfmwnjipfaimwtikzgzotdyvszzcxsitiyekbbzgmusuvsnlrdzacqhdyuwgbwvrwebiqulxogbmhfuwbyydkmxgjomgucwuhbrsdthpcpfujnypybrpokumgbsxxlvjsceyrdhodjwrzstxeefkvrrthayuofyinuekepgcabpweckmcqkcgvhcollufndeazzjjpjuzsorzkkdqakmpmgewhdrrpoeynxathvxczebdjxyydpmixxnseqydtqjlqhgtodmfodjjhzwahflglkhmpglrbrcrohyuyhizjjlriwwgmaxenizsqrmcqbuzercvmgvjtuorpkkhctdynucboldttjnaxgttwmfqvefhwzljorknfvpqrvcibospfvubmrgjnsbktgazoskuigzvydwhhzztgvqhbqrulguhonhapziymoynatjspcbymebpoigjjurmekjgblcceansgsgmizjzaqjyscwriwmbylpgtefrhavyndptwjrsxivzyfhkzwadolsjidzlfihjlhyxctlklilaweajhdorekukkjypkyecrvojcebxsidbvhuggroploehutzmxmsrmfbibsusqbtauphmftdglfkllpnwtvkqbsvtrlytbnvqcjuwruoqsokgauyniiwakkouwmgtjiqrtwnnrpcsplnqzluahutlusotlvwtqhomntzpsyebfyogcpthowpurimslowjvwnpvsqshbtllajtqnvhevdvzdfqjfwfggfeimyzvxdzdrkskxredrvhoxubcsfubufmdtbatskcjcbfzpefvkpadxpotenwxdvwsgfceaccavctjqudozxplursffcmzhpcxxbyxeekkszbjnogfecwmrlhrvrzpddgcxvisbcdbgioruyuassvaxqbdnrpbztlouashgwowjlvkknplzttqzsehrmnpqguchqrdbjbthbjmfopkftdjlywxsiwoegfujsktfunmqeeqbjaugffulsklidnsdqrnprezknvjiwhypzsgtoyiwumxpgrvhucgjhmxoxlkxxiyogbibbmeicbtfnnvadizfmmwppzvmnjrvndzoblsykunnlojavjkfxvqpepyaxyghdmyvlffccsbywauqqshoxsvyzjynhkvodgpmratkiepyhupcnawzgqptcvwteshqlbruadkiqflygrmdkhsqyiilflzcychgazektayqepwwwsutmdrishtjlibgnzjlsoryxsdjcmmdnktpxrigkhtkcciazacwkvogfczkmfzbdqxzomcopeqvbxjqaxkkvtgcxpbdmxswvzcbcntyuxorwjbcfmkldfrjtepoirxdkkkvndbfnioghmxwbiyzgfybupuunmeoravhzvbolgmrdkafgqwalqxyblpqeanwbfoaryejdiuaptpcanchoxmklrmiqhxvxqwosxtdekgyztmjlspiorbaoukfpxsymesdoiitewkoutnvtzxbvcbyjzewvemzidobuxybwmamlmixgpmyubpqqhybvgtqippeabilecvmpztrnvqjibbolrdciurukpzwwcgnrysudhytgzchmaeomktzwoeazsjbvquiphkqxefdkhbfoejaldyelzbflisvjjosrvifhiynutfadozbttpvleacgcjikbrthevlsepqwehbrgknayokadhlgkndzsvussavmqqdzlaaxyxoizofeaqjctinorudflvtcbzjggnhuzrbaudknwqexpsfbgsjbfyyodrmgkdntbqwplowsdpzppnbkgskqumomuwlrdsypxxrndgwnbcsdbrmnlmdaiukoijjfrgodsczzbfooqvxarndfuuekzjvfyjdgmspaqspeupqzielvcacstfsnrkzuozszfzradflymglnxnodrposdftvpizydijewjjsfsaqeajimtspczhmvhfwxajmkklnvkqydqjmawrzooqstwoxohqwtcgpfkfgizadiqqzrxwsapveaufledehtnlzpuevhuwhhieciqzfbkwxslglfuutoieuluyyajloyykiuzqtmfomwjatblrtblfkfucpizhapxdnpnfoeergoecstnnkhdizjdejaktgsithtaomgtsmyugkhgspchopnvddmbsoknmwjkqntvqfizxwjlcnpnbrsofdzsjtcimnnjliwywngrhfpjaockorakzpgmhwunknwgmbzwoeqcesoeveazizhsegbprkadzgulgurwxspxgasrtxlpdhctgudxpdomykbexkftprmijkuktevmlwrwniejxpzxjuciqawvvmjahkrnjgazvakkipmdiydebhxnzytslpjbixxrkhydtzuuhivydrqxgwcxisrqpsbuowydwjdiepjqsluriocujjrmmhwtsrxdtlcqlcaiqdvxftmxdeltctmwllgtmijyafsovwhojktunbxxyxmgzjbkylnjonjbdsfzylykdasjvdzejvmnlsfjptuphxhjidqnjifwrngdfwhjbwsriuyuxfuvyieaiiygladwuctgqxlxeopbbksybfergyxzjcuykstzpkatftlzsluexmlcmetygjutmlufnixnoyvfyqunirlhfzcesahsmhrsufyhuanflqzjnxqkqycwkjqwrulexlqxopszeslhezzctmaryogqhsbqiopnugvarnschpfvoghxwozjewssnfxaarelwqbvgnsclpjdctymavgmkhrtyltqxnwbeuucxwhdpsrapwkvuuglfmtkiyuidwhwzdqvbkqpvmnrzmzasbfjfxsjgbkxdequskbhlsmsoyktjthydoeuvruaoxnssdxacvgccyqfhiirneopnfpqclxisbrenlyfirhhajhlqogrwddtzwnhtqpautomubajheeurelsqrqkoetqakqglrueddinzoistminxlueaixzgrvuthaiipyyolcrnvqluotvklpkwkguxeqpgdgkdefzpipeasxnrbglilwgodkgupkcieokmqeemhfaxtyrlxwjczgudwoskjuaeopapmmouvzstywgjnzkncrngfbcneeleoskzpinygzmsvgukjvjqfxqtzzuccabgwcfewyvcxtoifkwijmtdyoyxkwpkrhzpzbbewqbfwggdrmgjvjxldxjjqiwpchwqpbhltqngbfyuwitxojhyzmwfybqulmqbwimnosmjlrkpgozvgslkeqdbmkqympmdiimovosoibxpwjqhsuecgqtyhfbykvunstjgtwmrzwbmykzoslltcchflhqpbuukhwhqakekkdrqxvsibseyihwfofqteoqbzhcunbrjncurtyzeexwjyktwsidhkzajpiksgrkcxckqrmacimuwrfxahzarvuhornxheyrvwhqynhpsqeskezvbrrqjttdczdojirtgfzshhrqakgodeejuouqibkbjejonltuwwtjvncqrjicfevzcqoiwmbrnnzfvpdwrthvubcltgyillgupobcgbornukwthjbqpjyqrwouxnrpumpfviwcijdmmoosskvprurfkvdyidnsbtxpmbxepmcrfzlvyireoourzvmshfyzdirkcftawvbyslpptftozcfmghxjexukonveiqwvbguvjogkgwazsbirjcacdlrwbwgtjfdwdbbtjhobhulzqbfqsxsagkppkptrtksurjnmpxzgjqnhaczenyuqdxfgzsyhgzbdzpismerzlbgbuucvzbqjezwpymutmykgtlyllgxemquxodpspnldiyktjmdbfqaxphkiunhjkumgolfmhwngbmbujhakphjlhaehbjlnnzrdydpwgqsvpjmxypnsdzpdbilzhkzkplynzkzsixqgcnuqxxmlzsoqvathusiqwxaojgxuzhubzju"
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTapi-login">
+</span>
+<span id="execution-results-POSTapi-login" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-login"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-login"></code></pre>
+</span>
+<span id="execution-error-POSTapi-login" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-login"></code></pre>
+</span>
+<form id="form-POSTapi-login" data-method="POST"
+      data-path="api/login"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-login', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-login"
+                    onclick="tryItOut('POSTapi-login');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-login"
+                    onclick="cancelTryOut('POSTapi-login');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-login" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/login</code></b>
+        </p>
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <p>
+            <b><code>email</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text"
+               name="email"
+               data-endpoint="POSTapi-login"
+               value="ymurphy@example.org"
+               data-component="body" hidden>
+    <br>
+<p>Must be a valid email address.</p>
+        </p>
+                <p>
+            <b><code>password</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text"
+               name="password"
+               data-endpoint="POSTapi-login"
+               value="hcivbryrxleawcpmnrjnnfmkgwgdfqbgtlvztfpbpjxzfowonbrzvnyyhjhgwolrklwymrntzejdkqclsteexsvyvjuhmvenwdacmoofagthpvgtbghvpukhwbuoewmfzqijnsgrpwjpwwazdixnzumfdcagihdztvkgwqxqkdooiebwwjnilzpamsdtebupnnccdziqhmeschmqzwrvrjcrbapqorttqkfztfoniyyidqsoitoafsrgbnrtrkghzkqreufmetfvjnjiqnahsinwshmoqdkojdrdhxrvutufdjrzydrzgjsfpyreontepocdrdtljwdkvufitxcworgyuxbmafzznmxblixjrvnjosuaowpsjrufirprcxltigswkgswvbmcwcubawusoqlujtbhrhpannnxsiapjmbhnkocsmsrxrrxwjdrchwtaloayvzvuvpzauxlbgwvmrolvrnvxlvoolqwdxmhnqchqgtyrreurlvxagfbpjyinwcvawpxmsvkgkgwvyeterbqvivchmozjpdoflntvotqyzjoriydqxvzgyjdizvrhhgltuwbljmuesjcglujsvpkccifkcqpbejajsuuuhjkkanvggtuxgqjjjscspnbujapcghhamhwfxmzrujmltocycsptgggrbgpnprzkcpfmdmxyfgtksstayvzppptkdlcxblngjhpwkozczitlkfnnsyctelhrrwvczrsogrplewtgifzrnvvjzogprspjsthvwfvxvvslwfsrhvuxghjpndtxwziagvwcksiosnkfdakmniudegwfecvzhdomhzrvbummqqssrlmpfgokmtrrcbjcuehusgmqikrdmtuddjstitvkeschtpvezdiafzfugxtsiumtxosggsyqdciowexauriidormygkrrrvycgkyzzupelbqaitsvcfpacvqsepexibzejphzmvkhagkpngkdldgzomulloilngzgpzfdvrbuxhwsawupjlncgeebjeakntlbsbwszurpwkwgegvkqrmqnvwbogscstiacpsxjkeljlrhdzdbnsudtfnsyceccxlhzssaarnkxrytveokdmocnvkonngpvthqzpucatkofyuprxeaqfafatckigtyxwyhzkiildyfosuxmbakduvbvvxoqkcfdcmsrirpdosfzoljcorjcpvoypjxblvxndmweludskbtkcstqivlocqphmkrcwionaztlqwyokgzrhxnqiyuiuhsiggskyifudlgwhobrjlkkxomzbhxlhekapstimqpskzetjiisdnbplzmsziwsalwpvtbqxvgnqpjwlzsyplmmbwxeqmubkjlvbukotjbkzwrrqgmlafcqubtylqkdcufdubcheyfhjygznvhvqudhyfecjscvqepfnmrnzxpndrjyagoseeqivnchvkuuprhkdjfxjzevrxkwxftrgixqscaveftragovtkuwgxqvgszudhmosxvnfhtmhkvuiglnslznlflungyhvkuopokpytqkugwnkcjjxpkqwujwlcptnjrmudoemgotzwyrgtbclxmtbkondwdmbkhnrlranmwrtsjabbfnpcznpcuveryknzavfztzrnzrtxqwrmfmanzgctaatpmpshvxjuqrhdkpwsdovhtqappjkbqgxzgpravoucysoddjzwqcwhwjgorifeqfuvskzyrmqocvfkzdukjrhmhblpfnekkuiijtvfwaluklovrqzysvqdxyiymuraafejgxudsbdwvffkieybqjyjrkudafoltwqeejzqyffaqekebujqmqxaaxzyfijtmcgqplekbdiqgozfzoqgzbdmuegclhuhcodrbtzwypmwbvwzyvumqcviabzexwimcmcuizbdvnupfsdkbphpeikiyoutknxiovsipxinytyyoenrxubtcakosmrnucwfghbmkydjgjdrvrilqwwgwryfikccycutcoudxlbsmgjtfvaffsxombhefslexrngnwjlxbnemwzkrhwlsvizxbcftxrimljrzylsxlnqycgrqnyzaniryaucoveooizbfkrrrlunvvbaphkbfsgwbpjzyrfolbccqlecyjudgsdikyrutosdpowmbozgxjzirpqhtlrjuvphfxlclbkcgokywzypdmmgeojlfqleefzrxxsyhahvqjvztkkxccvgdtyipmmitqzulgbhdsmrfamkpjnyzrxqorhpwvzvqckbraybznnkldbndhrhokwqbajhwhigucefmskuvsmgfukyvipipxegiojecvtpaicwrgtdmhzbiegvwtvabdidafskjaqkjlohnoedvrlvvnxeypfmoctsbclejkghxjmaeycpvdsaemrrztgmgjvkvijuxxxqjbluojonuvllitrbvvmymjmyzseminodyqweaumjpciyanzhtdbxmswvwrfrcnhmmgqdpylzesylfggqoqbywongiaaaroijifwbunryxnpylogbbyzisqxcctdnaxelypgblqfkjhfbkfdbgblnvexmxxinkctezguilmfknvckhgwxafjcezlvcycxckvygnxgbslrczyuzdnzwahqzkkorrlmqkgvejzyoqxvvkxuqscjerhndikqhuregjlzceyqhvhobcnjqaxkkpktxgzvthvytulmydjxsjxaicfrpoahoicyugnshqredntusdvejtkvcobstdcqryulriwmxvqfewmnqujpvgorahbvkaacgjhammbowvywavzxfikablgqimqskzfdmlmijelojrgslfxywobqgsjekrefmycbbiirxxixcotshyqgobwbvllvjmlxebkxyvmrsybyucvcwzjzpqyafxxkpyitxwcioxucdionvohgfmpwpgthpeovapognkcusdfeercbfkkyktyjrahrueiaawfrbvqsghbxklqldhovafpvviglibjxocubtnuglspagfvultszhjdzsdxfwllqmycldxsehfyrawsrsgkowazebbwkdcltcetcazztzahxaexpqsnrrrtqjdfzkxjzrubgwqpjyhvmqfsgshjjqtmcptnlncacviighonkugkehshyzcpywpvfffnfrnuunahnmmdurqmtjnykfmidxflmulnczgpkxpwcqueywbyceezewzcqfqssxjkgnjcmtgrqenarlvhongefgvkjprqqlvfafvhvdvlifpblxabhhpzmfwdyiiswbdurulwssnssfmrvzqzppjjjqpxxyheljlsloarozcaqntzoxejlxgmwydatrjalgcdccspshhanvsfvlipdkdpdhwdfsjwdjkhembtzpwoxxjeozcvfaixenskhnyrqbundtubbhyoyyqlkuanufvxbefngnywgitljamlrqummarefwhawgohaswvgwjatengjoexfvgqvyqhdmkmorusiaoubnpppnutzwktiztttmaragiynqqzxgrzltfyfyblgpmjmydscbdyqruxkdyblsmxgagrwmoizrqakfgxnjczzschpapljwtvxqotpazrgzpawpuksepwqdcpjhsjiuepdeapmdwbhgpkafkqlmqaencthxrghmwivgyvygedrxuqtzalmujovpnyxnauoqbyueojeibjxcccpyuiwylmnkikrrdwbpxobithtpvfsppjlvexbflngfaaptibnsvgbxxybhplnqfvdzzaaluyaypotobprocvqnvpoorpaykzzkkozpncwvsxpkdlqrelzxekhetprjpexgyudydxtrzvsoxwgjiswisuewocdswzkgpiowxryqpxdxqcmqydtjldmqpopasaechuqvkihkwpjytieicbwndxwfoseijfqrsbimwsepkkulqglfcawphniemiqexleldgyngitwuhqevuxhmhdrrypxihtkalmnmieaneuhghfyadmcicoqfcmvtpsdhssgiabmfdkpmzhvmuiildyvtqyyutrkvhtcjrowxlgtzgdowfmzxiihhcjtdtlyvhmidxxfrtjkbludyqetbhcbkjvjnmhyefqberucnbovqkhjfyocwgeppzhowbanfudoogqshtencjgfrscizxoatfwezjfmpcskgtvvzktqmykwuegtooprzbomdqxdmpisysaqvmcdmqzqybjlmepsuugqrvvpzsupdxldmdqybsdsoaaicygupagwszotzxxkkpzbxqyrmvxiwnjwdfqfuhmcrjovlbvlmvfsdutykdbaroncnzbrgdjtcbakpeqanhbtzwihdxxpttkdsfroadqyyfjngplmqshvwflhvcivbwpfhvxxkrhjqtnomrvhiwluajaxsivbbxkiulxqubeosoacdnnkdnwcstkoajzqjuywdglzbxlttvvmxucrzprrrghgaodamghbehydnykhvldbavoyfzseuvzvkwhcumvukmofjwrantykbrbhoseyzxorwkyqoulprovdtnpwysvchuxbgedkrzkoppsorhmklmbpyzfwcqygrrjbapayvhwjezahfxkccqzdekmeocsngayunjibpdvchwvrldoeqtypdqcjzgrfuvqwzzfgbutxbnquglorhdcfluhkujouodyijakytxnbbiqxsiohmvngwyivujlczwbwywwjhhjpkxnbpvvtvpbygswfxuntwgahbefueblmxamwyplovgukrlxvndkjwijzcopswfiyfmrrlkbvysrrgprhhxkcxylmpezmznqlvkxnlgbhzyykafrgzcydbypmhrglftivuieeqhyeorzedfxlzljfzaplzvsqocavqpdukiasvtycgojoothjrzdesbbdctttattkwaubvfrcfmwnjipfaimwtikzgzotdyvszzcxsitiyekbbzgmusuvsnlrdzacqhdyuwgbwvrwebiqulxogbmhfuwbyydkmxgjomgucwuhbrsdthpcpfujnypybrpokumgbsxxlvjsceyrdhodjwrzstxeefkvrrthayuofyinuekepgcabpweckmcqkcgvhcollufndeazzjjpjuzsorzkkdqakmpmgewhdrrpoeynxathvxczebdjxyydpmixxnseqydtqjlqhgtodmfodjjhzwahflglkhmpglrbrcrohyuyhizjjlriwwgmaxenizsqrmcqbuzercvmgvjtuorpkkhctdynucboldttjnaxgttwmfqvefhwzljorknfvpqrvcibospfvubmrgjnsbktgazoskuigzvydwhhzztgvqhbqrulguhonhapziymoynatjspcbymebpoigjjurmekjgblcceansgsgmizjzaqjyscwriwmbylpgtefrhavyndptwjrsxivzyfhkzwadolsjidzlfihjlhyxctlklilaweajhdorekukkjypkyecrvojcebxsidbvhuggroploehutzmxmsrmfbibsusqbtauphmftdglfkllpnwtvkqbsvtrlytbnvqcjuwruoqsokgauyniiwakkouwmgtjiqrtwnnrpcsplnqzluahutlusotlvwtqhomntzpsyebfyogcpthowpurimslowjvwnpvsqshbtllajtqnvhevdvzdfqjfwfggfeimyzvxdzdrkskxredrvhoxubcsfubufmdtbatskcjcbfzpefvkpadxpotenwxdvwsgfceaccavctjqudozxplursffcmzhpcxxbyxeekkszbjnogfecwmrlhrvrzpddgcxvisbcdbgioruyuassvaxqbdnrpbztlouashgwowjlvkknplzttqzsehrmnpqguchqrdbjbthbjmfopkftdjlywxsiwoegfujsktfunmqeeqbjaugffulsklidnsdqrnprezknvjiwhypzsgtoyiwumxpgrvhucgjhmxoxlkxxiyogbibbmeicbtfnnvadizfmmwppzvmnjrvndzoblsykunnlojavjkfxvqpepyaxyghdmyvlffccsbywauqqshoxsvyzjynhkvodgpmratkiepyhupcnawzgqptcvwteshqlbruadkiqflygrmdkhsqyiilflzcychgazektayqepwwwsutmdrishtjlibgnzjlsoryxsdjcmmdnktpxrigkhtkcciazacwkvogfczkmfzbdqxzomcopeqvbxjqaxkkvtgcxpbdmxswvzcbcntyuxorwjbcfmkldfrjtepoirxdkkkvndbfnioghmxwbiyzgfybupuunmeoravhzvbolgmrdkafgqwalqxyblpqeanwbfoaryejdiuaptpcanchoxmklrmiqhxvxqwosxtdekgyztmjlspiorbaoukfpxsymesdoiitewkoutnvtzxbvcbyjzewvemzidobuxybwmamlmixgpmyubpqqhybvgtqippeabilecvmpztrnvqjibbolrdciurukpzwwcgnrysudhytgzchmaeomktzwoeazsjbvquiphkqxefdkhbfoejaldyelzbflisvjjosrvifhiynutfadozbttpvleacgcjikbrthevlsepqwehbrgknayokadhlgkndzsvussavmqqdzlaaxyxoizofeaqjctinorudflvtcbzjggnhuzrbaudknwqexpsfbgsjbfyyodrmgkdntbqwplowsdpzppnbkgskqumomuwlrdsypxxrndgwnbcsdbrmnlmdaiukoijjfrgodsczzbfooqvxarndfuuekzjvfyjdgmspaqspeupqzielvcacstfsnrkzuozszfzradflymglnxnodrposdftvpizydijewjjsfsaqeajimtspczhmvhfwxajmkklnvkqydqjmawrzooqstwoxohqwtcgpfkfgizadiqqzrxwsapveaufledehtnlzpuevhuwhhieciqzfbkwxslglfuutoieuluyyajloyykiuzqtmfomwjatblrtblfkfucpizhapxdnpnfoeergoecstnnkhdizjdejaktgsithtaomgtsmyugkhgspchopnvddmbsoknmwjkqntvqfizxwjlcnpnbrsofdzsjtcimnnjliwywngrhfpjaockorakzpgmhwunknwgmbzwoeqcesoeveazizhsegbprkadzgulgurwxspxgasrtxlpdhctgudxpdomykbexkftprmijkuktevmlwrwniejxpzxjuciqawvvmjahkrnjgazvakkipmdiydebhxnzytslpjbixxrkhydtzuuhivydrqxgwcxisrqpsbuowydwjdiepjqsluriocujjrmmhwtsrxdtlcqlcaiqdvxftmxdeltctmwllgtmijyafsovwhojktunbxxyxmgzjbkylnjonjbdsfzylykdasjvdzejvmnlsfjptuphxhjidqnjifwrngdfwhjbwsriuyuxfuvyieaiiygladwuctgqxlxeopbbksybfergyxzjcuykstzpkatftlzsluexmlcmetygjutmlufnixnoyvfyqunirlhfzcesahsmhrsufyhuanflqzjnxqkqycwkjqwrulexlqxopszeslhezzctmaryogqhsbqiopnugvarnschpfvoghxwozjewssnfxaarelwqbvgnsclpjdctymavgmkhrtyltqxnwbeuucxwhdpsrapwkvuuglfmtkiyuidwhwzdqvbkqpvmnrzmzasbfjfxsjgbkxdequskbhlsmsoyktjthydoeuvruaoxnssdxacvgccyqfhiirneopnfpqclxisbrenlyfirhhajhlqogrwddtzwnhtqpautomubajheeurelsqrqkoetqakqglrueddinzoistminxlueaixzgrvuthaiipyyolcrnvqluotvklpkwkguxeqpgdgkdefzpipeasxnrbglilwgodkgupkcieokmqeemhfaxtyrlxwjczgudwoskjuaeopapmmouvzstywgjnzkncrngfbcneeleoskzpinygzmsvgukjvjqfxqtzzuccabgwcfewyvcxtoifkwijmtdyoyxkwpkrhzpzbbewqbfwggdrmgjvjxldxjjqiwpchwqpbhltqngbfyuwitxojhyzmwfybqulmqbwimnosmjlrkpgozvgslkeqdbmkqympmdiimovosoibxpwjqhsuecgqtyhfbykvunstjgtwmrzwbmykzoslltcchflhqpbuukhwhqakekkdrqxvsibseyihwfofqteoqbzhcunbrjncurtyzeexwjyktwsidhkzajpiksgrkcxckqrmacimuwrfxahzarvuhornxheyrvwhqynhpsqeskezvbrrqjttdczdojirtgfzshhrqakgodeejuouqibkbjejonltuwwtjvncqrjicfevzcqoiwmbrnnzfvpdwrthvubcltgyillgupobcgbornukwthjbqpjyqrwouxnrpumpfviwcijdmmoosskvprurfkvdyidnsbtxpmbxepmcrfzlvyireoourzvmshfyzdirkcftawvbyslpptftozcfmghxjexukonveiqwvbguvjogkgwazsbirjcacdlrwbwgtjfdwdbbtjhobhulzqbfqsxsagkppkptrtksurjnmpxzgjqnhaczenyuqdxfgzsyhgzbdzpismerzlbgbuucvzbqjezwpymutmykgtlyllgxemquxodpspnldiyktjmdbfqaxphkiunhjkumgolfmhwngbmbujhakphjlhaehbjlnnzrdydpwgqsvpjmxypnsdzpdbilzhkzkplynzkzsixqgcnuqxxmlzsoqvathusiqwxaojgxuzhubzju"
+               data-component="body" hidden>
+    <br>
+<p>Must be at least 8 characters.</p>
+        </p>
+        </form>
+
+                    <h2 id="endpoints-GETapi-movie-list">GET api/movie/list</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-GETapi-movie-list">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://onenex-coding-test.test/api/movie/list" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://onenex-coding-test.test/api/movie/list"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-movie-list">
+            <blockquote>
+            <p>Example response (500):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary>
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+x-ratelimit-limit: 60
+x-ratelimit-remaining: 58
+access-control-allow-origin: *
+ </code></pre>
+        </details>         <pre>
+
+<code class="language-json">{
+    &quot;message&quot;: &quot;&quot;,
+    &quot;exception&quot;: &quot;Illuminate\\Validation\\UnauthorizedException&quot;,
+    &quot;file&quot;: &quot;/Users/thuyaaung/Desktop/test/onenex-coding-test/app/Http/Middleware/CheckApiKeyMiddleware.php&quot;,
+    &quot;line&quot;: 24,
+    &quot;trace&quot;: [
+        {
+            &quot;file&quot;: &quot;/Users/thuyaaung/Desktop/test/onenex-coding-test/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php&quot;,
+            &quot;line&quot;: 180,
+            &quot;function&quot;: &quot;handle&quot;,
+            &quot;class&quot;: &quot;App\\Http\\Middleware\\CheckApiKeyMiddleware&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/Users/thuyaaung/Desktop/test/onenex-coding-test/vendor/laravel/framework/src/Illuminate/Routing/Middleware/SubstituteBindings.php&quot;,
+            &quot;line&quot;: 50,
+            &quot;function&quot;: &quot;Illuminate\\Pipeline\\{closure}&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/Users/thuyaaung/Desktop/test/onenex-coding-test/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php&quot;,
+            &quot;line&quot;: 180,
+            &quot;function&quot;: &quot;handle&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Routing\\Middleware\\SubstituteBindings&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/Users/thuyaaung/Desktop/test/onenex-coding-test/vendor/laravel/framework/src/Illuminate/Routing/Middleware/ThrottleRequests.php&quot;,
+            &quot;line&quot;: 126,
+            &quot;function&quot;: &quot;Illuminate\\Pipeline\\{closure}&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/Users/thuyaaung/Desktop/test/onenex-coding-test/vendor/laravel/framework/src/Illuminate/Routing/Middleware/ThrottleRequests.php&quot;,
+            &quot;line&quot;: 102,
+            &quot;function&quot;: &quot;handleRequest&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Routing\\Middleware\\ThrottleRequests&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/Users/thuyaaung/Desktop/test/onenex-coding-test/vendor/laravel/framework/src/Illuminate/Routing/Middleware/ThrottleRequests.php&quot;,
+            &quot;line&quot;: 54,
+            &quot;function&quot;: &quot;handleRequestUsingNamedLimiter&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Routing\\Middleware\\ThrottleRequests&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/Users/thuyaaung/Desktop/test/onenex-coding-test/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php&quot;,
+            &quot;line&quot;: 180,
+            &quot;function&quot;: &quot;handle&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Routing\\Middleware\\ThrottleRequests&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/Users/thuyaaung/Desktop/test/onenex-coding-test/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php&quot;,
+            &quot;line&quot;: 116,
+            &quot;function&quot;: &quot;Illuminate\\Pipeline\\{closure}&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/Users/thuyaaung/Desktop/test/onenex-coding-test/vendor/laravel/framework/src/Illuminate/Routing/Router.php&quot;,
+            &quot;line&quot;: 726,
+            &quot;function&quot;: &quot;then&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/Users/thuyaaung/Desktop/test/onenex-coding-test/vendor/laravel/framework/src/Illuminate/Routing/Router.php&quot;,
+            &quot;line&quot;: 703,
+            &quot;function&quot;: &quot;runRouteWithinStack&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Routing\\Router&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/Users/thuyaaung/Desktop/test/onenex-coding-test/vendor/laravel/framework/src/Illuminate/Routing/Router.php&quot;,
+            &quot;line&quot;: 667,
+            &quot;function&quot;: &quot;runRoute&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Routing\\Router&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/Users/thuyaaung/Desktop/test/onenex-coding-test/vendor/laravel/framework/src/Illuminate/Routing/Router.php&quot;,
+            &quot;line&quot;: 656,
+            &quot;function&quot;: &quot;dispatchToRoute&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Routing\\Router&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/Users/thuyaaung/Desktop/test/onenex-coding-test/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php&quot;,
+            &quot;line&quot;: 190,
+            &quot;function&quot;: &quot;dispatch&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Routing\\Router&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/Users/thuyaaung/Desktop/test/onenex-coding-test/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php&quot;,
+            &quot;line&quot;: 141,
+            &quot;function&quot;: &quot;Illuminate\\Foundation\\Http\\{closure}&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Foundation\\Http\\Kernel&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/Users/thuyaaung/Desktop/test/onenex-coding-test/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php&quot;,
+            &quot;line&quot;: 21,
+            &quot;function&quot;: &quot;Illuminate\\Pipeline\\{closure}&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/Users/thuyaaung/Desktop/test/onenex-coding-test/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/ConvertEmptyStringsToNull.php&quot;,
+            &quot;line&quot;: 31,
+            &quot;function&quot;: &quot;handle&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/Users/thuyaaung/Desktop/test/onenex-coding-test/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php&quot;,
+            &quot;line&quot;: 180,
+            &quot;function&quot;: &quot;handle&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/Users/thuyaaung/Desktop/test/onenex-coding-test/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php&quot;,
+            &quot;line&quot;: 21,
+            &quot;function&quot;: &quot;Illuminate\\Pipeline\\{closure}&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/Users/thuyaaung/Desktop/test/onenex-coding-test/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TrimStrings.php&quot;,
+            &quot;line&quot;: 40,
+            &quot;function&quot;: &quot;handle&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/Users/thuyaaung/Desktop/test/onenex-coding-test/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php&quot;,
+            &quot;line&quot;: 180,
+            &quot;function&quot;: &quot;handle&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Foundation\\Http\\Middleware\\TrimStrings&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/Users/thuyaaung/Desktop/test/onenex-coding-test/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/ValidatePostSize.php&quot;,
+            &quot;line&quot;: 27,
+            &quot;function&quot;: &quot;Illuminate\\Pipeline\\{closure}&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/Users/thuyaaung/Desktop/test/onenex-coding-test/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php&quot;,
+            &quot;line&quot;: 180,
+            &quot;function&quot;: &quot;handle&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/Users/thuyaaung/Desktop/test/onenex-coding-test/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/PreventRequestsDuringMaintenance.php&quot;,
+            &quot;line&quot;: 86,
+            &quot;function&quot;: &quot;Illuminate\\Pipeline\\{closure}&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/Users/thuyaaung/Desktop/test/onenex-coding-test/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php&quot;,
+            &quot;line&quot;: 180,
+            &quot;function&quot;: &quot;handle&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/Users/thuyaaung/Desktop/test/onenex-coding-test/vendor/laravel/framework/src/Illuminate/Http/Middleware/HandleCors.php&quot;,
+            &quot;line&quot;: 62,
+            &quot;function&quot;: &quot;Illuminate\\Pipeline\\{closure}&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/Users/thuyaaung/Desktop/test/onenex-coding-test/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php&quot;,
+            &quot;line&quot;: 180,
+            &quot;function&quot;: &quot;handle&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Http\\Middleware\\HandleCors&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/Users/thuyaaung/Desktop/test/onenex-coding-test/vendor/laravel/framework/src/Illuminate/Http/Middleware/TrustProxies.php&quot;,
+            &quot;line&quot;: 39,
+            &quot;function&quot;: &quot;Illuminate\\Pipeline\\{closure}&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/Users/thuyaaung/Desktop/test/onenex-coding-test/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php&quot;,
+            &quot;line&quot;: 180,
+            &quot;function&quot;: &quot;handle&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Http\\Middleware\\TrustProxies&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/Users/thuyaaung/Desktop/test/onenex-coding-test/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php&quot;,
+            &quot;line&quot;: 116,
+            &quot;function&quot;: &quot;Illuminate\\Pipeline\\{closure}&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/Users/thuyaaung/Desktop/test/onenex-coding-test/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php&quot;,
+            &quot;line&quot;: 165,
+            &quot;function&quot;: &quot;then&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/Users/thuyaaung/Desktop/test/onenex-coding-test/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php&quot;,
+            &quot;line&quot;: 134,
+            &quot;function&quot;: &quot;sendRequestThroughRouter&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Foundation\\Http\\Kernel&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/Users/thuyaaung/Desktop/test/onenex-coding-test/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php&quot;,
+            &quot;line&quot;: 303,
+            &quot;function&quot;: &quot;handle&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Foundation\\Http\\Kernel&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/Users/thuyaaung/Desktop/test/onenex-coding-test/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php&quot;,
+            &quot;line&quot;: 291,
+            &quot;function&quot;: &quot;callLaravelOrLumenRoute&quot;,
+            &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/Users/thuyaaung/Desktop/test/onenex-coding-test/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php&quot;,
+            &quot;line&quot;: 89,
+            &quot;function&quot;: &quot;makeApiCall&quot;,
+            &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/Users/thuyaaung/Desktop/test/onenex-coding-test/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php&quot;,
+            &quot;line&quot;: 45,
+            &quot;function&quot;: &quot;makeResponseCall&quot;,
+            &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/Users/thuyaaung/Desktop/test/onenex-coding-test/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php&quot;,
+            &quot;line&quot;: 35,
+            &quot;function&quot;: &quot;makeResponseCallIfConditionsPass&quot;,
+            &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/Users/thuyaaung/Desktop/test/onenex-coding-test/vendor/knuckleswtf/scribe/src/Extracting/Extractor.php&quot;,
+            &quot;line&quot;: 209,
+            &quot;function&quot;: &quot;__invoke&quot;,
+            &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/Users/thuyaaung/Desktop/test/onenex-coding-test/vendor/knuckleswtf/scribe/src/Extracting/Extractor.php&quot;,
+            &quot;line&quot;: 166,
+            &quot;function&quot;: &quot;iterateThroughStrategies&quot;,
+            &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Extractor&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/Users/thuyaaung/Desktop/test/onenex-coding-test/vendor/knuckleswtf/scribe/src/Extracting/Extractor.php&quot;,
+            &quot;line&quot;: 95,
+            &quot;function&quot;: &quot;fetchResponses&quot;,
+            &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Extractor&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/Users/thuyaaung/Desktop/test/onenex-coding-test/vendor/knuckleswtf/scribe/src/GroupedEndpoints/GroupedEndpointsFromApp.php&quot;,
+            &quot;line&quot;: 122,
+            &quot;function&quot;: &quot;processRoute&quot;,
+            &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Extractor&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/Users/thuyaaung/Desktop/test/onenex-coding-test/vendor/knuckleswtf/scribe/src/GroupedEndpoints/GroupedEndpointsFromApp.php&quot;,
+            &quot;line&quot;: 69,
+            &quot;function&quot;: &quot;extractEndpointsInfoFromLaravelApp&quot;,
+            &quot;class&quot;: &quot;Knuckles\\Scribe\\GroupedEndpoints\\GroupedEndpointsFromApp&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/Users/thuyaaung/Desktop/test/onenex-coding-test/vendor/knuckleswtf/scribe/src/GroupedEndpoints/GroupedEndpointsFromApp.php&quot;,
+            &quot;line&quot;: 47,
+            &quot;function&quot;: &quot;extractEndpointsInfoAndWriteToDisk&quot;,
+            &quot;class&quot;: &quot;Knuckles\\Scribe\\GroupedEndpoints\\GroupedEndpointsFromApp&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/Users/thuyaaung/Desktop/test/onenex-coding-test/vendor/knuckleswtf/scribe/src/Commands/GenerateDocumentation.php&quot;,
+            &quot;line&quot;: 53,
+            &quot;function&quot;: &quot;get&quot;,
+            &quot;class&quot;: &quot;Knuckles\\Scribe\\GroupedEndpoints\\GroupedEndpointsFromApp&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/Users/thuyaaung/Desktop/test/onenex-coding-test/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php&quot;,
+            &quot;line&quot;: 36,
+            &quot;function&quot;: &quot;handle&quot;,
+            &quot;class&quot;: &quot;Knuckles\\Scribe\\Commands\\GenerateDocumentation&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/Users/thuyaaung/Desktop/test/onenex-coding-test/vendor/laravel/framework/src/Illuminate/Container/Util.php&quot;,
+            &quot;line&quot;: 41,
+            &quot;function&quot;: &quot;Illuminate\\Container\\{closure}&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Container\\BoundMethod&quot;,
+            &quot;type&quot;: &quot;::&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/Users/thuyaaung/Desktop/test/onenex-coding-test/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php&quot;,
+            &quot;line&quot;: 93,
+            &quot;function&quot;: &quot;unwrapIfClosure&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Container\\Util&quot;,
+            &quot;type&quot;: &quot;::&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/Users/thuyaaung/Desktop/test/onenex-coding-test/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php&quot;,
+            &quot;line&quot;: 37,
+            &quot;function&quot;: &quot;callBoundMethod&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Container\\BoundMethod&quot;,
+            &quot;type&quot;: &quot;::&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/Users/thuyaaung/Desktop/test/onenex-coding-test/vendor/laravel/framework/src/Illuminate/Container/Container.php&quot;,
+            &quot;line&quot;: 651,
+            &quot;function&quot;: &quot;call&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Container\\BoundMethod&quot;,
+            &quot;type&quot;: &quot;::&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/Users/thuyaaung/Desktop/test/onenex-coding-test/vendor/laravel/framework/src/Illuminate/Console/Command.php&quot;,
+            &quot;line&quot;: 144,
+            &quot;function&quot;: &quot;call&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Container\\Container&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/Users/thuyaaung/Desktop/test/onenex-coding-test/vendor/symfony/console/Command/Command.php&quot;,
+            &quot;line&quot;: 308,
+            &quot;function&quot;: &quot;execute&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Console\\Command&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/Users/thuyaaung/Desktop/test/onenex-coding-test/vendor/laravel/framework/src/Illuminate/Console/Command.php&quot;,
+            &quot;line&quot;: 126,
+            &quot;function&quot;: &quot;run&quot;,
+            &quot;class&quot;: &quot;Symfony\\Component\\Console\\Command\\Command&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/Users/thuyaaung/Desktop/test/onenex-coding-test/vendor/symfony/console/Application.php&quot;,
+            &quot;line&quot;: 1002,
+            &quot;function&quot;: &quot;run&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Console\\Command&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/Users/thuyaaung/Desktop/test/onenex-coding-test/vendor/symfony/console/Application.php&quot;,
+            &quot;line&quot;: 299,
+            &quot;function&quot;: &quot;doRunCommand&quot;,
+            &quot;class&quot;: &quot;Symfony\\Component\\Console\\Application&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/Users/thuyaaung/Desktop/test/onenex-coding-test/vendor/symfony/console/Application.php&quot;,
+            &quot;line&quot;: 171,
+            &quot;function&quot;: &quot;doRun&quot;,
+            &quot;class&quot;: &quot;Symfony\\Component\\Console\\Application&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/Users/thuyaaung/Desktop/test/onenex-coding-test/vendor/laravel/framework/src/Illuminate/Console/Application.php&quot;,
+            &quot;line&quot;: 102,
+            &quot;function&quot;: &quot;run&quot;,
+            &quot;class&quot;: &quot;Symfony\\Component\\Console\\Application&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/Users/thuyaaung/Desktop/test/onenex-coding-test/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php&quot;,
+            &quot;line&quot;: 155,
+            &quot;function&quot;: &quot;run&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Console\\Application&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/Users/thuyaaung/Desktop/test/onenex-coding-test/artisan&quot;,
+            &quot;line&quot;: 37,
+            &quot;function&quot;: &quot;handle&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Foundation\\Console\\Kernel&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        }
+    ]
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-movie-list" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-movie-list"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-movie-list"></code></pre>
+</span>
+<span id="execution-error-GETapi-movie-list" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-movie-list"></code></pre>
+</span>
+<form id="form-GETapi-movie-list" data-method="GET"
+      data-path="api/movie/list"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-movie-list', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-movie-list"
+                    onclick="tryItOut('GETapi-movie-list');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-movie-list"
+                    onclick="cancelTryOut('GETapi-movie-list');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-movie-list" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/movie/list</code></b>
+        </p>
+                    </form>
+
+                    <h2 id="endpoints-GETapi-movie--movie_id--detail">GET api/movie/{movie_id}/detail</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-GETapi-movie--movie_id--detail">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://onenex-coding-test.test/api/movie/1/detail" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://onenex-coding-test.test/api/movie/1/detail"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-movie--movie_id--detail">
+            <blockquote>
+            <p>Example response (500):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary>
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+x-ratelimit-limit: 60
+x-ratelimit-remaining: 57
+access-control-allow-origin: *
+ </code></pre>
+        </details>         <pre>
+
+<code class="language-json">{
+    &quot;message&quot;: &quot;&quot;,
+    &quot;exception&quot;: &quot;Illuminate\\Validation\\UnauthorizedException&quot;,
+    &quot;file&quot;: &quot;/Users/thuyaaung/Desktop/test/onenex-coding-test/app/Http/Middleware/CheckApiKeyMiddleware.php&quot;,
+    &quot;line&quot;: 24,
+    &quot;trace&quot;: [
+        {
+            &quot;file&quot;: &quot;/Users/thuyaaung/Desktop/test/onenex-coding-test/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php&quot;,
+            &quot;line&quot;: 180,
+            &quot;function&quot;: &quot;handle&quot;,
+            &quot;class&quot;: &quot;App\\Http\\Middleware\\CheckApiKeyMiddleware&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/Users/thuyaaung/Desktop/test/onenex-coding-test/vendor/laravel/framework/src/Illuminate/Routing/Middleware/SubstituteBindings.php&quot;,
+            &quot;line&quot;: 50,
+            &quot;function&quot;: &quot;Illuminate\\Pipeline\\{closure}&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/Users/thuyaaung/Desktop/test/onenex-coding-test/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php&quot;,
+            &quot;line&quot;: 180,
+            &quot;function&quot;: &quot;handle&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Routing\\Middleware\\SubstituteBindings&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/Users/thuyaaung/Desktop/test/onenex-coding-test/vendor/laravel/framework/src/Illuminate/Routing/Middleware/ThrottleRequests.php&quot;,
+            &quot;line&quot;: 126,
+            &quot;function&quot;: &quot;Illuminate\\Pipeline\\{closure}&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/Users/thuyaaung/Desktop/test/onenex-coding-test/vendor/laravel/framework/src/Illuminate/Routing/Middleware/ThrottleRequests.php&quot;,
+            &quot;line&quot;: 102,
+            &quot;function&quot;: &quot;handleRequest&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Routing\\Middleware\\ThrottleRequests&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/Users/thuyaaung/Desktop/test/onenex-coding-test/vendor/laravel/framework/src/Illuminate/Routing/Middleware/ThrottleRequests.php&quot;,
+            &quot;line&quot;: 54,
+            &quot;function&quot;: &quot;handleRequestUsingNamedLimiter&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Routing\\Middleware\\ThrottleRequests&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/Users/thuyaaung/Desktop/test/onenex-coding-test/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php&quot;,
+            &quot;line&quot;: 180,
+            &quot;function&quot;: &quot;handle&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Routing\\Middleware\\ThrottleRequests&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/Users/thuyaaung/Desktop/test/onenex-coding-test/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php&quot;,
+            &quot;line&quot;: 116,
+            &quot;function&quot;: &quot;Illuminate\\Pipeline\\{closure}&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/Users/thuyaaung/Desktop/test/onenex-coding-test/vendor/laravel/framework/src/Illuminate/Routing/Router.php&quot;,
+            &quot;line&quot;: 726,
+            &quot;function&quot;: &quot;then&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/Users/thuyaaung/Desktop/test/onenex-coding-test/vendor/laravel/framework/src/Illuminate/Routing/Router.php&quot;,
+            &quot;line&quot;: 703,
+            &quot;function&quot;: &quot;runRouteWithinStack&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Routing\\Router&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/Users/thuyaaung/Desktop/test/onenex-coding-test/vendor/laravel/framework/src/Illuminate/Routing/Router.php&quot;,
+            &quot;line&quot;: 667,
+            &quot;function&quot;: &quot;runRoute&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Routing\\Router&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/Users/thuyaaung/Desktop/test/onenex-coding-test/vendor/laravel/framework/src/Illuminate/Routing/Router.php&quot;,
+            &quot;line&quot;: 656,
+            &quot;function&quot;: &quot;dispatchToRoute&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Routing\\Router&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/Users/thuyaaung/Desktop/test/onenex-coding-test/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php&quot;,
+            &quot;line&quot;: 190,
+            &quot;function&quot;: &quot;dispatch&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Routing\\Router&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/Users/thuyaaung/Desktop/test/onenex-coding-test/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php&quot;,
+            &quot;line&quot;: 141,
+            &quot;function&quot;: &quot;Illuminate\\Foundation\\Http\\{closure}&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Foundation\\Http\\Kernel&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/Users/thuyaaung/Desktop/test/onenex-coding-test/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php&quot;,
+            &quot;line&quot;: 21,
+            &quot;function&quot;: &quot;Illuminate\\Pipeline\\{closure}&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/Users/thuyaaung/Desktop/test/onenex-coding-test/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/ConvertEmptyStringsToNull.php&quot;,
+            &quot;line&quot;: 31,
+            &quot;function&quot;: &quot;handle&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/Users/thuyaaung/Desktop/test/onenex-coding-test/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php&quot;,
+            &quot;line&quot;: 180,
+            &quot;function&quot;: &quot;handle&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/Users/thuyaaung/Desktop/test/onenex-coding-test/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php&quot;,
+            &quot;line&quot;: 21,
+            &quot;function&quot;: &quot;Illuminate\\Pipeline\\{closure}&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/Users/thuyaaung/Desktop/test/onenex-coding-test/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TrimStrings.php&quot;,
+            &quot;line&quot;: 40,
+            &quot;function&quot;: &quot;handle&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/Users/thuyaaung/Desktop/test/onenex-coding-test/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php&quot;,
+            &quot;line&quot;: 180,
+            &quot;function&quot;: &quot;handle&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Foundation\\Http\\Middleware\\TrimStrings&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/Users/thuyaaung/Desktop/test/onenex-coding-test/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/ValidatePostSize.php&quot;,
+            &quot;line&quot;: 27,
+            &quot;function&quot;: &quot;Illuminate\\Pipeline\\{closure}&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/Users/thuyaaung/Desktop/test/onenex-coding-test/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php&quot;,
+            &quot;line&quot;: 180,
+            &quot;function&quot;: &quot;handle&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/Users/thuyaaung/Desktop/test/onenex-coding-test/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/PreventRequestsDuringMaintenance.php&quot;,
+            &quot;line&quot;: 86,
+            &quot;function&quot;: &quot;Illuminate\\Pipeline\\{closure}&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/Users/thuyaaung/Desktop/test/onenex-coding-test/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php&quot;,
+            &quot;line&quot;: 180,
+            &quot;function&quot;: &quot;handle&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/Users/thuyaaung/Desktop/test/onenex-coding-test/vendor/laravel/framework/src/Illuminate/Http/Middleware/HandleCors.php&quot;,
+            &quot;line&quot;: 62,
+            &quot;function&quot;: &quot;Illuminate\\Pipeline\\{closure}&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/Users/thuyaaung/Desktop/test/onenex-coding-test/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php&quot;,
+            &quot;line&quot;: 180,
+            &quot;function&quot;: &quot;handle&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Http\\Middleware\\HandleCors&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/Users/thuyaaung/Desktop/test/onenex-coding-test/vendor/laravel/framework/src/Illuminate/Http/Middleware/TrustProxies.php&quot;,
+            &quot;line&quot;: 39,
+            &quot;function&quot;: &quot;Illuminate\\Pipeline\\{closure}&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/Users/thuyaaung/Desktop/test/onenex-coding-test/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php&quot;,
+            &quot;line&quot;: 180,
+            &quot;function&quot;: &quot;handle&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Http\\Middleware\\TrustProxies&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/Users/thuyaaung/Desktop/test/onenex-coding-test/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php&quot;,
+            &quot;line&quot;: 116,
+            &quot;function&quot;: &quot;Illuminate\\Pipeline\\{closure}&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/Users/thuyaaung/Desktop/test/onenex-coding-test/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php&quot;,
+            &quot;line&quot;: 165,
+            &quot;function&quot;: &quot;then&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/Users/thuyaaung/Desktop/test/onenex-coding-test/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php&quot;,
+            &quot;line&quot;: 134,
+            &quot;function&quot;: &quot;sendRequestThroughRouter&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Foundation\\Http\\Kernel&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/Users/thuyaaung/Desktop/test/onenex-coding-test/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php&quot;,
+            &quot;line&quot;: 303,
+            &quot;function&quot;: &quot;handle&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Foundation\\Http\\Kernel&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/Users/thuyaaung/Desktop/test/onenex-coding-test/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php&quot;,
+            &quot;line&quot;: 291,
+            &quot;function&quot;: &quot;callLaravelOrLumenRoute&quot;,
+            &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/Users/thuyaaung/Desktop/test/onenex-coding-test/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php&quot;,
+            &quot;line&quot;: 89,
+            &quot;function&quot;: &quot;makeApiCall&quot;,
+            &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/Users/thuyaaung/Desktop/test/onenex-coding-test/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php&quot;,
+            &quot;line&quot;: 45,
+            &quot;function&quot;: &quot;makeResponseCall&quot;,
+            &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/Users/thuyaaung/Desktop/test/onenex-coding-test/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php&quot;,
+            &quot;line&quot;: 35,
+            &quot;function&quot;: &quot;makeResponseCallIfConditionsPass&quot;,
+            &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/Users/thuyaaung/Desktop/test/onenex-coding-test/vendor/knuckleswtf/scribe/src/Extracting/Extractor.php&quot;,
+            &quot;line&quot;: 209,
+            &quot;function&quot;: &quot;__invoke&quot;,
+            &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/Users/thuyaaung/Desktop/test/onenex-coding-test/vendor/knuckleswtf/scribe/src/Extracting/Extractor.php&quot;,
+            &quot;line&quot;: 166,
+            &quot;function&quot;: &quot;iterateThroughStrategies&quot;,
+            &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Extractor&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/Users/thuyaaung/Desktop/test/onenex-coding-test/vendor/knuckleswtf/scribe/src/Extracting/Extractor.php&quot;,
+            &quot;line&quot;: 95,
+            &quot;function&quot;: &quot;fetchResponses&quot;,
+            &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Extractor&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/Users/thuyaaung/Desktop/test/onenex-coding-test/vendor/knuckleswtf/scribe/src/GroupedEndpoints/GroupedEndpointsFromApp.php&quot;,
+            &quot;line&quot;: 122,
+            &quot;function&quot;: &quot;processRoute&quot;,
+            &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Extractor&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/Users/thuyaaung/Desktop/test/onenex-coding-test/vendor/knuckleswtf/scribe/src/GroupedEndpoints/GroupedEndpointsFromApp.php&quot;,
+            &quot;line&quot;: 69,
+            &quot;function&quot;: &quot;extractEndpointsInfoFromLaravelApp&quot;,
+            &quot;class&quot;: &quot;Knuckles\\Scribe\\GroupedEndpoints\\GroupedEndpointsFromApp&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/Users/thuyaaung/Desktop/test/onenex-coding-test/vendor/knuckleswtf/scribe/src/GroupedEndpoints/GroupedEndpointsFromApp.php&quot;,
+            &quot;line&quot;: 47,
+            &quot;function&quot;: &quot;extractEndpointsInfoAndWriteToDisk&quot;,
+            &quot;class&quot;: &quot;Knuckles\\Scribe\\GroupedEndpoints\\GroupedEndpointsFromApp&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/Users/thuyaaung/Desktop/test/onenex-coding-test/vendor/knuckleswtf/scribe/src/Commands/GenerateDocumentation.php&quot;,
+            &quot;line&quot;: 53,
+            &quot;function&quot;: &quot;get&quot;,
+            &quot;class&quot;: &quot;Knuckles\\Scribe\\GroupedEndpoints\\GroupedEndpointsFromApp&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/Users/thuyaaung/Desktop/test/onenex-coding-test/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php&quot;,
+            &quot;line&quot;: 36,
+            &quot;function&quot;: &quot;handle&quot;,
+            &quot;class&quot;: &quot;Knuckles\\Scribe\\Commands\\GenerateDocumentation&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/Users/thuyaaung/Desktop/test/onenex-coding-test/vendor/laravel/framework/src/Illuminate/Container/Util.php&quot;,
+            &quot;line&quot;: 41,
+            &quot;function&quot;: &quot;Illuminate\\Container\\{closure}&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Container\\BoundMethod&quot;,
+            &quot;type&quot;: &quot;::&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/Users/thuyaaung/Desktop/test/onenex-coding-test/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php&quot;,
+            &quot;line&quot;: 93,
+            &quot;function&quot;: &quot;unwrapIfClosure&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Container\\Util&quot;,
+            &quot;type&quot;: &quot;::&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/Users/thuyaaung/Desktop/test/onenex-coding-test/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php&quot;,
+            &quot;line&quot;: 37,
+            &quot;function&quot;: &quot;callBoundMethod&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Container\\BoundMethod&quot;,
+            &quot;type&quot;: &quot;::&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/Users/thuyaaung/Desktop/test/onenex-coding-test/vendor/laravel/framework/src/Illuminate/Container/Container.php&quot;,
+            &quot;line&quot;: 651,
+            &quot;function&quot;: &quot;call&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Container\\BoundMethod&quot;,
+            &quot;type&quot;: &quot;::&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/Users/thuyaaung/Desktop/test/onenex-coding-test/vendor/laravel/framework/src/Illuminate/Console/Command.php&quot;,
+            &quot;line&quot;: 144,
+            &quot;function&quot;: &quot;call&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Container\\Container&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/Users/thuyaaung/Desktop/test/onenex-coding-test/vendor/symfony/console/Command/Command.php&quot;,
+            &quot;line&quot;: 308,
+            &quot;function&quot;: &quot;execute&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Console\\Command&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/Users/thuyaaung/Desktop/test/onenex-coding-test/vendor/laravel/framework/src/Illuminate/Console/Command.php&quot;,
+            &quot;line&quot;: 126,
+            &quot;function&quot;: &quot;run&quot;,
+            &quot;class&quot;: &quot;Symfony\\Component\\Console\\Command\\Command&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/Users/thuyaaung/Desktop/test/onenex-coding-test/vendor/symfony/console/Application.php&quot;,
+            &quot;line&quot;: 1002,
+            &quot;function&quot;: &quot;run&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Console\\Command&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/Users/thuyaaung/Desktop/test/onenex-coding-test/vendor/symfony/console/Application.php&quot;,
+            &quot;line&quot;: 299,
+            &quot;function&quot;: &quot;doRunCommand&quot;,
+            &quot;class&quot;: &quot;Symfony\\Component\\Console\\Application&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/Users/thuyaaung/Desktop/test/onenex-coding-test/vendor/symfony/console/Application.php&quot;,
+            &quot;line&quot;: 171,
+            &quot;function&quot;: &quot;doRun&quot;,
+            &quot;class&quot;: &quot;Symfony\\Component\\Console\\Application&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/Users/thuyaaung/Desktop/test/onenex-coding-test/vendor/laravel/framework/src/Illuminate/Console/Application.php&quot;,
+            &quot;line&quot;: 102,
+            &quot;function&quot;: &quot;run&quot;,
+            &quot;class&quot;: &quot;Symfony\\Component\\Console\\Application&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/Users/thuyaaung/Desktop/test/onenex-coding-test/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php&quot;,
+            &quot;line&quot;: 155,
+            &quot;function&quot;: &quot;run&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Console\\Application&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/Users/thuyaaung/Desktop/test/onenex-coding-test/artisan&quot;,
+            &quot;line&quot;: 37,
+            &quot;function&quot;: &quot;handle&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Foundation\\Console\\Kernel&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        }
+    ]
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-movie--movie_id--detail" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-movie--movie_id--detail"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-movie--movie_id--detail"></code></pre>
+</span>
+<span id="execution-error-GETapi-movie--movie_id--detail" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-movie--movie_id--detail"></code></pre>
+</span>
+<form id="form-GETapi-movie--movie_id--detail" data-method="GET"
+      data-path="api/movie/{movie_id}/detail"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-movie--movie_id--detail', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-movie--movie_id--detail"
+                    onclick="tryItOut('GETapi-movie--movie_id--detail');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-movie--movie_id--detail"
+                    onclick="cancelTryOut('GETapi-movie--movie_id--detail');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-movie--movie_id--detail" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/movie/{movie_id}/detail</code></b>
+        </p>
+                    <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <p>
+                <b><code>movie_id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+                <input type="number"
+               name="movie_id"
+               data-endpoint="GETapi-movie--movie_id--detail"
+               value="1"
+               data-component="url" hidden>
+    <br>
+<p>The ID of the movie.</p>
+            </p>
+                    </form>
+
+                    <h2 id="endpoints-GETapi-movie--movie_id--pdf-download">GET api/movie/{movie_id}/pdf-download</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-GETapi-movie--movie_id--pdf-download">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://onenex-coding-test.test/api/movie/1/pdf-download" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://onenex-coding-test.test/api/movie/1/pdf-download"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-movie--movie_id--pdf-download">
+            <blockquote>
+            <p>Example response (500):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary>
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+x-ratelimit-limit: 60
+x-ratelimit-remaining: 56
+access-control-allow-origin: *
+ </code></pre>
+        </details>         <pre>
+
+<code class="language-json">{
+    &quot;message&quot;: &quot;&quot;,
+    &quot;exception&quot;: &quot;Illuminate\\Validation\\UnauthorizedException&quot;,
+    &quot;file&quot;: &quot;/Users/thuyaaung/Desktop/test/onenex-coding-test/app/Http/Middleware/CheckApiKeyMiddleware.php&quot;,
+    &quot;line&quot;: 24,
+    &quot;trace&quot;: [
+        {
+            &quot;file&quot;: &quot;/Users/thuyaaung/Desktop/test/onenex-coding-test/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php&quot;,
+            &quot;line&quot;: 180,
+            &quot;function&quot;: &quot;handle&quot;,
+            &quot;class&quot;: &quot;App\\Http\\Middleware\\CheckApiKeyMiddleware&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/Users/thuyaaung/Desktop/test/onenex-coding-test/vendor/laravel/framework/src/Illuminate/Routing/Middleware/SubstituteBindings.php&quot;,
+            &quot;line&quot;: 50,
+            &quot;function&quot;: &quot;Illuminate\\Pipeline\\{closure}&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/Users/thuyaaung/Desktop/test/onenex-coding-test/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php&quot;,
+            &quot;line&quot;: 180,
+            &quot;function&quot;: &quot;handle&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Routing\\Middleware\\SubstituteBindings&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/Users/thuyaaung/Desktop/test/onenex-coding-test/vendor/laravel/framework/src/Illuminate/Routing/Middleware/ThrottleRequests.php&quot;,
+            &quot;line&quot;: 126,
+            &quot;function&quot;: &quot;Illuminate\\Pipeline\\{closure}&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/Users/thuyaaung/Desktop/test/onenex-coding-test/vendor/laravel/framework/src/Illuminate/Routing/Middleware/ThrottleRequests.php&quot;,
+            &quot;line&quot;: 102,
+            &quot;function&quot;: &quot;handleRequest&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Routing\\Middleware\\ThrottleRequests&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/Users/thuyaaung/Desktop/test/onenex-coding-test/vendor/laravel/framework/src/Illuminate/Routing/Middleware/ThrottleRequests.php&quot;,
+            &quot;line&quot;: 54,
+            &quot;function&quot;: &quot;handleRequestUsingNamedLimiter&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Routing\\Middleware\\ThrottleRequests&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/Users/thuyaaung/Desktop/test/onenex-coding-test/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php&quot;,
+            &quot;line&quot;: 180,
+            &quot;function&quot;: &quot;handle&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Routing\\Middleware\\ThrottleRequests&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/Users/thuyaaung/Desktop/test/onenex-coding-test/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php&quot;,
+            &quot;line&quot;: 116,
+            &quot;function&quot;: &quot;Illuminate\\Pipeline\\{closure}&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/Users/thuyaaung/Desktop/test/onenex-coding-test/vendor/laravel/framework/src/Illuminate/Routing/Router.php&quot;,
+            &quot;line&quot;: 726,
+            &quot;function&quot;: &quot;then&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/Users/thuyaaung/Desktop/test/onenex-coding-test/vendor/laravel/framework/src/Illuminate/Routing/Router.php&quot;,
+            &quot;line&quot;: 703,
+            &quot;function&quot;: &quot;runRouteWithinStack&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Routing\\Router&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/Users/thuyaaung/Desktop/test/onenex-coding-test/vendor/laravel/framework/src/Illuminate/Routing/Router.php&quot;,
+            &quot;line&quot;: 667,
+            &quot;function&quot;: &quot;runRoute&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Routing\\Router&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/Users/thuyaaung/Desktop/test/onenex-coding-test/vendor/laravel/framework/src/Illuminate/Routing/Router.php&quot;,
+            &quot;line&quot;: 656,
+            &quot;function&quot;: &quot;dispatchToRoute&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Routing\\Router&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/Users/thuyaaung/Desktop/test/onenex-coding-test/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php&quot;,
+            &quot;line&quot;: 190,
+            &quot;function&quot;: &quot;dispatch&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Routing\\Router&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/Users/thuyaaung/Desktop/test/onenex-coding-test/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php&quot;,
+            &quot;line&quot;: 141,
+            &quot;function&quot;: &quot;Illuminate\\Foundation\\Http\\{closure}&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Foundation\\Http\\Kernel&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/Users/thuyaaung/Desktop/test/onenex-coding-test/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php&quot;,
+            &quot;line&quot;: 21,
+            &quot;function&quot;: &quot;Illuminate\\Pipeline\\{closure}&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/Users/thuyaaung/Desktop/test/onenex-coding-test/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/ConvertEmptyStringsToNull.php&quot;,
+            &quot;line&quot;: 31,
+            &quot;function&quot;: &quot;handle&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/Users/thuyaaung/Desktop/test/onenex-coding-test/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php&quot;,
+            &quot;line&quot;: 180,
+            &quot;function&quot;: &quot;handle&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/Users/thuyaaung/Desktop/test/onenex-coding-test/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php&quot;,
+            &quot;line&quot;: 21,
+            &quot;function&quot;: &quot;Illuminate\\Pipeline\\{closure}&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/Users/thuyaaung/Desktop/test/onenex-coding-test/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TrimStrings.php&quot;,
+            &quot;line&quot;: 40,
+            &quot;function&quot;: &quot;handle&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/Users/thuyaaung/Desktop/test/onenex-coding-test/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php&quot;,
+            &quot;line&quot;: 180,
+            &quot;function&quot;: &quot;handle&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Foundation\\Http\\Middleware\\TrimStrings&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/Users/thuyaaung/Desktop/test/onenex-coding-test/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/ValidatePostSize.php&quot;,
+            &quot;line&quot;: 27,
+            &quot;function&quot;: &quot;Illuminate\\Pipeline\\{closure}&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/Users/thuyaaung/Desktop/test/onenex-coding-test/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php&quot;,
+            &quot;line&quot;: 180,
+            &quot;function&quot;: &quot;handle&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/Users/thuyaaung/Desktop/test/onenex-coding-test/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/PreventRequestsDuringMaintenance.php&quot;,
+            &quot;line&quot;: 86,
+            &quot;function&quot;: &quot;Illuminate\\Pipeline\\{closure}&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/Users/thuyaaung/Desktop/test/onenex-coding-test/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php&quot;,
+            &quot;line&quot;: 180,
+            &quot;function&quot;: &quot;handle&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/Users/thuyaaung/Desktop/test/onenex-coding-test/vendor/laravel/framework/src/Illuminate/Http/Middleware/HandleCors.php&quot;,
+            &quot;line&quot;: 62,
+            &quot;function&quot;: &quot;Illuminate\\Pipeline\\{closure}&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/Users/thuyaaung/Desktop/test/onenex-coding-test/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php&quot;,
+            &quot;line&quot;: 180,
+            &quot;function&quot;: &quot;handle&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Http\\Middleware\\HandleCors&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/Users/thuyaaung/Desktop/test/onenex-coding-test/vendor/laravel/framework/src/Illuminate/Http/Middleware/TrustProxies.php&quot;,
+            &quot;line&quot;: 39,
+            &quot;function&quot;: &quot;Illuminate\\Pipeline\\{closure}&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/Users/thuyaaung/Desktop/test/onenex-coding-test/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php&quot;,
+            &quot;line&quot;: 180,
+            &quot;function&quot;: &quot;handle&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Http\\Middleware\\TrustProxies&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/Users/thuyaaung/Desktop/test/onenex-coding-test/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php&quot;,
+            &quot;line&quot;: 116,
+            &quot;function&quot;: &quot;Illuminate\\Pipeline\\{closure}&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/Users/thuyaaung/Desktop/test/onenex-coding-test/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php&quot;,
+            &quot;line&quot;: 165,
+            &quot;function&quot;: &quot;then&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/Users/thuyaaung/Desktop/test/onenex-coding-test/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php&quot;,
+            &quot;line&quot;: 134,
+            &quot;function&quot;: &quot;sendRequestThroughRouter&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Foundation\\Http\\Kernel&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/Users/thuyaaung/Desktop/test/onenex-coding-test/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php&quot;,
+            &quot;line&quot;: 303,
+            &quot;function&quot;: &quot;handle&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Foundation\\Http\\Kernel&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/Users/thuyaaung/Desktop/test/onenex-coding-test/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php&quot;,
+            &quot;line&quot;: 291,
+            &quot;function&quot;: &quot;callLaravelOrLumenRoute&quot;,
+            &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/Users/thuyaaung/Desktop/test/onenex-coding-test/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php&quot;,
+            &quot;line&quot;: 89,
+            &quot;function&quot;: &quot;makeApiCall&quot;,
+            &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/Users/thuyaaung/Desktop/test/onenex-coding-test/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php&quot;,
+            &quot;line&quot;: 45,
+            &quot;function&quot;: &quot;makeResponseCall&quot;,
+            &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/Users/thuyaaung/Desktop/test/onenex-coding-test/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php&quot;,
+            &quot;line&quot;: 35,
+            &quot;function&quot;: &quot;makeResponseCallIfConditionsPass&quot;,
+            &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/Users/thuyaaung/Desktop/test/onenex-coding-test/vendor/knuckleswtf/scribe/src/Extracting/Extractor.php&quot;,
+            &quot;line&quot;: 209,
+            &quot;function&quot;: &quot;__invoke&quot;,
+            &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/Users/thuyaaung/Desktop/test/onenex-coding-test/vendor/knuckleswtf/scribe/src/Extracting/Extractor.php&quot;,
+            &quot;line&quot;: 166,
+            &quot;function&quot;: &quot;iterateThroughStrategies&quot;,
+            &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Extractor&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/Users/thuyaaung/Desktop/test/onenex-coding-test/vendor/knuckleswtf/scribe/src/Extracting/Extractor.php&quot;,
+            &quot;line&quot;: 95,
+            &quot;function&quot;: &quot;fetchResponses&quot;,
+            &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Extractor&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/Users/thuyaaung/Desktop/test/onenex-coding-test/vendor/knuckleswtf/scribe/src/GroupedEndpoints/GroupedEndpointsFromApp.php&quot;,
+            &quot;line&quot;: 122,
+            &quot;function&quot;: &quot;processRoute&quot;,
+            &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Extractor&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/Users/thuyaaung/Desktop/test/onenex-coding-test/vendor/knuckleswtf/scribe/src/GroupedEndpoints/GroupedEndpointsFromApp.php&quot;,
+            &quot;line&quot;: 69,
+            &quot;function&quot;: &quot;extractEndpointsInfoFromLaravelApp&quot;,
+            &quot;class&quot;: &quot;Knuckles\\Scribe\\GroupedEndpoints\\GroupedEndpointsFromApp&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/Users/thuyaaung/Desktop/test/onenex-coding-test/vendor/knuckleswtf/scribe/src/GroupedEndpoints/GroupedEndpointsFromApp.php&quot;,
+            &quot;line&quot;: 47,
+            &quot;function&quot;: &quot;extractEndpointsInfoAndWriteToDisk&quot;,
+            &quot;class&quot;: &quot;Knuckles\\Scribe\\GroupedEndpoints\\GroupedEndpointsFromApp&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/Users/thuyaaung/Desktop/test/onenex-coding-test/vendor/knuckleswtf/scribe/src/Commands/GenerateDocumentation.php&quot;,
+            &quot;line&quot;: 53,
+            &quot;function&quot;: &quot;get&quot;,
+            &quot;class&quot;: &quot;Knuckles\\Scribe\\GroupedEndpoints\\GroupedEndpointsFromApp&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/Users/thuyaaung/Desktop/test/onenex-coding-test/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php&quot;,
+            &quot;line&quot;: 36,
+            &quot;function&quot;: &quot;handle&quot;,
+            &quot;class&quot;: &quot;Knuckles\\Scribe\\Commands\\GenerateDocumentation&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/Users/thuyaaung/Desktop/test/onenex-coding-test/vendor/laravel/framework/src/Illuminate/Container/Util.php&quot;,
+            &quot;line&quot;: 41,
+            &quot;function&quot;: &quot;Illuminate\\Container\\{closure}&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Container\\BoundMethod&quot;,
+            &quot;type&quot;: &quot;::&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/Users/thuyaaung/Desktop/test/onenex-coding-test/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php&quot;,
+            &quot;line&quot;: 93,
+            &quot;function&quot;: &quot;unwrapIfClosure&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Container\\Util&quot;,
+            &quot;type&quot;: &quot;::&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/Users/thuyaaung/Desktop/test/onenex-coding-test/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php&quot;,
+            &quot;line&quot;: 37,
+            &quot;function&quot;: &quot;callBoundMethod&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Container\\BoundMethod&quot;,
+            &quot;type&quot;: &quot;::&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/Users/thuyaaung/Desktop/test/onenex-coding-test/vendor/laravel/framework/src/Illuminate/Container/Container.php&quot;,
+            &quot;line&quot;: 651,
+            &quot;function&quot;: &quot;call&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Container\\BoundMethod&quot;,
+            &quot;type&quot;: &quot;::&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/Users/thuyaaung/Desktop/test/onenex-coding-test/vendor/laravel/framework/src/Illuminate/Console/Command.php&quot;,
+            &quot;line&quot;: 144,
+            &quot;function&quot;: &quot;call&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Container\\Container&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/Users/thuyaaung/Desktop/test/onenex-coding-test/vendor/symfony/console/Command/Command.php&quot;,
+            &quot;line&quot;: 308,
+            &quot;function&quot;: &quot;execute&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Console\\Command&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/Users/thuyaaung/Desktop/test/onenex-coding-test/vendor/laravel/framework/src/Illuminate/Console/Command.php&quot;,
+            &quot;line&quot;: 126,
+            &quot;function&quot;: &quot;run&quot;,
+            &quot;class&quot;: &quot;Symfony\\Component\\Console\\Command\\Command&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/Users/thuyaaung/Desktop/test/onenex-coding-test/vendor/symfony/console/Application.php&quot;,
+            &quot;line&quot;: 1002,
+            &quot;function&quot;: &quot;run&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Console\\Command&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/Users/thuyaaung/Desktop/test/onenex-coding-test/vendor/symfony/console/Application.php&quot;,
+            &quot;line&quot;: 299,
+            &quot;function&quot;: &quot;doRunCommand&quot;,
+            &quot;class&quot;: &quot;Symfony\\Component\\Console\\Application&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/Users/thuyaaung/Desktop/test/onenex-coding-test/vendor/symfony/console/Application.php&quot;,
+            &quot;line&quot;: 171,
+            &quot;function&quot;: &quot;doRun&quot;,
+            &quot;class&quot;: &quot;Symfony\\Component\\Console\\Application&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/Users/thuyaaung/Desktop/test/onenex-coding-test/vendor/laravel/framework/src/Illuminate/Console/Application.php&quot;,
+            &quot;line&quot;: 102,
+            &quot;function&quot;: &quot;run&quot;,
+            &quot;class&quot;: &quot;Symfony\\Component\\Console\\Application&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/Users/thuyaaung/Desktop/test/onenex-coding-test/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php&quot;,
+            &quot;line&quot;: 155,
+            &quot;function&quot;: &quot;run&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Console\\Application&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/Users/thuyaaung/Desktop/test/onenex-coding-test/artisan&quot;,
+            &quot;line&quot;: 37,
+            &quot;function&quot;: &quot;handle&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Foundation\\Console\\Kernel&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        }
+    ]
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-movie--movie_id--pdf-download" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-movie--movie_id--pdf-download"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-movie--movie_id--pdf-download"></code></pre>
+</span>
+<span id="execution-error-GETapi-movie--movie_id--pdf-download" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-movie--movie_id--pdf-download"></code></pre>
+</span>
+<form id="form-GETapi-movie--movie_id--pdf-download" data-method="GET"
+      data-path="api/movie/{movie_id}/pdf-download"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-movie--movie_id--pdf-download', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-movie--movie_id--pdf-download"
+                    onclick="tryItOut('GETapi-movie--movie_id--pdf-download');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-movie--movie_id--pdf-download"
+                    onclick="cancelTryOut('GETapi-movie--movie_id--pdf-download');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-movie--movie_id--pdf-download" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/movie/{movie_id}/pdf-download</code></b>
+        </p>
+                    <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <p>
+                <b><code>movie_id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+                <input type="number"
+               name="movie_id"
+               data-endpoint="GETapi-movie--movie_id--pdf-download"
+               value="1"
+               data-component="url" hidden>
+    <br>
+<p>The ID of the movie.</p>
+            </p>
+                    </form>
+
+                    <h2 id="endpoints-POSTapi-comment-store">POST api/comment/store</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-POSTapi-comment-store">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request POST \
+    "http://onenex-coding-test.test/api/comment/store" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"movie_id\": \"magnam\",
+    \"comment\": \"expedita\"
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://onenex-coding-test.test/api/comment/store"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "movie_id": "magnam",
+    "comment": "expedita"
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTapi-comment-store">
+</span>
+<span id="execution-results-POSTapi-comment-store" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-comment-store"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-comment-store"></code></pre>
+</span>
+<span id="execution-error-POSTapi-comment-store" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-comment-store"></code></pre>
+</span>
+<form id="form-POSTapi-comment-store" data-method="POST"
+      data-path="api/comment/store"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-comment-store', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-comment-store"
+                    onclick="tryItOut('POSTapi-comment-store');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-comment-store"
+                    onclick="cancelTryOut('POSTapi-comment-store');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-comment-store" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/comment/store</code></b>
+        </p>
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <p>
+            <b><code>movie_id</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text"
+               name="movie_id"
+               data-endpoint="POSTapi-comment-store"
+               value="magnam"
+               data-component="body" hidden>
+    <br>
+
+        </p>
+                <p>
+            <b><code>parent_id</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text"
+               name="parent_id"
+               data-endpoint="POSTapi-comment-store"
+               value=""
+               data-component="body" hidden>
+    <br>
+
+        </p>
+                <p>
+            <b><code>comment</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text"
+               name="comment"
+               data-endpoint="POSTapi-comment-store"
+               value="expedita"
+               data-component="body" hidden>
+    <br>
+
+        </p>
+        </form>
+
+                    <h2 id="endpoints-GETapi-movies">GET api/movies</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-GETapi-movies">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://onenex-coding-test.test/api/movies" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://onenex-coding-test.test/api/movies"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-movies">
+            <blockquote>
+            <p>Example response (401):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary>
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+access-control-allow-origin: *
+ </code></pre>
+        </details>         <pre>
+
+<code class="language-json">{
+    &quot;message&quot;: &quot;Unauthenticated.&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-movies" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-movies"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-movies"></code></pre>
+</span>
+<span id="execution-error-GETapi-movies" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-movies"></code></pre>
+</span>
+<form id="form-GETapi-movies" data-method="GET"
+      data-path="api/movies"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-movies', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-movies"
+                    onclick="tryItOut('GETapi-movies');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-movies"
+                    onclick="cancelTryOut('GETapi-movies');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-movies" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/movies</code></b>
+        </p>
+                    </form>
+
+                    <h2 id="endpoints-POSTapi-movies">POST api/movies</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-POSTapi-movies">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request POST \
+    "http://onenex-coding-test.test/api/movies" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"title\": \"dolor\",
+    \"summary\": \"laboriosam\",
+    \"cover_image\": \"impedit\",
+    \"author\": \"enim\",
+    \"imdb_rating\": \"voluptates\",
+    \"genres\": [
+        10
+    ],
+    \"tags\": [
+        19
+    ]
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://onenex-coding-test.test/api/movies"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "title": "dolor",
+    "summary": "laboriosam",
+    "cover_image": "impedit",
+    "author": "enim",
+    "imdb_rating": "voluptates",
+    "genres": [
+        10
+    ],
+    "tags": [
+        19
+    ]
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTapi-movies">
+</span>
+<span id="execution-results-POSTapi-movies" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-movies"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-movies"></code></pre>
+</span>
+<span id="execution-error-POSTapi-movies" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-movies"></code></pre>
+</span>
+<form id="form-POSTapi-movies" data-method="POST"
+      data-path="api/movies"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-movies', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-movies"
+                    onclick="tryItOut('POSTapi-movies');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-movies"
+                    onclick="cancelTryOut('POSTapi-movies');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-movies" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/movies</code></b>
+        </p>
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <p>
+            <b><code>title</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text"
+               name="title"
+               data-endpoint="POSTapi-movies"
+               value="dolor"
+               data-component="body" hidden>
+    <br>
+
+        </p>
+                <p>
+            <b><code>summary</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text"
+               name="summary"
+               data-endpoint="POSTapi-movies"
+               value="laboriosam"
+               data-component="body" hidden>
+    <br>
+
+        </p>
+                <p>
+            <b><code>cover_image</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text"
+               name="cover_image"
+               data-endpoint="POSTapi-movies"
+               value="impedit"
+               data-component="body" hidden>
+    <br>
+
+        </p>
+                <p>
+            <b><code>author</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text"
+               name="author"
+               data-endpoint="POSTapi-movies"
+               value="enim"
+               data-component="body" hidden>
+    <br>
+
+        </p>
+                <p>
+            <b><code>imdb_rating</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text"
+               name="imdb_rating"
+               data-endpoint="POSTapi-movies"
+               value="voluptates"
+               data-component="body" hidden>
+    <br>
+
+        </p>
+                <p>
+            <b><code>genres</code></b>&nbsp;&nbsp;
+<small>integer[]</small>&nbsp;
+ &nbsp;
+                <input type="number"
+               name="genres[0]"
+               data-endpoint="POSTapi-movies"
+               data-component="body" hidden>
+        <input type="number"
+               name="genres[1]"
+               data-endpoint="POSTapi-movies"
+               data-component="body" hidden>
+    <br>
+
+        </p>
+                <p>
+            <b><code>tags</code></b>&nbsp;&nbsp;
+<small>integer[]</small>&nbsp;
+ &nbsp;
+                <input type="number"
+               name="tags[0]"
+               data-endpoint="POSTapi-movies"
+               data-component="body" hidden>
+        <input type="number"
+               name="tags[1]"
+               data-endpoint="POSTapi-movies"
+               data-component="body" hidden>
+    <br>
+
+        </p>
+        </form>
+
+                    <h2 id="endpoints-PUTapi-movies--id-">PUT api/movies/{id}</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-PUTapi-movies--id-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request PUT \
+    "http://onenex-coding-test.test/api/movies/1" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"title\": \"illo\",
+    \"summary\": \"quia\",
+    \"author\": \"sunt\",
+    \"imdb_rating\": \"eum\",
+    \"genres\": [
+        15
+    ],
+    \"tags\": [
+        15
+    ]
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://onenex-coding-test.test/api/movies/1"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "title": "illo",
+    "summary": "quia",
+    "author": "sunt",
+    "imdb_rating": "eum",
+    "genres": [
+        15
+    ],
+    "tags": [
+        15
+    ]
+};
+
+fetch(url, {
+    method: "PUT",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-PUTapi-movies--id-">
+</span>
+<span id="execution-results-PUTapi-movies--id-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-PUTapi-movies--id-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-PUTapi-movies--id-"></code></pre>
+</span>
+<span id="execution-error-PUTapi-movies--id-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-PUTapi-movies--id-"></code></pre>
+</span>
+<form id="form-PUTapi-movies--id-" data-method="PUT"
+      data-path="api/movies/{id}"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('PUTapi-movies--id-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-PUTapi-movies--id-"
+                    onclick="tryItOut('PUTapi-movies--id-');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-PUTapi-movies--id-"
+                    onclick="cancelTryOut('PUTapi-movies--id-');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-PUTapi-movies--id-" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-darkblue">PUT</small>
+            <b><code>api/movies/{id}</code></b>
+        </p>
+            <p>
+            <small class="badge badge-purple">PATCH</small>
+            <b><code>api/movies/{id}</code></b>
+        </p>
+                    <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <p>
+                <b><code>id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+                <input type="number"
+               name="id"
+               data-endpoint="PUTapi-movies--id-"
+               value="1"
+               data-component="url" hidden>
+    <br>
+<p>The ID of the movie.</p>
+            </p>
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <p>
+            <b><code>title</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text"
+               name="title"
+               data-endpoint="PUTapi-movies--id-"
+               value="illo"
+               data-component="body" hidden>
+    <br>
+
+        </p>
+                <p>
+            <b><code>summary</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text"
+               name="summary"
+               data-endpoint="PUTapi-movies--id-"
+               value="quia"
+               data-component="body" hidden>
+    <br>
+
+        </p>
+                <p>
+            <b><code>cover_image</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text"
+               name="cover_image"
+               data-endpoint="PUTapi-movies--id-"
+               value=""
+               data-component="body" hidden>
+    <br>
+
+        </p>
+                <p>
+            <b><code>author</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text"
+               name="author"
+               data-endpoint="PUTapi-movies--id-"
+               value="sunt"
+               data-component="body" hidden>
+    <br>
+
+        </p>
+                <p>
+            <b><code>imdb_rating</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text"
+               name="imdb_rating"
+               data-endpoint="PUTapi-movies--id-"
+               value="eum"
+               data-component="body" hidden>
+    <br>
+
+        </p>
+                <p>
+            <b><code>genres</code></b>&nbsp;&nbsp;
+<small>integer[]</small>&nbsp;
+ &nbsp;
+                <input type="number"
+               name="genres[0]"
+               data-endpoint="PUTapi-movies--id-"
+               data-component="body" hidden>
+        <input type="number"
+               name="genres[1]"
+               data-endpoint="PUTapi-movies--id-"
+               data-component="body" hidden>
+    <br>
+
+        </p>
+                <p>
+            <b><code>tags</code></b>&nbsp;&nbsp;
+<small>integer[]</small>&nbsp;
+ &nbsp;
+                <input type="number"
+               name="tags[0]"
+               data-endpoint="PUTapi-movies--id-"
+               data-component="body" hidden>
+        <input type="number"
+               name="tags[1]"
+               data-endpoint="PUTapi-movies--id-"
+               data-component="body" hidden>
+    <br>
+
+        </p>
+        </form>
+
+                    <h2 id="endpoints-DELETEapi-movies--id-">DELETE api/movies/{id}</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-DELETEapi-movies--id-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request DELETE \
+    "http://onenex-coding-test.test/api/movies/1" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://onenex-coding-test.test/api/movies/1"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "DELETE",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-DELETEapi-movies--id-">
+</span>
+<span id="execution-results-DELETEapi-movies--id-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-DELETEapi-movies--id-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-DELETEapi-movies--id-"></code></pre>
+</span>
+<span id="execution-error-DELETEapi-movies--id-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-DELETEapi-movies--id-"></code></pre>
+</span>
+<form id="form-DELETEapi-movies--id-" data-method="DELETE"
+      data-path="api/movies/{id}"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('DELETEapi-movies--id-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-DELETEapi-movies--id-"
+                    onclick="tryItOut('DELETEapi-movies--id-');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-DELETEapi-movies--id-"
+                    onclick="cancelTryOut('DELETEapi-movies--id-');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-DELETEapi-movies--id-" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-red">DELETE</small>
+            <b><code>api/movies/{id}</code></b>
+        </p>
+                    <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <p>
+                <b><code>id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+                <input type="number"
+               name="id"
+               data-endpoint="DELETEapi-movies--id-"
+               value="1"
+               data-component="url" hidden>
+    <br>
+<p>The ID of the movie.</p>
+            </p>
+                    </form>
+
+            
+
+        
+    </div>
+    <div class="dark-box">
+                    <div class="lang-selector">
+                                                        <button type="button" class="lang-button" data-language-name="bash">bash</button>
+                                                        <button type="button" class="lang-button" data-language-name="javascript">javascript</button>
+                            </div>
+            </div>
+</div>
+</body>
+</html>
